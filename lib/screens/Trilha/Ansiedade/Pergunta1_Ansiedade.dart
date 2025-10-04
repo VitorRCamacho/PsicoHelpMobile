@@ -39,7 +39,11 @@ class Pergunta1AnsiedadeScreen extends StatelessWidget {
                   child: ListView(
                     padding: const EdgeInsets.only(top: _gapLg, bottom: _gapLg),
                     children: [
-                      const _SectionLabel(text: 'Pergunta 1 - Ansiedade'),
+                      // Indicador de progresso
+                      _ProgressIndicator(current: 1, total: 5),
+                      const SizedBox(height: _gapMd),
+                      
+                      const _SectionLabel(text: 'Trilha Ansiedade - Pergunta 1/5'),
                       const SizedBox(height: _gapMd),
 
                       Text(
@@ -50,11 +54,49 @@ class Pergunta1AnsiedadeScreen extends StatelessWidget {
 
                       const SizedBox(height: _gapXl),
 
-                      // OPÇÕES DE RESPOSTA PARA SIM/NÃO ou ESCALA
-                      _AnswerOptions(
-                        onAnswer: (answer) {
-                          // Aqui você pode salvar a resposta se quiser
-                          // Por exemplo: saveAnswer('ansiedade_p1', answer);
+                      // GRID DE RESPOSTAS COM INTENSIDADE
+                      _IntensityGrid(
+                        items: const [
+                          _IntensityItem(
+                            'Ansiedade',
+                            '😊',
+                            [Color(0xFF4CAF50), Color(0xFF45A049)],
+                            0,
+                          ),
+                          _IntensityItem(
+                            'Tristeza',
+                            '🙂',
+                            [Color(0xFF8BC34A), Color(0xFF7CB342)],
+                            1,
+                          ),
+                          _IntensityItem(
+                            'Raiva',
+                            '😐',
+                            [Color(0xFFFFC107), Color(0xFFFFB300)],
+                            2,
+                          ),
+                          _IntensityItem(
+                            'Medo',
+                            '😟',
+                            [Color(0xFFFF9800), Color(0xFFFF8F00)],
+                            3,
+                          ),
+                          _IntensityItem(
+                            'Extresse',
+                            '😰',
+                            [Color(0xFFFF5722), Color(0xFFFF4411)],
+                            4,
+                          ),
+                          _IntensityItem(
+                            'Solidão',
+                            '😱',
+                            [Color(0xFFF44336), Color(0xFFE53935)],
+                            5,
+                          ),
+                        ],
+                        onAnswer: (intensity) {
+                          // Aqui você pode salvar a resposta
+                          // Por exemplo: saveAnswer('ansiedade_p1', intensity);
                           
                           // Navega para próxima pergunta
                           Navigator.pushNamed(context, Routes.ansiedadeP2);
@@ -62,6 +104,24 @@ class Pergunta1AnsiedadeScreen extends StatelessWidget {
                       ),
 
                       const SizedBox(height: _gapXl),
+                      
+                      // Botão para voltar
+                      Center(
+                        child: TextButton.icon(
+                          onPressed: () => Navigator.pop(context),
+                          icon: const Icon(Icons.arrow_back, color: Colors.white),
+                          label: Text(
+                            'Voltar',
+                            style: GoogleFonts.baloo2(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      
+                      const SizedBox(height: _gapMd),
                       const Divider(color: Colors.white, thickness: 1.2),
                       const SizedBox(height: _gapMd),
 
@@ -97,72 +157,87 @@ class Pergunta1AnsiedadeScreen extends StatelessWidget {
   }
 }
 
-// Widget para as opções de resposta
-class _AnswerOptions extends StatelessWidget {
-  final Function(String) onAnswer;
+// Widget de indicador de progresso
+class _ProgressIndicator extends StatelessWidget {
+  final int current;
+  final int total;
   
-  const _AnswerOptions({required this.onAnswer});
+  const _ProgressIndicator({
+    required this.current,
+    required this.total,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: _AnswerButton(
-                label: 'Não',
-                emoji: '😌',
-                colors: const [Color(0xFF4CAF50), Color(0xFF45A049)],
-                onTap: () => onAnswer('nao'),
-              ),
+    return Row(
+      children: List.generate(total, (index) {
+        final isActive = index < current;
+        return Expanded(
+          child: Container(
+            height: 4,
+            margin: EdgeInsets.only(right: index < total - 1 ? 4 : 0),
+            decoration: BoxDecoration(
+              color: isActive 
+                ? Colors.white 
+                : Colors.white.withOpacity(0.3),
+              borderRadius: BorderRadius.circular(2),
             ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: _AnswerButton(
-                label: 'Um pouco',
-                emoji: '😕',
-                colors: const [Color(0xFFFFA726), Color(0xFFFF9800)],
-                onTap: () => onAnswer('um_pouco'),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 12),
-        Row(
-          children: [
-            Expanded(
-              child: _AnswerButton(
-                label: 'Bastante',
-                emoji: '😟',
-                colors: const [Color(0xFFFF7043), Color(0xFFFF5722)],
-                onTap: () => onAnswer('bastante'),
-              ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: _AnswerButton(
-                label: 'Muito',
-                emoji: '😰',
-                colors: const [Color(0xFFEF5350), Color(0xFFF44336)],
-                onTap: () => onAnswer('muito'),
-              ),
-            ),
-          ],
-        ),
-      ],
+          ),
+        );
+      }),
     );
   }
 }
 
-// Botão de resposta individual
-class _AnswerButton extends StatelessWidget {
+// Modelo de item de intensidade
+class _IntensityItem {
+  final String label;
+  final String emoji;
+  final List<Color> colors;
+  final int value;
+  
+  const _IntensityItem(this.label, this.emoji, this.colors, this.value);
+}
+
+// Grid de intensidade
+class _IntensityGrid extends StatelessWidget {
+  final List<_IntensityItem> items;
+  final Function(int) onAnswer;
+  
+  const _IntensityGrid({
+    required this.items,
+    required this.onAnswer,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      crossAxisCount: 2,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      mainAxisSpacing: 12,
+      crossAxisSpacing: 12,
+      childAspectRatio: 1.8,
+      children: items.map((item) {
+        return _IntensityButton(
+          label: item.label,
+          emoji: item.emoji,
+          colors: item.colors,
+          onTap: () => onAnswer(item.value),
+        );
+      }).toList(),
+    );
+  }
+}
+
+// Botão de intensidade
+class _IntensityButton extends StatelessWidget {
   final String label;
   final String emoji;
   final List<Color> colors;
   final VoidCallback onTap;
   
-  const _AnswerButton({
+  const _IntensityButton({
     required this.label,
     required this.emoji,
     required this.colors,
@@ -173,7 +248,7 @@ class _AnswerButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = GoogleFonts.baloo2(
       color: Colors.white,
-      fontSize: 18,
+      fontSize: 17,
       fontWeight: FontWeight.w800,
       height: 1.05,
       letterSpacing: .3,
@@ -202,11 +277,12 @@ class _AnswerButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(22),
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(emoji, style: const TextStyle(fontSize: 24)),
-                const SizedBox(height: 4),
+                Text(emoji, style: const TextStyle(fontSize: 22)),
+                const SizedBox(height: 2),
                 Text(label, textAlign: TextAlign.center, style: style),
               ],
             ),
@@ -217,7 +293,7 @@ class _AnswerButton extends StatelessWidget {
   }
 }
 
-// Componentes auxiliares mantidos iguais...
+// Componentes auxiliares
 class _SectionLabel extends StatelessWidget {
   final String text;
   const _SectionLabel({required this.text});
