@@ -1,10 +1,10 @@
-// lib/screens/Trilha/Ansiedade/Pergunta2_Ansiedade.dart
+// lib/screens/Trilha/Ansiedade/Pergunta4_Ansiedade.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart'; // importa as constantes de rota
 
-class Pergunta2AnsiedadeScreen extends StatelessWidget {
-  const Pergunta2AnsiedadeScreen({super.key});
+class Pergunta4TristezaScreen extends StatelessWidget {
+  const Pergunta4TristezaScreen({super.key});
 
   static const double _maxWidth = 520; // limita a largura para ficar simétrico
   static const double _hPad = 20;      // padding horizontal padrão
@@ -38,15 +38,11 @@ class Pergunta2AnsiedadeScreen extends StatelessWidget {
                   child: ListView(
                     padding: const EdgeInsets.only(top: _gapLg, bottom: _gapLg),
                     children: [
-                      // Indicador de progresso
-                      _ProgressIndicator(current: 2, total: 5),
-                      const SizedBox(height: _gapMd),
-                      
-                      const _SectionLabel(text: 'Trilha Ansiedade - Pergunta 2/5'),
+                      const _SectionLabel(text: 'Pergunta geral'),
                       const SizedBox(height: _gapMd),
 
                       Text(
-                        'Você sente que tem dificuldade de controlar suas preocupações no dia a dia?',
+                        'Você tem sentido falta de energia, cansaço excessivo ou dificuldade de se concentrar nas aulas, mesmo após descansar?',
                         textAlign: TextAlign.center,
                         style: titleStyle,
                       ),
@@ -126,38 +122,6 @@ class Pergunta2AnsiedadeScreen extends StatelessWidget {
   }
 }
 
-// Widget de indicador de progresso
-class _ProgressIndicator extends StatelessWidget {
-  final int current;
-  final int total;
-  
-  const _ProgressIndicator({
-    required this.current,
-    required this.total,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: List.generate(total, (index) {
-        final isActive = index < current;
-        return Expanded(
-          child: Container(
-            height: 4,
-            margin: EdgeInsets.only(right: index < total - 1 ? 4 : 0),
-            decoration: BoxDecoration(
-              color: isActive 
-                ? Colors.white 
-                : Colors.white.withOpacity(0.3),
-              borderRadius: BorderRadius.circular(2),
-            ),
-          ),
-        );
-      }),
-    );
-  }
-}
-
 // ---------- Componentes auxiliares de UI (comentados) -------------------------
 
 class _SectionLabel extends StatelessWidget {
@@ -212,10 +176,10 @@ class _EmotionGrid extends StatelessWidget {
           onTap: () {
             // >>>>>>> NAVEGAÇÃO ACONTECE AQUI <<<<<<<
             // JEITO ORGANIZADO: pelas rotas nomeadas
-            Navigator.pushReplacementNamed(context, Routes.ansiedadeP3);
+            Navigator.pushReplacementNamed(context, Routes.ansiedadeP5);
 
             // Alternativa (push direto):
-            // Navigator.pushReplacementNamed(context, Routes.ansiedadeP3) => const Pergunta1Ansiedade()));
+            // Navigator.pushReplacementNamed(context, Routes.ansiedadeP5) => const Pergunta1Ansiedade()));
           },
         );
       }).toList(),

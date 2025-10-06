@@ -122,6 +122,37 @@ class Pergunta3AnsiedadeScreen extends StatelessWidget {
   }
 }
 
+// Widget de indicador de progresso
+class _ProgressIndicator extends StatelessWidget {
+  final int current;
+  final int total;
+  
+  const _ProgressIndicator({
+    required this.current,
+    required this.total,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: List.generate(total, (index) {
+        final isActive = index < current;
+        return Expanded(
+          child: Container(
+            height: 4,
+            margin: EdgeInsets.only(right: index < total - 1 ? 4 : 0),
+            decoration: BoxDecoration(
+              color: isActive 
+                ? Colors.white 
+                : Colors.white.withOpacity(0.3),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        );
+      }),
+    );
+  }
+}
 // ---------- Componentes auxiliares de UI (comentados) -------------------------
 
 class _SectionLabel extends StatelessWidget {
