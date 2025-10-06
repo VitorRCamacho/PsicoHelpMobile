@@ -60,17 +60,17 @@ class Pergunta2AnsiedadeScreen extends StatelessWidget {
                           _EmotionItem(
                             'Ansioso(a) 😔',
                             [Color(0xFF31D0C6), Color(0xFF1FBBC1)],
-                            Routes.ansiedadeP1,   // -> Pergunta 1 Ansiedade
+                            Routes.ansiedadeP3,   // -> Pergunta 1 Ansiedade
                           ),
                           _EmotionItem(
                             'Triste 🥺',
                             [Color(0xFF6EA8FF), Color(0xFF4F83FF)],
-                            Routes.ansiedadeP1,    // -> Pergunta 1 Tristeza
+                            Routes.tristezaP3,    // -> Pergunta 1 Tristeza
                           ),
                           _EmotionItem(
                             'Com raiva 😤',
                             [Color(0xFFFF8CA1), Color(0xFFFF6D8A)],
-                            Routes.ansiedadeP1,       // -> Pergunta 1 Raiva
+                            '/trilha/medo/p3',       // -> Pergunta 1 Raiva
                           ),
                           _EmotionItem(
                             'Com medo 😟',

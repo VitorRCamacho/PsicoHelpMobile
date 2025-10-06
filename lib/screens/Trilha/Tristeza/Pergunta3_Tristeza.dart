@@ -38,7 +38,11 @@ class Pergunta3TristezaScreen extends StatelessWidget {
                   child: ListView(
                     padding: const EdgeInsets.only(top: _gapLg, bottom: _gapLg),
                     children: [
-                      const _SectionLabel(text: 'Pergunta geral'),
+                      // Indicador de progresso
+                      _ProgressIndicator(current: 3, total: 5),
+                      const SizedBox(height: _gapMd),
+                      
+                      const _SectionLabel(text: 'Trilha Tristeza - Pergunta 3/5'),
                       const SizedBox(height: _gapMd),
 
                       Text(
@@ -53,36 +57,12 @@ class Pergunta3TristezaScreen extends StatelessWidget {
                       // Cada item tem: rótulo, cores e a ROTA de destino ao toque.
                       _EmotionGrid(
                         items: const [
-                          _EmotionItem(
-                            'Ansioso(a) 😔',
-                            [Color(0xFF31D0C6), Color(0xFF1FBBC1)],
-                            Routes.ansiedadeP1,   // -> Pergunta 1 Ansiedade
-                          ),
-                          _EmotionItem(
-                            'Triste 🥺',
-                            [Color(0xFF6EA8FF), Color(0xFF4F83FF)],
-                            Routes.ansiedadeP1,    // -> Pergunta 1 Tristeza
-                          ),
-                          _EmotionItem(
-                            'Com raiva 😤',
-                            [Color(0xFFFF8CA1), Color(0xFFFF6D8A)],
-                            Routes.ansiedadeP1,       // -> Pergunta 1 Raiva
-                          ),
-                          _EmotionItem(
-                            'Com medo 😟',
-                            [Color(0xFFA78BFA), Color(0xFF8B6CFF)],
-                            '/trilha/medo/p1',    // ainda não criada
-                          ),
-                          _EmotionItem(
-                            'Estressado(a) 😵‍💫',
-                            [Color(0xFFFFB74D), Color(0xFFFFA726)],
-                            '/trilha/estresse/p1',// ainda não criada
-                          ),
-                          _EmotionItem(
-                            'Sozinho(a) 💛',
-                            [Color(0xFFFF8FB3), Color(0xFFFF79A8)],
-                            '/trilha/solidao/p1', // ainda não criada
-                          ),
+                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP4),
+                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP4),
+                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP4),
+                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP4),
+                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP4),
+                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP4),
                         ],
                       ),
 
@@ -118,6 +98,38 @@ class Pergunta3TristezaScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+// Widget de indicador de progresso
+class _ProgressIndicator extends StatelessWidget {
+  final int current;
+  final int total;
+  
+  const _ProgressIndicator({
+    required this.current,
+    required this.total,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: List.generate(total, (index) {
+        final isActive = index < current;
+        return Expanded(
+          child: Container(
+            height: 4,
+            margin: EdgeInsets.only(right: index < total - 1 ? 4 : 0),
+            decoration: BoxDecoration(
+              color: isActive 
+                ? Colors.white 
+                : Colors.white.withOpacity(0.3),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        );
+      }),
     );
   }
 }
@@ -176,7 +188,7 @@ class _EmotionGrid extends StatelessWidget {
           onTap: () {
             // >>>>>>> NAVEGAÇÃO ACONTECE AQUI <<<<<<<
             // JEITO ORGANIZADO: pelas rotas nomeadas
-            Navigator.pushNamed(context, Routes.ansiedadeP4);
+            Navigator.pushReplacementNamed(context, e.route);
 
             // Alternativa (push direto):
             // Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Pergunta1Ansiedade()));

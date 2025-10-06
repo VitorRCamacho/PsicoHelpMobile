@@ -38,7 +38,11 @@ class Pergunta3AnsiedadeScreen extends StatelessWidget {
                   child: ListView(
                     padding: const EdgeInsets.only(top: _gapLg, bottom: _gapLg),
                     children: [
-                      const _SectionLabel(text: 'Pergunta geral'),
+                      // Indicador de progresso
+                      _ProgressIndicator(current: 3, total: 5),
+                      const SizedBox(height: _gapMd),
+                      
+                      const _SectionLabel(text: 'Trilha Ansiedade - Pergunta 3/5'),
                       const SizedBox(height: _gapMd),
 
                       Text(

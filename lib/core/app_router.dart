@@ -60,12 +60,7 @@ class AppRouter {
       case Routes.tristezaP5:
         return MaterialPageRoute(builder: (_) => const Pergunta5TristezaScreen());  
       
-      // TODO: Adicionar casos para outras trilhas
-      // case Routes.tristezaP1:
-      //   return MaterialPageRoute(builder: (_) => const Pergunta1TristezaScreen());
-      // case Routes.raivaP1:
-      //   return MaterialPageRoute(builder: (_) => const Pergunta1RaivaScreen());
-      // etc...
+
       
       default:
         return MaterialPageRoute(builder: (_) => const _UnknownRoutePage());

@@ -1,4 +1,4 @@
-// lib/screens/Trilha/Ansiedade/Pergunta1_Ansiedade.dart
+// lib/screens/Trilha/Tristeza/Pergunta1_Tristeza.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -29,7 +29,6 @@ class Pergunta1TristezaScreen extends StatelessWidget {
         children: [
           const _BackgroundGradient(),
           Container(color: Colors.white.withOpacity(0.04)),
-
           SafeArea(
             child: Center(
               child: ConstrainedBox(
@@ -39,97 +38,45 @@ class Pergunta1TristezaScreen extends StatelessWidget {
                   child: ListView(
                     padding: const EdgeInsets.only(top: _gapLg, bottom: _gapLg),
                     children: [
-                      // Indicador de progresso
                       _ProgressIndicator(current: 1, total: 5),
                       const SizedBox(height: _gapMd),
-                      
-                      const _SectionLabel(text: 'Trilha Ansiedade - Pergunta 1/5'),
+                      const _SectionLabel(text: 'Trilha Tristeza - Pergunta 1/5'),
                       const SizedBox(height: _gapMd),
-
                       Text(
                         'Você tem se sentido triste, para baixo ou deprimido na maior parte do tempo recentemente?',
                         textAlign: TextAlign.center,
                         style: titleStyle,
                       ),
-
                       const SizedBox(height: _gapXl),
 
-                      // GRID DE RESPOSTAS COM INTENSIDADE
-                      _IntensityGrid(
+                      // ===== CÓDIGO CORRIGIDO =====
+                      // Agora este widget tem a lógica para levar para a ETAPA 2 de cada trilha
+                      _EmotionGrid(
                         items: const [
-                          _IntensityItem(
-                            'Ansiedade',
-                            '😊',
-                            [Color(0xFF4CAF50), Color(0xFF45A049)],
-                            0,
-                          ),
-                          _IntensityItem(
-                            'Tristeza',
-                            '🙂',
-                            [Color(0xFF8BC34A), Color(0xFF7CB342)],
-                            1,
-                          ),
-                          _IntensityItem(
-                            'Raiva',
-                            '😐',
-                            [Color(0xFFFFC107), Color(0xFFFFB300)],
-                            2,
-                          ),
-                          _IntensityItem(
-                            'Medo',
-                            '😟',
-                            [Color(0xFFFF9800), Color(0xFFFF8F00)],
-                            3,
-                          ),
-                          _IntensityItem(
-                            'Extresse',
-                            '😰',
-                            [Color(0xFFFF5722), Color(0xFFFF4411)],
-                            4,
-                          ),
-                          _IntensityItem(
-                            'Solidão',
-                            '😱',
-                            [Color(0xFFF44336), Color(0xFFE53935)],
-                            5,
-                          ),
+                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP2),
+                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP2),
+                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP2),
+                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP2),
+                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP2),
+                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP2),
                         ],
-                        onAnswer: (intensity) {
-                          // Aqui você pode salvar a resposta
-                          // Por exemplo: saveAnswer('ansiedade_p1', intensity);
-                          
-                          // Navega para próxima pergunta
-                          Navigator.pushNamed(context, Routes.ansiedadeP2);
-                        },
-                      ),
+                      ), // <--- A VÍRGULA QUE FALTAVA FOI ADICIONADA
 
                       const SizedBox(height: _gapXl),
-                      
-                      // Botão para voltar
                       Center(
                         child: TextButton.icon(
                           onPressed: () => Navigator.pop(context),
                           icon: const Icon(Icons.arrow_back, color: Colors.white),
                           label: Text(
                             'Voltar',
-                            style: GoogleFonts.baloo2(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            style: GoogleFonts.baloo2(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
                           ),
                         ),
                       ),
-                      
                       const SizedBox(height: _gapMd),
                       const Divider(color: Colors.white, thickness: 1.2),
                       const SizedBox(height: _gapMd),
-
-                      const _HelpBlock(
-                        cvv: '188 (CVV – 24h)',
-                        telefone: '(XX) XXXX-XXXX',
-                      ),
-
+                      const _HelpBlock(cvv: '188 (CVV – 24h)', telefone: '(XX) XXXX-XXXX'),
                       const SizedBox(height: _gapSm),
                       Opacity(
                         opacity: .9,
@@ -157,7 +104,124 @@ class Pergunta1TristezaScreen extends StatelessWidget {
   }
 }
 
-// Widget de indicador de progresso
+// ===== WIDGETS AUXILIARES ADICIONADOS =====
+// Estes widgets foram copiados do seu arquivo pergunta_geral_screen.dart
+
+class _SectionLabel extends StatelessWidget {
+  final String text;
+  const _SectionLabel({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    final style = GoogleFonts.baloo2(
+      color: Colors.white,
+      fontWeight: FontWeight.w700,
+      fontSize: 16,
+      letterSpacing: .3,
+      shadows: [Shadow(color: Colors.black.withOpacity(.2), blurRadius: 6)],
+    );
+    return Row(
+      children: [
+        const Expanded(child: Divider(color: Colors.white, thickness: 1.2)),
+        const SizedBox(width: 10),
+        Text(text, style: style),
+        const SizedBox(width: 10),
+        const Expanded(child: Divider(color: Colors.white, thickness: 1.2)),
+      ],
+    );
+  }
+}
+
+class _EmotionItem {
+  final String label;
+  final List<Color> colors;
+  final String route;
+  const _EmotionItem(this.label, this.colors, this.route);
+}
+
+class _EmotionGrid extends StatelessWidget {
+  final List<_EmotionItem> items;
+  const _EmotionGrid({required this.items});
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      crossAxisCount: 2,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      mainAxisSpacing: 12,
+      crossAxisSpacing: 12,
+      childAspectRatio: 1.9,
+      children: items.map((e) {
+        return _EmotionButton(
+          label: e.label,
+          colors: e.colors,
+          onTap: () {
+            Navigator.pushReplacementNamed(context, e.route);
+          },
+        );
+      }).toList(),
+    );
+  }
+}
+
+class _EmotionButton extends StatelessWidget {
+  final String label;
+  final List<Color> colors;
+  final VoidCallback onTap;
+  
+  const _EmotionButton({
+    required this.label,
+    required this.colors,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final style = GoogleFonts.baloo2(
+      color: Colors.white,
+      fontSize: 20,
+      fontWeight: FontWeight.w900,
+      height: 1.05,
+      letterSpacing: .3,
+      shadows: [Shadow(color: Colors.black.withOpacity(.25), blurRadius: 8)],
+    );
+
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: colors,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(22),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(.18),
+            blurRadius: 14,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(22),
+          onTap: onTap,
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              child: Text(label, textAlign: TextAlign.center, style: style),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ===== DEMAIS WIDGETS QUE VOCÊ JÁ TINHA =====
+
 class _ProgressIndicator extends StatelessWidget {
   final int current;
   final int total;
@@ -185,136 +249,6 @@ class _ProgressIndicator extends StatelessWidget {
           ),
         );
       }),
-    );
-  }
-}
-
-// Modelo de item de intensidade
-class _IntensityItem {
-  final String label;
-  final String emoji;
-  final List<Color> colors;
-  final int value;
-  
-  const _IntensityItem(this.label, this.emoji, this.colors, this.value);
-}
-
-// Grid de intensidade
-class _IntensityGrid extends StatelessWidget {
-  final List<_IntensityItem> items;
-  final Function(int) onAnswer;
-  
-  const _IntensityGrid({
-    required this.items,
-    required this.onAnswer,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      mainAxisSpacing: 12,
-      crossAxisSpacing: 12,
-      childAspectRatio: 1.8,
-      children: items.map((item) {
-        return _IntensityButton(
-          label: item.label,
-          emoji: item.emoji,
-          colors: item.colors,
-          onTap: () => onAnswer(item.value),
-        );
-      }).toList(),
-    );
-  }
-}
-
-// Botão de intensidade
-class _IntensityButton extends StatelessWidget {
-  final String label;
-  final String emoji;
-  final List<Color> colors;
-  final VoidCallback onTap;
-  
-  const _IntensityButton({
-    required this.label,
-    required this.emoji,
-    required this.colors,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final style = GoogleFonts.baloo2(
-      color: Colors.white,
-      fontSize: 17,
-      fontWeight: FontWeight.w800,
-      height: 1.05,
-      letterSpacing: .3,
-      shadows: [Shadow(color: Colors.black.withOpacity(.25), blurRadius: 8)],
-    );
-
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: colors,
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(22),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(.18),
-            blurRadius: 14,
-            offset: const Offset(0, 8),
-          )
-        ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(22),
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(emoji, style: const TextStyle(fontSize: 22)),
-                const SizedBox(height: 2),
-                Text(label, textAlign: TextAlign.center, style: style),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-// Componentes auxiliares
-class _SectionLabel extends StatelessWidget {
-  final String text;
-  const _SectionLabel({required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    final style = GoogleFonts.baloo2(
-      color: Colors.white,
-      fontWeight: FontWeight.w700,
-      fontSize: 16,
-      letterSpacing: .3,
-      shadows: [Shadow(color: Colors.black.withOpacity(.2), blurRadius: 6)],
-    );
-    return Row(
-      children: [
-        const Expanded(child: Divider(color: Colors.white, thickness: 1.2)),
-        const SizedBox(width: 10),
-        Text(text, style: style),
-        const SizedBox(width: 10),
-        const Expanded(child: Divider(color: Colors.white, thickness: 1.2)),
-      ],
     );
   }
 }
