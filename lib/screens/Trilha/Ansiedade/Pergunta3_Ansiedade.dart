@@ -57,36 +57,12 @@ class Pergunta3AnsiedadeScreen extends StatelessWidget {
                       // Cada item tem: rótulo, cores e a ROTA de destino ao toque.
                       _EmotionGrid(
                         items: const [
-                          _EmotionItem(
-                            'Ansioso(a) 😔',
-                            [Color(0xFF31D0C6), Color(0xFF1FBBC1)],
-                            Routes.ansiedadeP1,   // -> Pergunta 1 Ansiedade
-                          ),
-                          _EmotionItem(
-                            'Triste 🥺',
-                            [Color(0xFF6EA8FF), Color(0xFF4F83FF)],
-                            Routes.ansiedadeP1,    // -> Pergunta 1 Tristeza
-                          ),
-                          _EmotionItem(
-                            'Com raiva 😤',
-                            [Color(0xFFFF8CA1), Color(0xFFFF6D8A)],
-                            Routes.ansiedadeP1,       // -> Pergunta 1 Raiva
-                          ),
-                          _EmotionItem(
-                            'Com medo 😟',
-                            [Color(0xFFA78BFA), Color(0xFF8B6CFF)],
-                            '/trilha/medo/p1',    // ainda não criada
-                          ),
-                          _EmotionItem(
-                            'Estressado(a) 😵‍💫',
-                            [Color(0xFFFFB74D), Color(0xFFFFA726)],
-                            '/trilha/estresse/p1',// ainda não criada
-                          ),
-                          _EmotionItem(
-                            'Sozinho(a) 💛',
-                            [Color(0xFFFF8FB3), Color(0xFFFF79A8)],
-                            '/trilha/solidao/p1', // ainda não criada
-                          ),
+                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP4),
+                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP4),
+                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP4),
+                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP4),
+                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP4),
+                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP4),
                         ],
                       ),
 
@@ -211,7 +187,7 @@ class _EmotionGrid extends StatelessWidget {
           onTap: () {
             // >>>>>>> NAVEGAÇÃO ACONTECE AQUI <<<<<<<
             // JEITO ORGANIZADO: pelas rotas nomeadas
-            Navigator.pushNamed(context, Routes.ansiedadeP4);
+            Navigator.pushReplacementNamed(context, e.route);
 
             // Alternativa (push direto):
             // Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Pergunta1Ansiedade()));
