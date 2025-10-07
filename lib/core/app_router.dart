@@ -20,6 +20,13 @@ import 'package:mente_ifc/screens/Trilha/Tristeza/Pergunta3_Tristeza.dart';
 import 'package:mente_ifc/screens/Trilha/Tristeza/Pergunta4_Tristeza.dart';
 import 'package:mente_ifc/screens/Trilha/Tristeza/Pergunta5_Tristeza.dart';
 
+// Trilha de Ansiedade
+import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta1_Raiva.dart';
+import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta2_Raiva.dart';
+import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta3_Raiva.dart';
+import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta4_Raiva.dart';
+import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta5_Raiva.dart';
+
 // TODO: Adicionar imports das outras trilhas quando criar
 // import 'package:mente_ifc/screens/Trilha/Tristeza/Pergunta1_Tristeza.dart';
 // import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta1_Raiva.dart';
@@ -59,8 +66,19 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const Pergunta4TristezaScreen());
       case Routes.tristezaP5:
         return MaterialPageRoute(builder: (_) => const Pergunta5TristezaScreen());  
-      
 
+      // TRILHA DE Tristeza
+      case Routes.raivaP1:
+        return MaterialPageRoute(builder: (_) => const Pergunta1RaivaScreen());
+      case Routes.raivaP2:
+        return MaterialPageRoute(builder: (_) => const Pergunta2RaivaScreen());
+      case Routes.raivaP3:
+        return MaterialPageRoute(builder: (_) => const Pergunta3RaivaScreen());
+      case Routes.raivaP4:
+        return MaterialPageRoute(builder: (_) => const Pergunta4RaivaScreen());
+      case Routes.raivaP5:
+        return MaterialPageRoute(builder: (_) => const Pergunta5RaivaScreen());        
+      
       
       default:
         return MaterialPageRoute(builder: (_) => const _UnknownRoutePage());
