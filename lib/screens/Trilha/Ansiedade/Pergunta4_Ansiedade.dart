@@ -1,13 +1,13 @@
-// lib/screens/Trilha/Ansiedade/Pergunta4_Ansiedade.dart
+// lib/screens/Trilha/Ansiedade/Pergunta1_Ansiedade.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mente_ifc/core/routes.dart'; // importa as constantes de rota
+import 'package:mente_ifc/core/routes.dart';
 
 class Pergunta4AnsiedadeScreen extends StatelessWidget {
   const Pergunta4AnsiedadeScreen({super.key});
 
-  static const double _maxWidth = 520; // limita a largura para ficar simétrico
-  static const double _hPad = 20;      // padding horizontal padrão
+  static const double _maxWidth = 520;
+  static const double _hPad = 20;
   static const double _gapSm = 12;
   static const double _gapMd = 16;
   static const double _gapLg = 20;
@@ -15,20 +15,21 @@ class Pergunta4AnsiedadeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ===== ALTERAÇÃO 1: Cor do texto principal =====
     final titleStyle = GoogleFonts.baloo2(
       fontSize: 36,
       fontWeight: FontWeight.w900,
       height: 1.05,
-      color: Colors.white,
-      shadows: [Shadow(color: Colors.black.withOpacity(.2), blurRadius: 8)],
+      color: Colors.black, // <-- MUDOU DE 0xFF0E7C86 PARA PRETO
+      shadows: [Shadow(color: Colors.black.withOpacity(.1), blurRadius: 6)],
     );
 
-    return Scaffold(backgroundColor: Colors.transparent,
+    return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Stack(
         children: [
-          const _BackgroundGradient(),              // fundo ocupa 100%
-          Container(color: Colors.white.withOpacity(0.04)), // véu p/ contraste
-
+          const _BackgroundGradient(),
+          Container(color: Colors.white.withOpacity(0.04)),
           SafeArea(
             child: Center(
               child: ConstrainedBox(
@@ -38,23 +39,16 @@ class Pergunta4AnsiedadeScreen extends StatelessWidget {
                   child: ListView(
                     padding: const EdgeInsets.only(top: _gapLg, bottom: _gapLg),
                     children: [
-                      // Indicador de progresso
                       _ProgressIndicator(current: 4, total: 5),
                       const SizedBox(height: _gapMd),
-                      
                       const _SectionLabel(text: 'Trilha Ansiedade - Pergunta 4/5'),
                       const SizedBox(height: _gapMd),
-
                       Text(
                         'Você tem sentido dificuldade de ficar parado ou tranquilo, como se estivesse sempre ‘ligado’ ou inquieto?',
                         textAlign: TextAlign.center,
                         style: titleStyle,
                       ),
-
                       const SizedBox(height: _gapXl),
-
-                      // >>> AQUI DEFINIMOS O GRID DE OPÇÕES <<<
-                      // Cada item tem: rótulo, cores e a ROTA de destino ao toque.
                       _EmotionGrid(
                         items: const [
                           _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP5),
@@ -65,28 +59,25 @@ class Pergunta4AnsiedadeScreen extends StatelessWidget {
                           _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP5),
                         ],
                       ),
-
                       const SizedBox(height: _gapXl),
-                      const Divider(color: Colors.white, thickness: 1.2),
+                      const Divider(color: Colors.black, thickness: 1.2), // <-- MUDOU A COR DA LINHA
                       const SizedBox(height: _gapMd),
-
                       const _HelpBlock(
                         cvv: '188 (CVV – 24h)',
                         telefone: '(XX) XXXX-XXXX',
                       ),
-
                       const SizedBox(height: _gapSm),
+                      // ===== ALTERAÇÃO 2: Cor do texto do rodapé =====
                       Opacity(
                         opacity: .9,
                         child: Text(
                           'O APP não substitui atendimento psicológico.',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.baloo2(
-                            color: Colors.white,
+                            color: Colors.black, // <-- MUDOU DE BRANCO PARA PRETO
                             fontWeight: FontWeight.w700,
                             fontSize: 13,
                             height: 1.1,
-                            shadows: [Shadow(color: Colors.black.withOpacity(.2), blurRadius: 6)],
                           ),
                         ),
                       ),
@@ -102,15 +93,12 @@ class Pergunta4AnsiedadeScreen extends StatelessWidget {
   }
 }
 
-// Widget de indicador de progresso
+// ===== ALTERAÇÃO 3: Cor do indicador de progresso =====
 class _ProgressIndicator extends StatelessWidget {
   final int current;
   final int total;
   
-  const _ProgressIndicator({
-    required this.current,
-    required this.total,
-  });
+  const _ProgressIndicator({ required this.current, required this.total });
 
   @override
   Widget build(BuildContext context) {
@@ -122,9 +110,8 @@ class _ProgressIndicator extends StatelessWidget {
             height: 4,
             margin: EdgeInsets.only(right: index < total - 1 ? 4 : 0),
             decoration: BoxDecoration(
-              color: isActive 
-                ? Colors.white 
-                : Colors.white.withOpacity(0.3),
+              // MUDOU DE BRANCO PARA PRETO
+              color: isActive ? Colors.black : Colors.black.withOpacity(0.2),
               borderRadius: BorderRadius.circular(2),
             ),
           ),
@@ -134,8 +121,7 @@ class _ProgressIndicator extends StatelessWidget {
   }
 }
 
-// ---------- Componentes auxiliares de UI (comentados) -------------------------
-
+// ===== ALTERAÇÃO 4: Cor do rótulo da seção =====
 class _SectionLabel extends StatelessWidget {
   final String text;
   const _SectionLabel({required this.text});
@@ -143,28 +129,27 @@ class _SectionLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = GoogleFonts.baloo2(
-      color: Colors.white,
+      color: Colors.black, // <-- MUDOU DE BRANCO PARA PRETO
       fontWeight: FontWeight.w700,
       fontSize: 16,
       letterSpacing: .3,
-      shadows: [Shadow(color: Colors.black.withOpacity(.2), blurRadius: 6)],
     );
     return Row(
       children: [
-        const Expanded(child: Divider(color: Colors.white, thickness: 1.2)),
+        const Expanded(child: Divider(color: Colors.black, thickness: 1.2)), // <-- MUDOU DE BRANCO PARA PRETO
         const SizedBox(width: 10),
         Text(text, style: style),
         const SizedBox(width: 10),
-        const Expanded(child: Divider(color: Colors.white, thickness: 1.2)),
+        const Expanded(child: Divider(color: Colors.black, thickness: 1.2)), // <-- MUDOU DE BRANCO PARA PRETO
       ],
     );
   }
 }
 
 class _EmotionItem {
-  final String label;       // texto mostrado no botão
-  final List<Color> colors; // gradiente do botão
-  final String route;       // ROTA chamada ao tocar
+  final String label;
+  final List<Color> colors;
+  final String route;
   const _EmotionItem(this.label, this.colors, this.route);
 }
 
@@ -175,8 +160,8 @@ class _EmotionGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      crossAxisCount: 2, // 2 colunas
-      shrinkWrap: true,  // para caber dentro do ListView
+      crossAxisCount: 2,
+      shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 12,
       crossAxisSpacing: 12,
@@ -186,12 +171,7 @@ class _EmotionGrid extends StatelessWidget {
           label: e.label,
           colors: e.colors,
           onTap: () {
-            // >>>>>>> NAVEGAÇÃO ACONTECE AQUI <<<<<<<
-            // JEITO ORGANIZADO: pelas rotas nomeadas
             Navigator.pushReplacementNamed(context, e.route);
-
-            // Alternativa (push direto):
-            // Navigator.pushReplacementNamed(context, Routes.ansiedadeP5) => const Pergunta1Ansiedade()));
           },
         );
       }).toList(),
@@ -203,12 +183,7 @@ class _EmotionButton extends StatelessWidget {
   final String label;
   final List<Color> colors;
   final VoidCallback onTap;
-  const _EmotionButton({
-    super.key,
-    required this.label,
-    required this.colors,
-    required this.onTap,
-  });
+  const _EmotionButton({ super.key, required this.label, required this.colors, required this.onTap });
 
   @override
   Widget build(BuildContext context) {
@@ -223,7 +198,7 @@ class _EmotionButton extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: colors, begin: Alignment.topLeft, end: Alignment.bottomRight),
+        color: const Color(0xFF0E7C86),
         borderRadius: BorderRadius.circular(22),
         boxShadow: [BoxShadow(color: Colors.black.withOpacity(.18), blurRadius: 14, offset: const Offset(0, 8))],
       ),
@@ -232,6 +207,8 @@ class _EmotionButton extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(22),
           onTap: onTap,
+          splashColor: Colors.white.withOpacity(0.2),
+          highlightColor: Colors.white.withOpacity(0.1),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -244,6 +221,7 @@ class _EmotionButton extends StatelessWidget {
   }
 }
 
+// ===== ALTERAÇÃO 5: Cores do bloco de ajuda =====
 class _HelpBlock extends StatelessWidget {
   final String cvv;
   final String telefone;
@@ -252,21 +230,22 @@ class _HelpBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final base = GoogleFonts.baloo2(
-      color: Colors.white,
+      color: Colors.black, // <-- MUDOU DE BRANCO PARA PRETO
       fontSize: 16,
       fontWeight: FontWeight.w700,
       height: 1.1,
-      shadows: [Shadow(color: Colors.black.withOpacity(.2), blurRadius: 6)],
     );
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-      decoration: BoxDecoration(color: Colors.white.withOpacity(.12), borderRadius: BorderRadius.circular(16)),
+      // MUDOU O FUNDO DO CONTAINER
+      decoration: BoxDecoration(color: Colors.black.withOpacity(0.05), borderRadius: BorderRadius.circular(16)),
       child: Row(
         children: [
           Container(
             padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(color: Colors.white.withOpacity(.18), shape: BoxShape.circle),
-            child: const Icon(Icons.support_agent, color: Colors.white, size: 22),
+            // MUDOU O FUNDO DO CÍRCULO
+            decoration: BoxDecoration(color: Colors.black.withOpacity(0.08), shape: BoxShape.circle),
+            child: const Icon(Icons.support_agent, color: Colors.black, size: 22), // <-- MUDOU A COR DO ÍCONE
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -288,23 +267,6 @@ class _BackgroundGradient extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Positioned.fill(
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFFFF7A00),
-              Color(0xFFFFC300),
-              Color(0xFF00D2FF),
-              Color(0xFF7B61FF),
-              Color(0xFFFF3D81),
-            ],
-            stops: [0.0, 0.28, 0.55, 0.77, 1.0],
-          ),
-        ),
-      ),
-    );
+    return Container(color: const Color(0xFFE6FAF4));
   }
 }
