@@ -199,9 +199,11 @@ class _EmotionGrid extends StatelessWidget {
   }
 }
 
+// ===== WIDGET _EmotionButton CORRIGIDO =====
+
 class _EmotionButton extends StatelessWidget {
   final String label;
-  final List<Color> colors;
+  final List<Color> colors; // Manteremos para não quebrar a chamada, mas não usaremos
   final VoidCallback onTap;
   const _EmotionButton({
     super.key,
@@ -213,7 +215,7 @@ class _EmotionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = GoogleFonts.baloo2(
-      color: Colors.white,
+      color: Colors.white, // O texto branco ficará ótimo no botão escuro
       fontSize: 20,
       fontWeight: FontWeight.w900,
       height: 1.05,
@@ -223,7 +225,9 @@ class _EmotionButton extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: colors, begin: Alignment.topLeft, end: Alignment.bottomRight),
+        // ANTES: gradient: LinearGradient(colors: colors, ...),
+        // AGORA: Usamos uma cor sólida
+        color: const Color(0xFF0E7C86), 
         borderRadius: BorderRadius.circular(22),
         boxShadow: [BoxShadow(color: Colors.black.withOpacity(.18), blurRadius: 14, offset: const Offset(0, 8))],
       ),
@@ -232,6 +236,8 @@ class _EmotionButton extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(22),
           onTap: onTap,
+          splashColor: Colors.white.withOpacity(0.2), // Efeito de clique branco fica melhor
+          highlightColor: Colors.white.withOpacity(0.1),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -288,23 +294,7 @@ class _BackgroundGradient extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Positioned.fill(
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFFFF7A00),
-              Color(0xFFFFC300),
-              Color(0xFF00D2FF),
-              Color(0xFF7B61FF),
-              Color(0xFFFF3D81),
-            ],
-            stops: [0.0, 0.28, 0.55, 0.77, 1.0],
-          ),
-        ),
-      ),
-    );
+    // Trocamos o gradiente por um container com uma cor sólida
+    return Container(color: const Color(0xFFE6FAF4));
   }
 }
