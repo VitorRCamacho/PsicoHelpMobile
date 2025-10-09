@@ -13,24 +13,40 @@ import 'package:mente_ifc/screens/Trilha/Ansiedade/Pergunta3_Ansiedade.dart';
 import 'package:mente_ifc/screens/Trilha/Ansiedade/Pergunta4_Ansiedade.dart';
 import 'package:mente_ifc/screens/Trilha/Ansiedade/Pergunta5_Ansiedade.dart';
 
-// Trilha de Ansiedade
+// Trilha de Tristeza
 import 'package:mente_ifc/screens/Trilha/Tristeza/Pergunta1_Tristeza.dart';
 import 'package:mente_ifc/screens/Trilha/Tristeza/Pergunta2_Tristeza.dart';
 import 'package:mente_ifc/screens/Trilha/Tristeza/Pergunta3_Tristeza.dart';
 import 'package:mente_ifc/screens/Trilha/Tristeza/Pergunta4_Tristeza.dart';
 import 'package:mente_ifc/screens/Trilha/Tristeza/Pergunta5_Tristeza.dart';
 
-// Trilha de Ansiedade
+// Trilha de Raiva
 import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta1_Raiva.dart';
 import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta2_Raiva.dart';
 import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta3_Raiva.dart';
 import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta4_Raiva.dart';
 import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta5_Raiva.dart';
 
-// TODO: Adicionar imports das outras trilhas quando criar
-// import 'package:mente_ifc/screens/Trilha/Tristeza/Pergunta1_Tristeza.dart';
-// import 'package:mente_ifc/screens/Trilha/Raiva/Pergunta1_Raiva.dart';
-// etc...
+// Trilha de Medo
+import 'package:mente_ifc/screens/Trilha/Medo/Pergunta1_Medo.dart';
+import 'package:mente_ifc/screens/Trilha/Medo/Pergunta2_Medo.dart';
+import 'package:mente_ifc/screens/Trilha/Medo/Pergunta3_Medo.dart';
+import 'package:mente_ifc/screens/Trilha/Medo/Pergunta4_Medo.dart';
+import 'package:mente_ifc/screens/Trilha/Medo/Pergunta5_Medo.dart';
+
+// Trilha de Estresse
+import 'package:mente_ifc/screens/Trilha/Estresse/Pergunta1_Estresse.dart';
+import 'package:mente_ifc/screens/Trilha/Estresse/Pergunta2_Estresse.dart';
+import 'package:mente_ifc/screens/Trilha/Estresse/Pergunta3_Estresse.dart';
+import 'package:mente_ifc/screens/Trilha/Estresse/Pergunta4_Estresse.dart';
+import 'package:mente_ifc/screens/Trilha/Estresse/Pergunta5_Estresse.dart';
+
+// Trilha de Solidão
+import 'package:mente_ifc/screens/Trilha/Solidao/Pergunta1_Solidao.dart';
+import 'package:mente_ifc/screens/Trilha/Solidao/Pergunta2_Solidao.dart';
+import 'package:mente_ifc/screens/Trilha/Solidao/Pergunta3_Solidao.dart';
+import 'package:mente_ifc/screens/Trilha/Solidao/Pergunta4_Solidao.dart';
+import 'package:mente_ifc/screens/Trilha/Solidao/Pergunta5_Solidao.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -55,7 +71,7 @@ class AppRouter {
       case Routes.ansiedadeP5:
         return MaterialPageRoute(builder: (_) => const Pergunta5AnsiedadeScreen());
 
-      // TRILHA DE Tristeza
+      // TRILHA DE TRISTEZA
       case Routes.tristezaP1:
         return MaterialPageRoute(builder: (_) => const Pergunta1TristezaScreen());
       case Routes.tristezaP2:
@@ -67,7 +83,7 @@ class AppRouter {
       case Routes.tristezaP5:
         return MaterialPageRoute(builder: (_) => const Pergunta5TristezaScreen());  
 
-      // TRILHA DE Tristeza
+      // TRILHA DE RAIVA
       case Routes.raivaP1:
         return MaterialPageRoute(builder: (_) => const Pergunta1RaivaScreen());
       case Routes.raivaP2:
@@ -77,9 +93,45 @@ class AppRouter {
       case Routes.raivaP4:
         return MaterialPageRoute(builder: (_) => const Pergunta4RaivaScreen());
       case Routes.raivaP5:
-        return MaterialPageRoute(builder: (_) => const Pergunta5RaivaScreen());        
-      
-      
+        return MaterialPageRoute(builder: (_) => const Pergunta5RaivaScreen());
+
+      // TRILHA DE MEDO
+      case Routes.medoP1:
+        return MaterialPageRoute(builder: (_) => const Pergunta1MedoScreen());
+      case Routes.medoP2:
+        return MaterialPageRoute(builder: (_) => const Pergunta2MedoScreen());
+      case Routes.medoP3:
+        return MaterialPageRoute(builder: (_) => const Pergunta3MedoScreen());
+      case Routes.medoP4:
+        return MaterialPageRoute(builder: (_) => const Pergunta4MedoScreen());
+      case Routes.medoP5:
+        return MaterialPageRoute(builder: (_) => const Pergunta5MedoScreen());
+
+      // TRILHA DE ESTRESSE
+      case Routes.estresseP1:
+        return MaterialPageRoute(builder: (_) => const Pergunta1EstresseScreen());
+      case Routes.estresseP2:
+        return MaterialPageRoute(builder: (_) => const Pergunta2EstresseScreen());
+      case Routes.estresseP3:
+        return MaterialPageRoute(builder: (_) => const Pergunta3EstresseScreen());
+      case Routes.estresseP4:
+        return MaterialPageRoute(builder: (_) => const Pergunta4EstresseScreen());
+      case Routes.estresseP5:
+        return MaterialPageRoute(builder: (_) => const Pergunta5EstresseScreen());
+
+      // TRILHA DE SOLIDÃO
+      case Routes.solidaoP1:
+        return MaterialPageRoute(builder: (_) => const Pergunta1SolidaoScreen());
+      case Routes.solidaoP2:
+        return MaterialPageRoute(builder: (_) => const Pergunta2SolidaoScreen());
+      case Routes.solidaoP3:
+        return MaterialPageRoute(builder: (_) => const Pergunta3SolidaoScreen());
+      case Routes.solidaoP4:
+        return MaterialPageRoute(builder: (_) => const Pergunta4SolidaoScreen());
+      case Routes.solidaoP5:
+        return MaterialPageRoute(builder: (_) => const Pergunta5SolidaoScreen());
+
+
       default:
         return MaterialPageRoute(builder: (_) => const _UnknownRoutePage());
     }
