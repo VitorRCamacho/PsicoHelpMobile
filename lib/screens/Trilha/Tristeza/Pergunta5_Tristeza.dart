@@ -1,4 +1,5 @@
-// lib/screens/Trilha/Tristeza/Pergunta1_Tristeza.dart
+// lib/screens/Trilha/Tristeza/Pergunta5_Tristeza.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -49,13 +50,28 @@ Widget build(BuildContext context) {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: const [
-                          _EmotionItem('Triste 🥺', [], Routes.tristezaP5),
-                          _EmotionItem('Ansioso(a) 😔', [], Routes.ansiedadeP5),
-                          _EmotionItem('Com raiva 😤', [], Routes.raivaP5),
-                          _EmotionItem('Com medo 😟', [], Routes.medoP5),
-                          _EmotionItem('Estressado(a) 😵‍💫', [], Routes.estresseP5),
-                          _EmotionItem('Sozinho(a) 💛', [], Routes.solidaoP5),
+                        items: [
+                          _EmotionItem('Triste 🥺', [const Color(0xFF6EA8FF), const Color(0xFF4F83FF)], () {
+                            // Navega aleatoriamente para uma das telas finais de tristeza
+                            final random = Random().nextInt(2);
+                            final route = random == 0 ? Routes.tristezaFinal1 : Routes.tristezaFinal2;
+                            Navigator.pushNamed(context, route);
+                          }),
+                          _EmotionItem('Ansioso(a) 😔', [const Color(0xFF31D0C6), const Color(0xFF1FBBC1)], () {
+                            Navigator.pushNamed(context, Routes.ansiedadeP5);
+                          }),
+                          _EmotionItem('Com raiva 😤', [const Color(0xFFFF8CA1), const Color(0xFFFF6D8A)], () {
+                            Navigator.pushNamed(context, Routes.raivaP5);
+                          }),
+                          _EmotionItem('Com medo 😟', [const Color(0xFFA78BFA), const Color(0xFF8B6CFF)], () {
+                            Navigator.pushNamed(context, Routes.medoP5);
+                          }),
+                          _EmotionItem('Estressado(a) 😵‍💫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () {
+                            Navigator.pushNamed(context, Routes.estresseP5);
+                          }),
+                          _EmotionItem('Sozinho(a) 💛', [const Color(0xFFFF8FB3), const Color(0xFFFF79A8)], () {
+                            Navigator.pushNamed(context, Routes.solidaoP5);
+                          }),
                         ],
                       ),
                       const SizedBox(height: _gapXl),
@@ -183,13 +199,13 @@ class _SectionLabel extends StatelessWidget {
 class _EmotionItem {
   final String label;
   final List<Color> colors;
-  final String route;
-  const _EmotionItem(this.label, this.colors, this.route);
+  final VoidCallback onTap;
+  const _EmotionItem(this.label, this.colors, this.onTap);
 }
 
 class _EmotionGrid extends StatelessWidget {
   final List<_EmotionItem> items;
-  const _EmotionGrid({required this.items});
+  const _EmotionGrid({super.key, required this.items});
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -202,8 +218,8 @@ class _EmotionGrid extends StatelessWidget {
       children: items.map((e) {
         return _EmotionButton(
           label: e.label,
-          colors: e.colors, // A cor é ignorada no _EmotionButton, mas a propriedade precisa existir
-          onTap: () => Navigator.pushNamed(context, e.route),
+          colors: e.colors,
+          onTap: e.onTap,
         );
       }).toList(),
     );

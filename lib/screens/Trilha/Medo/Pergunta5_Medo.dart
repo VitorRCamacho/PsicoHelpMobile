@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Medo/Pergunta5_Medo.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -49,13 +50,28 @@ class Pergunta5MedoScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: const [
-                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP1),
-                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP1),
-                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP1),
-                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP1),
-                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP1),
-                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP1),
+                        items: [
+                          _EmotionItem('Ansioso(a) 😔', [const Color(0xFF31D0C6), const Color(0xFF1FBBC1)], () {
+                            Navigator.pushNamed(context, Routes.ansiedadeP5);
+                          }),
+                          _EmotionItem('Triste 🥺', [const Color(0xFF6EA8FF), const Color(0xFF4F83FF)], () {
+                            Navigator.pushNamed(context, Routes.tristezaP5);
+                          }),
+                          _EmotionItem('Com raiva 😤', [const Color(0xFFFF8CA1), const Color(0xFFFF6D8A)], () {
+                            Navigator.pushNamed(context, Routes.raivaP5);
+                          }),
+                          _EmotionItem('Com medo 😟', [const Color(0xFFA78BFA), const Color(0xFF8B6CFF)], () {
+                            // Navega aleatoriamente para uma das telas finais de medo
+                            final random = Random().nextInt(2);
+                            final route = random == 0 ? Routes.medoFinal1 : Routes.medoFinal2;
+                            Navigator.pushNamed(context, route);
+                          }),
+                          _EmotionItem('Estressado(a) 😵‍💫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () {
+                            Navigator.pushNamed(context, Routes.estresseP5);
+                          }),
+                          _EmotionItem('Sozinho(a) 💛', [const Color(0xFFFF8FB3), const Color(0xFFFF79A8)], () {
+                            Navigator.pushNamed(context, Routes.solidaoP5);
+                          }),
                         ],
                       ),
                       const SizedBox(height: _gapXl),
@@ -144,8 +160,8 @@ class _SectionLabel extends StatelessWidget {
 class _EmotionItem {
   final String label;
   final List<Color> colors;
-  final String route;
-  const _EmotionItem(this.label, this.colors, this.route);
+  final VoidCallback onTap;
+  const _EmotionItem(this.label, this.colors, this.onTap);
 }
 
 class _EmotionGrid extends StatelessWidget {
@@ -165,9 +181,7 @@ class _EmotionGrid extends StatelessWidget {
         return _EmotionButton(
           label: e.label,
           colors: e.colors,
-          onTap: () {
-            Navigator.pushNamed(context, e.route);
-          },
+          onTap: e.onTap,
         );
       }).toList(),
     );

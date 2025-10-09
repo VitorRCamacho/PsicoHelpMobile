@@ -50,6 +50,30 @@ import 'package:mente_ifc/screens/Trilha/Solidao/Pergunta3_Solidao.dart';
 import 'package:mente_ifc/screens/Trilha/Solidao/Pergunta4_Solidao.dart';
 import 'package:mente_ifc/screens/Trilha/Solidao/Pergunta5_Solidao.dart';
 
+// Telas Finais - Ansiedade
+import 'package:mente_ifc/screens/Trilha/Ansiedade/Final1_Ansiedade.dart';
+import 'package:mente_ifc/screens/Trilha/Ansiedade/Final2_Ansiedade.dart';
+
+// Telas Finais - Tristeza
+import 'package:mente_ifc/screens/Trilha/Tristeza/Final1_Tristeza.dart';
+import 'package:mente_ifc/screens/Trilha/Tristeza/Final2_Tristeza.dart';
+
+// Telas Finais - Raiva
+import 'package:mente_ifc/screens/Trilha/Raiva/Final1_Raiva.dart';
+import 'package:mente_ifc/screens/Trilha/Raiva/Final2_Raiva.dart';
+
+// Telas Finais - Medo
+import 'package:mente_ifc/screens/Trilha/Medo/Final1_Medo.dart';
+import 'package:mente_ifc/screens/Trilha/Medo/Final2_Medo.dart';
+
+// Telas Finais - Estresse
+import 'package:mente_ifc/screens/Trilha/Estresse/Final1_Estresse.dart';
+import 'package:mente_ifc/screens/Trilha/Estresse/Final2_Estresse.dart';
+
+// Telas Finais - Solidão
+import 'package:mente_ifc/screens/Trilha/Solidao/Final1_Solidao.dart';
+import 'package:mente_ifc/screens/Trilha/Solidao/Final2_Solidao.dart';
+
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -138,6 +162,41 @@ class AppRouter {
       case Routes.solidaoP5:
         return MaterialPageRoute(builder: (_) => const Pergunta5SolidaoScreen());
 
+      // TELAS FINAIS - ANSIEDADE
+      case Routes.ansiedadeFinal1:
+        return MaterialPageRoute(builder: (_) => const Final1AnsiedadeScreen());
+      case Routes.ansiedadeFinal2:
+        return MaterialPageRoute(builder: (_) => const Final2AnsiedadeScreen());
+
+      // TELAS FINAIS - TRISTEZA
+      case Routes.tristezaFinal1:
+        return MaterialPageRoute(builder: (_) => const Final1TristezaScreen());
+      case Routes.tristezaFinal2:
+        return MaterialPageRoute(builder: (_) => const Final2TristezaScreen());
+
+      // TELAS FINAIS - RAIVA
+      case Routes.raivaFinal1:
+        return MaterialPageRoute(builder: (_) => const Final1RaivaScreen());
+      case Routes.raivaFinal2:
+        return MaterialPageRoute(builder: (_) => const Final2RaivaScreen());
+
+      // TELAS FINAIS - MEDO
+      case Routes.medoFinal1:
+        return MaterialPageRoute(builder: (_) => const Final1MedoScreen());
+      case Routes.medoFinal2:
+        return MaterialPageRoute(builder: (_) => const Final2MedoScreen());
+
+      // TELAS FINAIS - ESTRESSE
+      case Routes.estresseFinal1:
+        return MaterialPageRoute(builder: (_) => const Final1EstresseScreen());
+      case Routes.estresseFinal2:
+        return MaterialPageRoute(builder: (_) => const Final2EstresseScreen());
+
+      // TELAS FINAIS - SOLIDÃO
+      case Routes.solidaoFinal1:
+        return MaterialPageRoute(builder: (_) => const Final1SolidaoScreen());
+      case Routes.solidaoFinal2:
+        return MaterialPageRoute(builder: (_) => const Final2SolidaoScreen());
 
       default:
         return MaterialPageRoute(builder: (_) => const _UnknownRoutePage());

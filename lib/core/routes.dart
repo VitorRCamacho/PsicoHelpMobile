@@ -47,4 +47,28 @@ class Routes {
   static const String solidaoP3 = '/solidao/pergunta3';
   static const String solidaoP4 = '/solidao/pergunta4';
   static const String solidaoP5 = '/solidao/pergunta5';
+
+  // TELAS FINAIS - ANSIEDADE
+  static const String ansiedadeFinal1 = '/ansiedade/final1';
+  static const String ansiedadeFinal2 = '/ansiedade/final2';
+
+  // TELAS FINAIS - TRISTEZA
+  static const String tristezaFinal1 = '/tristeza/final1';
+  static const String tristezaFinal2 = '/tristeza/final2';
+
+  // TELAS FINAIS - RAIVA
+  static const String raivaFinal1 = '/raiva/final1';
+  static const String raivaFinal2 = '/raiva/final2';
+
+  // TELAS FINAIS - MEDO
+  static const String medoFinal1 = '/medo/final1';
+  static const String medoFinal2 = '/medo/final2';
+
+  // TELAS FINAIS - ESTRESSE
+  static const String estresseFinal1 = '/estresse/final1';
+  static const String estresseFinal2 = '/estresse/final2';
+
+  // TELAS FINAIS - SOLIDÃO
+  static const String solidaoFinal1 = '/solidao/final1';
+  static const String solidaoFinal2 = '/solidao/final2';
 }
