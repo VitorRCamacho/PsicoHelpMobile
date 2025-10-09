@@ -193,7 +193,11 @@ class _EmotionButton extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFF0E7C86),
+        gradient: const LinearGradient(
+          colors: [Color(0xFF8A6D1F), Color(0xFF6E5618)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
         borderRadius: BorderRadius.circular(22),
         boxShadow: [BoxShadow(color: Colors.black.withOpacity(.18), blurRadius: 14, offset: const Offset(0, 8))],
       ),
@@ -259,6 +263,6 @@ class _BackgroundGradient extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: const Color(0xFFE6FAF4));
+    return Container(color: const Color(0xFFFFF8E5));
   }
 }
