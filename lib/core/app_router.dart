@@ -4,7 +4,9 @@ import 'package:mente_ifc/core/routes.dart';
 
 // Telas principais
 import 'package:mente_ifc/screens/home_screen.dart';
-import 'package:mente_ifc/screens/pergunta_geral_screen.dart'; // ADICIONAR ESTE IMPORT!
+import 'package:mente_ifc/screens/pergunta_geral_screen.dart';
+import 'package:mente_ifc/screens/ajuda_screen.dart';
+import 'package:mente_ifc/screens/respiracao_screen.dart';
 
 // Trilha de Ansiedade
 import 'package:mente_ifc/screens/Trilha/Ansiedade/Pergunta1_Ansiedade.dart';
@@ -54,10 +56,15 @@ class AppRouter {
       // TELAS PRINCIPAIS
       case Routes.home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
-      
+
       case Routes.guia:
-        // CORRIGIDO: Agora vai para PerguntaGeralScreen!
         return MaterialPageRoute(builder: (_) => const PerguntaGeralScreen());
+
+      case Routes.ajuda:
+        return MaterialPageRoute(builder: (_) => const AjudaScreen());
+
+      case Routes.respiracao:
+        return MaterialPageRoute(builder: (_) => const RespiracaoScreen());
       
       // TRILHA DE ANSIEDADE
       case Routes.ansiedadeP1:

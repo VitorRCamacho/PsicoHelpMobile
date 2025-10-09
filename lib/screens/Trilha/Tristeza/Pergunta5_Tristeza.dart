@@ -69,7 +69,7 @@ Widget build(BuildContext context) {
                       const SizedBox(height: _gapMd),
                       const Divider(color: Colors.black, thickness: 1.2),
                       const SizedBox(height: _gapMd),
-                      const _HelpBlock(cvv: '188 (CVV – 24h)', telefone: '(XX) XXXX-XXXX'),
+                      const _HelpBlock(cvv: '188 (CVV – 24h)', telefone: 'XXX'),
                       const SizedBox(height: _gapSm),
                       Opacity(
                         opacity: .9,
@@ -203,7 +203,7 @@ class _EmotionGrid extends StatelessWidget {
         return _EmotionButton(
           label: e.label,
           colors: e.colors, // A cor é ignorada no _EmotionButton, mas a propriedade precisa existir
-          onTap: () => Navigator.pushReplacementNamed(context, e.route),
+          onTap: () => Navigator.pushNamed(context, e.route),
         );
       }).toList(),
     );

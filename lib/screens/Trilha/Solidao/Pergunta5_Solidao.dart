@@ -63,7 +63,7 @@ class Pergunta5SolidaoScreen extends StatelessWidget {
                       const SizedBox(height: _gapMd),
                       const _HelpBlock(
                         cvv: '188 (CVV – 24h)',
-                        telefone: '(XX) XXXX-XXXX',
+                        telefone: 'XXX',
                       ),
                       const SizedBox(height: _gapSm),
                       Opacity(
@@ -166,7 +166,7 @@ class _EmotionGrid extends StatelessWidget {
           label: e.label,
           colors: e.colors,
           onTap: () {
-            Navigator.pushReplacementNamed(context, e.route);
+            Navigator.pushNamed(context, e.route);
           },
         );
       }).toList(),

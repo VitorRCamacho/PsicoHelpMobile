@@ -88,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 14),
 
-                  // Botão secundário (mantemos design; rota vira placeholder)
+                  // Botão de respiração
                   _BigButton(
                     label: 'respiração 2 min',
                     compact: true,
@@ -97,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
-                    onPressed: () { ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Respiração: em breve'))); },
+                    onPressed: () => Navigator.pushNamed(context, Routes.respiracao),
                   ),
 
                   const SizedBox(height: 18),
@@ -113,11 +113,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
 
-                  // Bloco de ajuda (mantemos design; rota vira placeholder)
+                  // Bloco de ajuda
                   _HelpBlock(
                     cvv: '188 (CVV – 24h)',
                     telefone: '(XX) XXXX-XXXX',
-                    onAjuda: () { ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Ajuda: em breve'))); },
+                    onAjuda: () => Navigator.pushNamed(context, Routes.ajuda),
                   ),
 
                   const SizedBox(height: 8),
