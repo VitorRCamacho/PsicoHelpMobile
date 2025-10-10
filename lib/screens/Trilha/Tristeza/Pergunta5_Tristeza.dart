@@ -85,7 +85,7 @@ Widget build(BuildContext context) {
                       const SizedBox(height: _gapMd),
                       const Divider(color: Colors.black, thickness: 1.2),
                       const SizedBox(height: _gapMd),
-                      const _HelpBlock(cvv: '188 (CVV – 24h)', telefone: 'XXX'),
+                      const _HelpBlock(),
                       const SizedBox(height: _gapSm),
                       Opacity(
                         opacity: .9,
@@ -227,9 +227,7 @@ class _EmotionGrid extends StatelessWidget {
 }
 
 class _HelpBlock extends StatelessWidget {
-  final String cvv;
-  final String telefone;
-  const _HelpBlock({required this.cvv, required this.telefone});
+  const _HelpBlock({super.key});
   @override
   Widget build(BuildContext context) {
     final base = GoogleFonts.baloo2(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w700, height: 1.1);
@@ -248,8 +246,9 @@ class _HelpBlock extends StatelessWidget {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text('Precisa de ajuda?', style: base.copyWith(fontSize: 18)),
               const SizedBox(height: 6),
-              Text('CVV: $cvv', style: base),
-              Text('Telefone: $telefone', style: base),
+              Text('📞 CVV: 188 (24h, todos os dias)', style: base),
+              Text('💬 Chat: www.cvv.org.br', style: base),
+              Text('✉️ E-mail: atendimento@cvv.org.br', style: base),
             ]),
           ),
         ],

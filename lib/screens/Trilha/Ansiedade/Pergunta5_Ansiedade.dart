@@ -78,10 +78,7 @@ class Pergunta5AnsiedadeScreen extends StatelessWidget {
                       const SizedBox(height: _gapXl),
                       const Divider(color: Colors.black, thickness: 1.2), // <-- MUDOU A COR DA LINHA
                       const SizedBox(height: _gapMd),
-                      const _HelpBlock(
-                        cvv: '188 (CVV – 24h)',
-                        telefone: 'XXX',
-                      ),
+                      const _HelpBlock(),
                       const SizedBox(height: _gapSm),
                       // ===== ALTERAÇÃO 2: Cor do texto do rodapé =====
                       Opacity(
@@ -237,9 +234,7 @@ class _EmotionButton extends StatelessWidget {
 
 // ===== ALTERAÇÃO 5: Cores do bloco de ajuda =====
 class _HelpBlock extends StatelessWidget {
-  final String cvv;
-  final String telefone;
-  const _HelpBlock({super.key, required this.cvv, required this.telefone});
+  const _HelpBlock({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -266,8 +261,9 @@ class _HelpBlock extends StatelessWidget {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text('Precisa de ajuda?', style: base.copyWith(fontSize: 18)),
               const SizedBox(height: 6),
-              Text('CVV: $cvv', style: base),
-              Text('Telefone: $telefone', style: base),
+              Text('📞 CVV: 188 (24h, todos os dias)', style: base),
+              Text('💬 Chat: www.cvv.org.br', style: base),
+              Text('✉️ E-mail: atendimento@cvv.org.br', style: base),
             ]),
           ),
         ],
