@@ -1,6 +1,7 @@
 // lib/screens/Trilha/Estresse/Final2_Estresse.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mente_ifc/core/routes.dart';
 
 class Final2EstresseScreen extends StatelessWidget {
   const Final2EstresseScreen({super.key});
@@ -21,17 +22,16 @@ class Final2EstresseScreen extends StatelessWidget {
       height: 1.5,
     );
 
-    return Scaffold(
-      backgroundColor: const Color(0xFFFFF8E5),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF8A6D1F),
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
+    return PopScope(
+      canPop: false, // Bloqueia o botÃ£o voltar do sistema
+      child: Scaffold(
+        backgroundColor: const Color(0xFFFFF8E5),
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF8A6D1F),
+          elevation: 0,
+          automaticallyImplyLeading: false,
         title: Text(
-          'Ritual de Desconexão',
+          'Ritual de Desconexï¿½o',
           style: GoogleFonts.baloo2(
             fontSize: 22,
             fontWeight: FontWeight.w700,
@@ -72,7 +72,7 @@ class Final2EstresseScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Desconexão para um sono reparador',
+                          'Desconexï¿½o para um sono reparador',
                           style: GoogleFonts.baloo2(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -87,10 +87,10 @@ class Final2EstresseScreen extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
-            Text('O que é?', style: titleStyle),
+            Text('O que ï¿½?', style: titleStyle),
             const SizedBox(height: 12),
             Text(
-              'A privação de sono agrava a irritabilidade e a vulnerabilidade ao estresse. O ritual regula o ritmo circadiano e prepara corpo e mente para o descanso.',
+              'A privaï¿½ï¿½o de sono agrava a irritabilidade e a vulnerabilidade ao estresse. O ritual regula o ritmo circadiano e prepara corpo e mente para o descanso.',
               style: bodyStyle,
             ),
             const SizedBox(height: 28),
@@ -101,7 +101,7 @@ class Final2EstresseScreen extends StatelessWidget {
             _RitualCard(
               time: '21h - 21h15',
               title: 'Desligue as telas',
-              description: 'Celular, TV, computador. A luz azul inibe a melatonina (hormônio do sono).',
+              description: 'Celular, TV, computador. A luz azul inibe a melatonina (hormï¿½nio do sono).',
               icon: Icons.phone_android,
               color: const Color(0xFF8A6D1F),
             ),
@@ -109,7 +109,7 @@ class Final2EstresseScreen extends StatelessWidget {
             _RitualCard(
               time: '21h15 - 21h30',
               title: 'Prepare o ambiente',
-              description: 'Diminua as luzes, ajuste a temperatura, deixe o quarto confortável.',
+              description: 'Diminua as luzes, ajuste a temperatura, deixe o quarto confortï¿½vel.',
               icon: Icons.wb_twilight,
               color: const Color(0xFF9D7E2D),
             ),
@@ -117,15 +117,15 @@ class Final2EstresseScreen extends StatelessWidget {
             _RitualCard(
               time: '21h30 - 21h45',
               title: 'Atividade calma',
-              description: 'Leitura leve, música suave, alongamento, meditação ou diário.',
+              description: 'Leitura leve, mï¿½sica suave, alongamento, meditaï¿½ï¿½o ou diï¿½rio.',
               icon: Icons.menu_book,
               color: const Color(0xFFB8953D),
             ),
             const SizedBox(height: 12),
             _RitualCard(
               time: '21h45 - 22h',
-              title: 'Gratidão e planejamento',
-              description: 'Anote 3 coisas boas do dia. Escreva 3 prioridades para amanhã.',
+              title: 'Gratidï¿½o e planejamento',
+              description: 'Anote 3 coisas boas do dia. Escreva 3 prioridades para amanhï¿½.',
               icon: Icons.check_circle_outline,
               color: const Color(0xFFCDAA4B),
             ),
@@ -159,7 +159,7 @@ class Final2EstresseScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'O ritual consistente sinaliza ao cérebro que é hora de desacelerar. Isso fortalece o ritmo circadiano, melhora a qualidade do sono e reduz o cortisol (hormônio do estresse).',
+                    'O ritual consistente sinaliza ao cï¿½rebro que ï¿½ hora de desacelerar. Isso fortalece o ritmo circadiano, melhora a qualidade do sono e reduz o cortisol (hormï¿½nio do estresse).',
                     style: bodyStyle,
                   ),
                 ],
@@ -171,28 +171,28 @@ class Final2EstresseScreen extends StatelessWidget {
             const SizedBox(height: 16),
             _TipCard(
               icon: Icons.schedule,
-              tip: 'Mantenha o mesmo horário todos os dias, inclusive nos fins de semana.',
+              tip: 'Mantenha o mesmo horï¿½rio todos os dias, inclusive nos fins de semana.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.coffee,
-              tip: 'Evite cafeína após as 16h e refeições pesadas 3h antes de dormir.',
+              tip: 'Evite cafeï¿½na apï¿½s as 16h e refeiï¿½ï¿½es pesadas 3h antes de dormir.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.ac_unit,
-              tip: 'Quarto fresco (18-21°C), escuro e silencioso favorece o sono profundo.',
+              tip: 'Quarto fresco (18-21ï¿½C), escuro e silencioso favorece o sono profundo.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.emoji_objects,
-              tip: 'Se não dormir em 20 min, levante e faça algo relaxante. Volte quando sentir sono.',
+              tip: 'Se nï¿½o dormir em 20 min, levante e faï¿½a algo relaxante. Volte quando sentir sono.',
             ),
             const SizedBox(height: 28),
 
             Center(
               child: Text(
-                'O sono é a base da saúde mental.\nInvista no seu descanso.',
+                'O sono ï¿½ a base da saï¿½de mental.\nInvista no seu descanso.',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 15,
@@ -204,7 +204,7 @@ class Final2EstresseScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Center(
               child: Text(
-                'O APP não substitui atendimento psicológico profissional.',
+                'O APP nï¿½o substitui atendimento psicolï¿½gico profissional.',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 13,
@@ -212,8 +212,39 @@ class Final2EstresseScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 28),
+
+            // BotÃ£o para voltar Ã  tela principal
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  // Volta para a tela principal, removendo todas as rotas anteriores
+                  Navigator.pushNamedAndRemoveUntil(context, Routes.home, (route) => false);
+                },
+                icon: const Icon(Icons.home, color: Colors.white),
+                label: Text(
+                  'Voltar para Tela Principal',
+                  style: GoogleFonts.baloo2(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF8A6D1F),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  elevation: 4,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
           ],
         ),
+      ),
       ),
     );
   }

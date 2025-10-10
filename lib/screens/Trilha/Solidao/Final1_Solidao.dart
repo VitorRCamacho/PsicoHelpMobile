@@ -1,6 +1,7 @@
 // lib/screens/Trilha/Solidao/Final1_Solidao.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mente_ifc/core/routes.dart';
 
 class Final1SolidaoScreen extends StatelessWidget {
   const Final1SolidaoScreen({super.key});
@@ -27,17 +28,16 @@ class Final1SolidaoScreen extends StatelessWidget {
       height: 1.5,
     );
 
-    return Scaffold(
-      backgroundColor: const Color(0xFFFDECF3),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF8E3A6E),
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
+    return PopScope(
+      canPop: false, // Bloqueia o botÃ£o voltar do sistema
+      child: Scaffold(
+        backgroundColor: const Color(0xFFFDECF3),
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF8E3A6E),
+          elevation: 0,
+          automaticallyImplyLeading: false,
         title: Text(
-          'Rito da Autocompaixão',
+          'Rito da Autocompaixï¿½o',
           style: GoogleFonts.baloo2(
             fontSize: 22,
             fontWeight: FontWeight.w700,
@@ -71,7 +71,7 @@ class Final1SolidaoScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Autocompaixão',
+                          'Autocompaixï¿½o',
                           style: GoogleFonts.baloo2(
                             fontSize: 24,
                             fontWeight: FontWeight.w900,
@@ -94,16 +94,16 @@ class Final1SolidaoScreen extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
-            // Introdução
-            Text('O que é?', style: titleStyle),
+            // Introduï¿½ï¿½o
+            Text('O que ï¿½?', style: titleStyle),
             const SizedBox(height: 12),
             Text(
-              'Reduz a autocrítica e ativa o sistema de cuidado (ligado à oxitocina) no cérebro, aumentando a resiliência.',
+              'Reduz a autocrï¿½tica e ativa o sistema de cuidado (ligado ï¿½ oxitocina) no cï¿½rebro, aumentando a resiliï¿½ncia.',
               style: bodyStyle,
             ),
             const SizedBox(height: 28),
 
-            // Metáfora dos Pit Stops
+            // Metï¿½fora dos Pit Stops
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -125,7 +125,7 @@ class Final1SolidaoScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Em corridas de Fórmula 1, os pit stops não são falhas - são paradas estratégicas necessárias para ajustes, reabastecimento e continuidade. Seus erros funcionam da mesma forma: são oportunidades de ajuste, aprendizado e recalibração para seguir em frente mais forte.',
+                    'Em corridas de Fï¿½rmula 1, os pit stops nï¿½o sï¿½o falhas - sï¿½o paradas estratï¿½gicas necessï¿½rias para ajustes, reabastecimento e continuidade. Seus erros funcionam da mesma forma: sï¿½o oportunidades de ajuste, aprendizado e recalibraï¿½ï¿½o para seguir em frente mais forte.',
                     style: bodyStyle,
                   ),
                 ],
@@ -134,20 +134,20 @@ class Final1SolidaoScreen extends StatelessWidget {
             const SizedBox(height: 28),
 
             // Como praticar
-            Text('Como praticar autocompaixão', style: titleStyle),
+            Text('Como praticar autocompaixï¿½o', style: titleStyle),
             const SizedBox(height: 16),
             _StepCard(
               number: '1',
-              title: 'Reconheça o momento difícil',
-              description: 'Quando errar ou se sentir mal, pare e reconheça: "Este é um momento de sofrimento" ou "Estou passando por algo difícil".',
+              title: 'Reconheï¿½a o momento difï¿½cil',
+              description: 'Quando errar ou se sentir mal, pare e reconheï¿½a: "Este ï¿½ um momento de sofrimento" ou "Estou passando por algo difï¿½cil".',
               icon: Icons.pause_circle,
               color: const Color(0xFF8E3A6E),
             ),
             const SizedBox(height: 12),
             _StepCard(
               number: '2',
-              title: 'Lembre-se: você não está sozinho',
-              description: 'Todos erram. Todos sofrem. Isso faz parte da experiência humana compartilhada. Não se isole na culpa.',
+              title: 'Lembre-se: vocï¿½ nï¿½o estï¿½ sozinho',
+              description: 'Todos erram. Todos sofrem. Isso faz parte da experiï¿½ncia humana compartilhada. Nï¿½o se isole na culpa.',
               icon: Icons.groups,
               color: const Color(0xFFA04880),
             ),
@@ -155,7 +155,7 @@ class Final1SolidaoScreen extends StatelessWidget {
             _StepCard(
               number: '3',
               title: 'Seja gentil consigo mesmo',
-              description: 'Fale com você como falaria com um amigo querido. "Está tudo bem, você está fazendo o melhor que pode. Erros são parte do crescimento."',
+              description: 'Fale com vocï¿½ como falaria com um amigo querido. "Estï¿½ tudo bem, vocï¿½ estï¿½ fazendo o melhor que pode. Erros sï¿½o parte do crescimento."',
               icon: Icons.self_improvement,
               color: const Color(0xFFB85A8E),
             ),
@@ -163,21 +163,21 @@ class Final1SolidaoScreen extends StatelessWidget {
             _StepCard(
               number: '4',
               title: 'Toque de conforto',
-              description: 'Coloque a mão no coração ou dê um abraço em si mesmo. O toque físico ativa o sistema calmante do corpo.',
+              description: 'Coloque a mï¿½o no coraï¿½ï¿½o ou dï¿½ um abraï¿½o em si mesmo. O toque fï¿½sico ativa o sistema calmante do corpo.',
               icon: Icons.volunteer_activism,
               color: const Color(0xFFC97BA3),
             ),
             const SizedBox(height: 28),
 
-            // Frases de autocompaixão
+            // Frases de autocompaixï¿½o
             Text('Frases para praticar', style: titleStyle),
             const SizedBox(height: 16),
             _PhraseCard(
-              phrase: '"Eu mereço bondade, mesmo quando erro."',
+              phrase: '"Eu mereï¿½o bondade, mesmo quando erro."',
             ),
             const SizedBox(height: 12),
             _PhraseCard(
-              phrase: '"Este pit stop é necessário para eu seguir mais forte."',
+              phrase: '"Este pit stop ï¿½ necessï¿½rio para eu seguir mais forte."',
             ),
             const SizedBox(height: 12),
             _PhraseCard(
@@ -189,7 +189,7 @@ class Final1SolidaoScreen extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
-            // Benefícios
+            // Benefï¿½cios
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -209,7 +209,7 @@ class Final1SolidaoScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'A autocompaixão ativa o sistema parassimpático, reduz cortisol e libera oxitocina. Isso diminui a ruminação mental, aumenta a motivação para mudanças positivas e fortalece a resiliência emocional.',
+                    'A autocompaixï¿½o ativa o sistema parassimpï¿½tico, reduz cortisol e libera oxitocina. Isso diminui a ruminaï¿½ï¿½o mental, aumenta a motivaï¿½ï¿½o para mudanï¿½as positivas e fortalece a resiliï¿½ncia emocional.',
                     style: bodyStyle,
                   ),
                 ],
@@ -222,29 +222,29 @@ class Final1SolidaoScreen extends StatelessWidget {
             const SizedBox(height: 16),
             _TipCard(
               icon: Icons.psychology,
-              tip: 'Autocompaixão não é autoindulgência. É reconhecer a dor sem se afundar nela.',
+              tip: 'Autocompaixï¿½o nï¿½o ï¿½ autoindulgï¿½ncia. ï¿½ reconhecer a dor sem se afundar nela.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.repeat,
-              tip: 'Pratique diariamente, mesmo em pequenos momentos. A repetição treina o cérebro.',
+              tip: 'Pratique diariamente, mesmo em pequenos momentos. A repetiï¿½ï¿½o treina o cï¿½rebro.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.edit_note,
-              tip: 'Escreva uma carta de compaixão para si mesmo quando passar por dificuldades.',
+              tip: 'Escreva uma carta de compaixï¿½o para si mesmo quando passar por dificuldades.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.timer,
-              tip: 'Reserve 5 minutos por dia para meditar sobre autocompaixão.',
+              tip: 'Reserve 5 minutos por dia para meditar sobre autocompaixï¿½o.',
             ),
             const SizedBox(height: 28),
 
             // Aviso final
             Center(
               child: Text(
-                'Você merece a mesma gentileza que oferece aos outros.\nPratique o amor-próprio.',
+                'Vocï¿½ merece a mesma gentileza que oferece aos outros.\nPratique o amor-prï¿½prio.',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 15,
@@ -256,7 +256,7 @@ class Final1SolidaoScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Center(
               child: Text(
-                'O APP não substitui atendimento psicológico profissional.',
+                'O APP nï¿½o substitui atendimento psicolï¿½gico profissional.',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 13,
@@ -264,8 +264,39 @@ class Final1SolidaoScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 28),
+
+            // BotÃ£o para voltar Ã  tela principal
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  // Volta para a tela principal, removendo todas as rotas anteriores
+                  Navigator.pushNamedAndRemoveUntil(context, Routes.home, (route) => false);
+                },
+                icon: const Icon(Icons.home, color: Colors.white),
+                label: Text(
+                  'Voltar para Tela Principal',
+                  style: GoogleFonts.baloo2(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF8E3A6E),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  elevation: 4,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
           ],
         ),
+      ),
       ),
     );
   }

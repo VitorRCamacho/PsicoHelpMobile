@@ -1,6 +1,7 @@
 // lib/screens/Trilha/Raiva/Final2_Raiva.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mente_ifc/core/routes.dart';
 
 class Final2RaivaScreen extends StatelessWidget {
   const Final2RaivaScreen({super.key});
@@ -21,15 +22,14 @@ class Final2RaivaScreen extends StatelessWidget {
       height: 1.5,
     );
 
-    return Scaffold(
-      backgroundColor: const Color(0xFFFFE7DD),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF006D77),
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
+    return PopScope(
+      canPop: false, // Bloqueia o botão voltar do sistema
+      child: Scaffold(
+        backgroundColor: const Color(0xFFFFE7DD),
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF006D77),
+          elevation: 0,
+          automaticallyImplyLeading: false,
         title: Text(
           'Role-Playing Mental',
           style: GoogleFonts.baloo2(
@@ -222,8 +222,39 @@ class Final2RaivaScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 28),
+
+            // Botão para voltar à tela principal
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  // Volta para a tela principal, removendo todas as rotas anteriores
+                  Navigator.pushNamedAndRemoveUntil(context, Routes.home, (route) => false);
+                },
+                icon: const Icon(Icons.home, color: Colors.white),
+                label: Text(
+                  'Voltar para Tela Principal',
+                  style: GoogleFonts.baloo2(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF006D77),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  elevation: 4,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
           ],
         ),
+      ),
       ),
     );
   }

@@ -1,8 +1,8 @@
 // lib/screens/Trilha/Solidao/Pergunta5_Solidao.dart
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
+import 'package:mente_ifc/services/final_manager.dart';
 
 class Pergunta5SolidaoScreen extends StatelessWidget {
   const Pergunta5SolidaoScreen({super.key});
@@ -66,11 +66,17 @@ class Pergunta5SolidaoScreen extends StatelessWidget {
                           _EmotionItem('Estressado(a) 😵‍💫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () {
                             Navigator.pushNamed(context, Routes.estresseP5);
                           }),
-                          _EmotionItem('Sozinho(a) 💛', [const Color(0xFFFF8FB3), const Color(0xFFFF79A8)], () {
-                            // Navega aleatoriamente para uma das telas finais de solidão
-                            final random = Random().nextInt(2);
-                            final route = random == 0 ? Routes.solidaoFinal1 : Routes.solidaoFinal2;
-                            Navigator.pushNamed(context, route);
+                          _EmotionItem('Sozinho(a) 💛', [const Color(0xFFFF8FB3), const Color(0xFFFF79A8)], () async {
+                            // Obtém qual final deve ser mostrado (alterna entre 1 e 2)
+                            final nextFinal = await FinalManager.getNextFinal('solidao');
+                            final route = nextFinal == 1 ? Routes.solidaoFinal1 : Routes.solidaoFinal2;
+
+                            // Marca que esse final foi mostrado
+                            await FinalManager.markFinalShown('solidao', nextFinal);
+
+                            if (context.mounted) {
+                              Navigator.pushNamed(context, route);
+                            }
                           }),
                         ],
                       ),

@@ -115,7 +115,7 @@ class HomeScreen extends StatelessWidget {
 
                   // Bloco de ajuda
                   _HelpBlock(
-                    cvv: '188 (CVV – 24h)',
+                    cvv: '188 (24h, todos os dias)',
                     telefone: '(XX) XXXX-XXXX',
                     onAjuda: () => Navigator.pushNamed(context, Routes.ajuda),
                   ),
@@ -288,8 +288,9 @@ class _HelpBlock extends StatelessWidget {
               children: [
                 Text('Precisa de ajuda?', style: base.copyWith(fontSize: 18)),
                 const SizedBox(height: 6),
-                Text('CVV: $cvv', style: base),
-                Text('Telefone: $telefone', style: base),
+                Text('📞 CVV: $cvv', style: base),
+                Text('💬 Chat: www.cvv.org.br', style: base),
+                Text('✉️ E-mail: atendimento@cvv.org.br', style: base),
               ],
             ),
           ),

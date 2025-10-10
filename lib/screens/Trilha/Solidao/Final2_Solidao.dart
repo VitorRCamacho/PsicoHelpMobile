@@ -1,6 +1,7 @@
 // lib/screens/Trilha/Solidao/Final2_Solidao.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mente_ifc/core/routes.dart';
 
 class Final2SolidaoScreen extends StatelessWidget {
   const Final2SolidaoScreen({super.key});
@@ -27,15 +28,14 @@ class Final2SolidaoScreen extends StatelessWidget {
       height: 1.5,
     );
 
-    return Scaffold(
-      backgroundColor: const Color(0xFFFDECF3),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF8E3A6E),
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
+    return PopScope(
+      canPop: false, // Bloqueia o botÃ£o voltar do sistema
+      child: Scaffold(
+        backgroundColor: const Color(0xFFFDECF3),
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF8E3A6E),
+          elevation: 0,
+          automaticallyImplyLeading: false,
         title: Text(
           'Desafio 7 Dias',
           style: GoogleFonts.baloo2(
@@ -71,7 +71,7 @@ class Final2SolidaoScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Desafio da Não Reclamação',
+                          'Desafio da Nï¿½o Reclamaï¿½ï¿½o',
                           style: GoogleFonts.baloo2(
                             fontSize: 24,
                             fontWeight: FontWeight.w900,
@@ -94,11 +94,11 @@ class Final2SolidaoScreen extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
-            // Introdução
-            Text('O que é?', style: titleStyle),
+            // Introduï¿½ï¿½o
+            Text('O que ï¿½?', style: titleStyle),
             const SizedBox(height: 12),
             Text(
-              'A reclamação crônica e o diálogo interno negativo podem "viciar" a mente. O desafio força o cérebro a buscar ativamente o positivo.',
+              'A reclamaï¿½ï¿½o crï¿½nica e o diï¿½logo interno negativo podem "viciar" a mente. O desafio forï¿½a o cï¿½rebro a buscar ativamente o positivo.',
               style: bodyStyle,
             ),
             const SizedBox(height: 28),
@@ -133,51 +133,51 @@ class Final2SolidaoScreen extends StatelessWidget {
                   const SizedBox(height: 12),
                   _RuleItem(
                     number: '2',
-                    text: 'Se reclamar, recomece do dia 1. Não há punição, apenas recomeço.',
+                    text: 'Se reclamar, recomece do dia 1. Nï¿½o hï¿½ puniï¿½ï¿½o, apenas recomeï¿½o.',
                   ),
                   const SizedBox(height: 12),
                   _RuleItem(
                     number: '3',
-                    text: 'Identifique situações que normalmente te fazem reclamar.',
+                    text: 'Identifique situaï¿½ï¿½es que normalmente te fazem reclamar.',
                   ),
                   const SizedBox(height: 12),
                   _RuleItem(
                     number: '4',
-                    text: 'Substitua reclamações por gratidão ou ações construtivas.',
+                    text: 'Substitua reclamaï¿½ï¿½es por gratidï¿½o ou aï¿½ï¿½es construtivas.',
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 28),
 
-            // Estratégias práticas
-            Text('Estratégias para ter sucesso', style: titleStyle),
+            // Estratï¿½gias prï¿½ticas
+            Text('Estratï¿½gias para ter sucesso', style: titleStyle),
             const SizedBox(height: 16),
             _StrategyCard(
               icon: Icons.swap_horiz,
-              title: 'Substitua reclamações',
-              description: 'Em vez de "Está muito quente", diga "Vou tomar água gelada". Transforme queixas em ações.',
+              title: 'Substitua reclamaï¿½ï¿½es',
+              description: 'Em vez de "Estï¿½ muito quente", diga "Vou tomar ï¿½gua gelada". Transforme queixas em aï¿½ï¿½es.',
               color: const Color(0xFF8E3A6E),
             ),
             const SizedBox(height: 12),
             _StrategyCard(
               icon: Icons.lightbulb,
-              title: 'Busque soluções',
-              description: 'Se algo te incomoda, pergunte: "O que posso fazer a respeito?" Foque no que está sob seu controle.',
+              title: 'Busque soluï¿½ï¿½es',
+              description: 'Se algo te incomoda, pergunte: "O que posso fazer a respeito?" Foque no que estï¿½ sob seu controle.',
               color: const Color(0xFFA04880),
             ),
             const SizedBox(height: 12),
             _StrategyCard(
               icon: Icons.favorite_border,
-              title: 'Pratique gratidão ativa',
+              title: 'Pratique gratidï¿½o ativa',
               description: 'Ao sentir vontade de reclamar, encontre 3 coisas boas no momento presente.',
               color: const Color(0xFFB85A8E),
             ),
             const SizedBox(height: 12),
             _StrategyCard(
               icon: Icons.pause,
-              title: 'Faça uma pausa consciente',
-              description: 'Antes de falar, respire e pergunte: "Isso é reclamação ou solução?"',
+              title: 'Faï¿½a uma pausa consciente',
+              description: 'Antes de falar, respire e pergunte: "Isso ï¿½ reclamaï¿½ï¿½o ou soluï¿½ï¿½o?"',
               color: const Color(0xFFC97BA3),
             ),
             const SizedBox(height: 28),
@@ -205,13 +205,13 @@ class Final2SolidaoScreen extends StatelessWidget {
                       const Icon(Icons.auto_awesome, color: Color(0xFF8E3A6E), size: 28),
                       const SizedBox(width: 12),
                       Expanded(
-                        child: Text('Quando você escorregar', style: subtitleStyle),
+                        child: Text('Quando vocï¿½ escorregar', style: subtitleStyle),
                       ),
                     ],
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Não se culpe! Recomeçar faz parte do processo. Cada tentativa fortalece sua consciência. Anote o que te fez reclamar e prepare-se melhor para a próxima vez.',
+                    'Nï¿½o se culpe! Recomeï¿½ar faz parte do processo. Cada tentativa fortalece sua consciï¿½ncia. Anote o que te fez reclamar e prepare-se melhor para a prï¿½xima vez.',
                     style: bodyStyle,
                   ),
                 ],
@@ -219,7 +219,7 @@ class Final2SolidaoScreen extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
-            // Benefícios
+            // Benefï¿½cios
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -239,7 +239,7 @@ class Final2SolidaoScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'A neuroplasticidade permite que o cérebro forme novos padrões. Quando você para de alimentar circuitos de negatividade, enfraquece-os. Simultaneamente, fortalece redes neurais de gratidão e solução de problemas.',
+                    'A neuroplasticidade permite que o cï¿½rebro forme novos padrï¿½es. Quando vocï¿½ para de alimentar circuitos de negatividade, enfraquece-os. Simultaneamente, fortalece redes neurais de gratidï¿½o e soluï¿½ï¿½o de problemas.',
                     style: bodyStyle,
                   ),
                 ],
@@ -252,22 +252,22 @@ class Final2SolidaoScreen extends StatelessWidget {
             const SizedBox(height: 16),
             _TipCard(
               icon: Icons.groups,
-              tip: 'Convide amigos ou família. O apoio mútuo aumenta as chances de sucesso.',
+              tip: 'Convide amigos ou famï¿½lia. O apoio mï¿½tuo aumenta as chances de sucesso.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.event_note,
-              tip: 'Mantenha um diário do desafio. Anote insights e progressos diários.',
+              tip: 'Mantenha um diï¿½rio do desafio. Anote insights e progressos diï¿½rios.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.sentiment_satisfied_alt,
-              tip: 'Celebre pequenas vitórias. Cada hora sem reclamar é uma conquista.',
+              tip: 'Celebre pequenas vitï¿½rias. Cada hora sem reclamar ï¿½ uma conquista.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.accessibility_new,
-              tip: 'Seja gentil consigo mesmo. O objetivo é progresso, não perfeição.',
+              tip: 'Seja gentil consigo mesmo. O objetivo ï¿½ progresso, nï¿½o perfeiï¿½ï¿½o.',
             ),
             const SizedBox(height: 28),
 
@@ -280,7 +280,7 @@ class Final2SolidaoScreen extends StatelessWidget {
             // Aviso final
             Center(
               child: Text(
-                'Você tem o poder de reprogramar sua mente.\nAceite o desafio!',
+                'Vocï¿½ tem o poder de reprogramar sua mente.\nAceite o desafio!',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 15,
@@ -292,7 +292,7 @@ class Final2SolidaoScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Center(
               child: Text(
-                'O APP não substitui atendimento psicológico profissional.',
+                'O APP nï¿½o substitui atendimento psicolï¿½gico profissional.',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 13,
@@ -300,8 +300,39 @@ class Final2SolidaoScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 28),
+
+            // BotÃ£o para voltar Ã  tela principal
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  // Volta para a tela principal, removendo todas as rotas anteriores
+                  Navigator.pushNamedAndRemoveUntil(context, Routes.home, (route) => false);
+                },
+                icon: const Icon(Icons.home, color: Colors.white),
+                label: Text(
+                  'Voltar para Tela Principal',
+                  style: GoogleFonts.baloo2(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF8E3A6E),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  elevation: 4,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
           ],
         ),
+      ),
       ),
     );
   }

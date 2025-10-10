@@ -1,8 +1,8 @@
 // lib/screens/Trilha/Medo/Pergunta5_Medo.dart
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
+import 'package:mente_ifc/services/final_manager.dart';
 
 class Pergunta5MedoScreen extends StatelessWidget {
   const Pergunta5MedoScreen({super.key});
@@ -60,11 +60,17 @@ class Pergunta5MedoScreen extends StatelessWidget {
                           _EmotionItem('Com raiva 😤', [const Color(0xFFFF8CA1), const Color(0xFFFF6D8A)], () {
                             Navigator.pushNamed(context, Routes.raivaP5);
                           }),
-                          _EmotionItem('Com medo 😟', [const Color(0xFFA78BFA), const Color(0xFF8B6CFF)], () {
-                            // Navega aleatoriamente para uma das telas finais de medo
-                            final random = Random().nextInt(2);
-                            final route = random == 0 ? Routes.medoFinal1 : Routes.medoFinal2;
-                            Navigator.pushNamed(context, route);
+                          _EmotionItem('Com medo 😟', [const Color(0xFFA78BFA), const Color(0xFF8B6CFF)], () async {
+                            // Obtém qual final deve ser mostrado (alterna entre 1 e 2)
+                            final nextFinal = await FinalManager.getNextFinal('medo');
+                            final route = nextFinal == 1 ? Routes.medoFinal1 : Routes.medoFinal2;
+
+                            // Marca que esse final foi mostrado
+                            await FinalManager.markFinalShown('medo', nextFinal);
+
+                            if (context.mounted) {
+                              Navigator.pushNamed(context, route);
+                            }
                           }),
                           _EmotionItem('Estressado(a) 😵‍💫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () {
                             Navigator.pushNamed(context, Routes.estresseP5);

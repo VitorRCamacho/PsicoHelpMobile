@@ -1,8 +1,8 @@
 // lib/screens/Trilha/Estresse/Pergunta5_Estresse.dart
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
+import 'package:mente_ifc/services/final_manager.dart';
 
 class Pergunta5EstresseScreen extends StatelessWidget {
   const Pergunta5EstresseScreen({super.key});
@@ -63,11 +63,17 @@ class Pergunta5EstresseScreen extends StatelessWidget {
                           _EmotionItem('Com medo 😟', [const Color(0xFFA78BFA), const Color(0xFF8B6CFF)], () {
                             Navigator.pushNamed(context, Routes.medoP5);
                           }),
-                          _EmotionItem('Estressado(a) 😵‍💫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () {
-                            // Navega aleatoriamente para uma das telas finais de estresse
-                            final random = Random().nextInt(2);
-                            final route = random == 0 ? Routes.estresseFinal1 : Routes.estresseFinal2;
-                            Navigator.pushNamed(context, route);
+                          _EmotionItem('Estressado(a) 😵‍💫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () async {
+                            // Obtém qual final deve ser mostrado (alterna entre 1 e 2)
+                            final nextFinal = await FinalManager.getNextFinal('estresse');
+                            final route = nextFinal == 1 ? Routes.estresseFinal1 : Routes.estresseFinal2;
+
+                            // Marca que esse final foi mostrado
+                            await FinalManager.markFinalShown('estresse', nextFinal);
+
+                            if (context.mounted) {
+                              Navigator.pushNamed(context, route);
+                            }
                           }),
                           _EmotionItem('Sozinho(a) 💛', [const Color(0xFFFF8FB3), const Color(0xFFFF79A8)], () {
                             Navigator.pushNamed(context, Routes.solidaoP5);

@@ -3,7 +3,12 @@
     "allow": [
       "Bash(flutter analyze:*)",
       "Bash(python:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(flutter pub:*)",
+      "Bash(flutter clean:*)",
+      "Bash(gradlew:*)",
+      "Bash(gradlew.bat:*)",
+      "Bash(flutter build:*)"
     ],
     "deny": [],
     "ask": []

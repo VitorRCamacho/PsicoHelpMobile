@@ -1,8 +1,8 @@
 // lib/screens/Trilha/Raiva/Pergunta5_Raiva.dart
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
+import 'package:mente_ifc/services/final_manager.dart';
 
 class Pergunta5RaivaScreen extends StatelessWidget {
   const Pergunta5RaivaScreen({super.key});
@@ -51,11 +51,17 @@ Widget build(BuildContext context) {
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
                         items: [
-                           _EmotionItem('Com raiva 😤', [const Color(0xFFFF8CA1), const Color(0xFFFF6D8A)], () {
-                            // Navega aleatoriamente para uma das telas finais de raiva
-                            final random = Random().nextInt(2);
-                            final route = random == 0 ? Routes.raivaFinal1 : Routes.raivaFinal2;
-                            Navigator.pushNamed(context, route);
+                           _EmotionItem('Com raiva 😤', [const Color(0xFFFF8CA1), const Color(0xFFFF6D8A)], () async {
+                            // Obtém qual final deve ser mostrado (alterna entre 1 e 2)
+                            final nextFinal = await FinalManager.getNextFinal('raiva');
+                            final route = nextFinal == 1 ? Routes.raivaFinal1 : Routes.raivaFinal2;
+
+                            // Marca que esse final foi mostrado
+                            await FinalManager.markFinalShown('raiva', nextFinal);
+
+                            if (context.mounted) {
+                              Navigator.pushNamed(context, route);
+                            }
                           }),
                            _EmotionItem('Ansioso(a) 😔', [const Color(0xFF31D0C6), const Color(0xFF1FBBC1)], () {
                             Navigator.pushNamed(context, Routes.ansiedadeP5);

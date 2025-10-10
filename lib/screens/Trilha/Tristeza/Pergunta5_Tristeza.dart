@@ -1,8 +1,8 @@
 // lib/screens/Trilha/Tristeza/Pergunta5_Tristeza.dart
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
+import 'package:mente_ifc/services/final_manager.dart';
 
 class Pergunta5TristezaScreen extends StatelessWidget {
   const Pergunta5TristezaScreen({super.key});
@@ -51,11 +51,17 @@ Widget build(BuildContext context) {
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
                         items: [
-                          _EmotionItem('Triste 🥺', [const Color(0xFF6EA8FF), const Color(0xFF4F83FF)], () {
-                            // Navega aleatoriamente para uma das telas finais de tristeza
-                            final random = Random().nextInt(2);
-                            final route = random == 0 ? Routes.tristezaFinal1 : Routes.tristezaFinal2;
-                            Navigator.pushNamed(context, route);
+                          _EmotionItem('Triste 🥺', [const Color(0xFF6EA8FF), const Color(0xFF4F83FF)], () async {
+                            // Obtém qual final deve ser mostrado (alterna entre 1 e 2)
+                            final nextFinal = await FinalManager.getNextFinal('tristeza');
+                            final route = nextFinal == 1 ? Routes.tristezaFinal1 : Routes.tristezaFinal2;
+
+                            // Marca que esse final foi mostrado
+                            await FinalManager.markFinalShown('tristeza', nextFinal);
+
+                            if (context.mounted) {
+                              Navigator.pushNamed(context, route);
+                            }
                           }),
                           _EmotionItem('Ansioso(a) 😔', [const Color(0xFF31D0C6), const Color(0xFF1FBBC1)], () {
                             Navigator.pushNamed(context, Routes.ansiedadeP5);
