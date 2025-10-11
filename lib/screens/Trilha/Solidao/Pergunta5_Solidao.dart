@@ -41,7 +41,7 @@ class Pergunta5SolidaoScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 5, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Solidão - Pergunta 5/5'),
+                      const _SectionLabel(text: 'Trilha Solidão'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'A solidão tem afetado seu humor e sua vontade de realizar atividades que antes gostava?',

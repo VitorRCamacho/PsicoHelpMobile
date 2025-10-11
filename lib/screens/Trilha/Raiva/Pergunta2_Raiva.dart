@@ -40,7 +40,7 @@ Widget build(BuildContext context) {
                     children: [
                       _ProgressIndicator(current: 2, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Raiva - Pergunta 2/5'),
+                      const _SectionLabel(text: 'Trilha Raiva'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Quando algo não acontece do jeito que você espera, você costuma ficar muito bravo(a) ou demora para se acalmar?',

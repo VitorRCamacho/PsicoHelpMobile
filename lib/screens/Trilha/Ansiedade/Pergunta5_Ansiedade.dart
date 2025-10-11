@@ -42,7 +42,7 @@ class Pergunta5AnsiedadeScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 5, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Ansiedade - Pergunta 5/5'),
+                      const _SectionLabel(text: 'Trilha Ansiedade'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você sente que se preocupa com muitas coisas ao mesmo tempo, a ponto de isso incomodar você?',

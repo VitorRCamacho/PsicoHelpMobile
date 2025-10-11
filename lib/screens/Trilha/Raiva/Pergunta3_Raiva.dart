@@ -40,7 +40,7 @@ Widget build(BuildContext context) {
                     children: [
                       _ProgressIndicator(current: 3, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Raiva - Pergunta 3/5'),
+                      const _SectionLabel(text: 'Trilha Raiva'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você sente que, quando está com raiva, acaba fazendo ou dizendo coisas de que se arrepende depois?',

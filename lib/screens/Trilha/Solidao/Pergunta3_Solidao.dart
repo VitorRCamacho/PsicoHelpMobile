@@ -40,7 +40,7 @@ class Pergunta3SolidaoScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 3, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Solidão - Pergunta 3/5'),
+                      const _SectionLabel(text: 'Trilha Solidão'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você tem evitado interações sociais ou se afastado de amigos e familiares?',

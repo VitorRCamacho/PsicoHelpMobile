@@ -40,7 +40,7 @@ class Pergunta2EstresseScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 2, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Estresse - Pergunta 2/5'),
+                      const _SectionLabel(text: 'Trilha Estresse'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você tem dificuldade para relaxar ou descansar adequadamente?',

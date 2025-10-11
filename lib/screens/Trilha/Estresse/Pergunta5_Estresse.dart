@@ -41,7 +41,7 @@ class Pergunta5EstresseScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 5, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Estresse - Pergunta 5/5'),
+                      const _SectionLabel(text: 'Trilha Estresse'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'O estresse tem afetado sua capacidade de se concentrar ou tomar decisões?',

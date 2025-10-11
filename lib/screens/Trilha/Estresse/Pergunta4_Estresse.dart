@@ -40,7 +40,7 @@ class Pergunta4EstresseScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 4, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Estresse - Pergunta 4/5'),
+                      const _SectionLabel(text: 'Trilha Estresse'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você se sente constantemente pressionado(a) ou sob pressão do tempo?',

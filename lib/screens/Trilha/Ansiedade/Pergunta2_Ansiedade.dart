@@ -41,7 +41,7 @@ class Pergunta2AnsiedadeScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 2, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Ansiedade - Pergunta 2/5'),
+                      const _SectionLabel(text: 'Trilha Ansiedade'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você sente que tem dificuldade de controlar suas preocupações no dia a dia?',

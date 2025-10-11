@@ -41,7 +41,7 @@ class Pergunta4AnsiedadeScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 4, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Ansiedade - Pergunta 4/5'),
+                      const _SectionLabel(text: 'Trilha Ansiedade'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você tem sentido dificuldade de ficar parado ou tranquilo, como se estivesse sempre ‘ligado’ ou inquieto?',

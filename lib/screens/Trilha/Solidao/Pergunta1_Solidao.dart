@@ -40,7 +40,7 @@ class Pergunta1SolidaoScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 1, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Solidão - Pergunta 1/5'),
+                      const _SectionLabel(text: 'Trilha Solidão'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você tem se sentido sozinho(a) mesmo quando está cercado(a) de pessoas?',

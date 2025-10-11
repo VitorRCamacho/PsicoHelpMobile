@@ -40,7 +40,7 @@ class Pergunta3EstresseScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 3, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Estresse - Pergunta 3/5'),
+                      const _SectionLabel(text: 'Trilha Estresse'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você tem percebido sintomas físicos como dor de cabeça, tensão muscular ou fadiga?',

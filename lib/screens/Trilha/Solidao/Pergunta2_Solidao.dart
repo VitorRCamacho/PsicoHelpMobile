@@ -40,7 +40,7 @@ class Pergunta2SolidaoScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 2, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Solidão - Pergunta 2/5'),
+                      const _SectionLabel(text: 'Trilha Solidão'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você sente falta de conexões significativas ou de alguém com quem compartilhar seus sentimentos?',

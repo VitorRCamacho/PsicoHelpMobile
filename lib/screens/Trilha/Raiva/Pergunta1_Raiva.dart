@@ -40,7 +40,7 @@ Widget build(BuildContext context) {
                     children: [
                       _ProgressIndicator(current: 1, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Raiva - Pergunta 1/5'),
+                      const _SectionLabel(text: 'Trilha Raiva'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Recentemente, você sentiu uma irritação forte ou explosões de raiva que foram difíceis de controlar?',

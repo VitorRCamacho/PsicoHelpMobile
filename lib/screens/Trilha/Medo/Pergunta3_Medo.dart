@@ -40,7 +40,7 @@ class Pergunta3MedoScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 3, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Medo - Pergunta 3/5'),
+                      const _SectionLabel(text: 'Trilha Medo'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você tem sentido sintomas físicos como coração acelerado, suor frio ou tremores?',

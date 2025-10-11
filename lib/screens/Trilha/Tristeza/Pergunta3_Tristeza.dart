@@ -40,7 +40,7 @@ Widget build(BuildContext context) {
                     children: [
                       _ProgressIndicator(current: 3, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Tristeza - Pergunta 3/5'),
+                      const _SectionLabel(text: 'Trilha Tristeza'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você perdeu o interesse ou o prazer em atividades que antes achava divertidas ou importantes?',

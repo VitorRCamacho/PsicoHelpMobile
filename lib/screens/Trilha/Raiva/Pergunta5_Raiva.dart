@@ -41,7 +41,7 @@ Widget build(BuildContext context) {
                     children: [
                       _ProgressIndicator(current: 5, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Raiva - Pergunta 5/5'),
+                      const _SectionLabel(text: 'Trilha Raiva'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Após um episódio de raiva, você costuma se sentir culpado(a) ou triste pelo que aconteceu?',

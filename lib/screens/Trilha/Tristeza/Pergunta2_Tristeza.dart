@@ -40,7 +40,7 @@ Widget build(BuildContext context) {
                     children: [
                       _ProgressIndicator(current: 2, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Tristeza - Pergunta 2/5'),
+                      const _SectionLabel(text: 'Trilha Tristeza'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Nos últimos dias, você sentiu-se sem esperança em relação ao futuro ou às coisas que costumava esperar com ansiedade?',

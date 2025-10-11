@@ -40,7 +40,7 @@ Widget build(BuildContext context) {
                     children: [
                       _ProgressIndicator(current: 4, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Tristeza - Pergunta 4/5'),
+                      const _SectionLabel(text: 'Trilha Tristeza'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você tem sentido falta de energia, cansaço excessivo ou dificuldade de se concentrar nas aulas, mesmo após descansar?',

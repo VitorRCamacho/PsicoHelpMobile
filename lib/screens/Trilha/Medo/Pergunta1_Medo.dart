@@ -40,7 +40,7 @@ class Pergunta1MedoScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 1, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Medo - Pergunta 1/5'),
+                      const _SectionLabel(text: 'Trilha Medo'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você está sentindo medo de algo específico ou uma sensação geral de insegurança?',

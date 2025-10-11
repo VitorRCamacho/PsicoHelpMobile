@@ -40,7 +40,7 @@ class Pergunta1EstresseScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 1, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Estresse - Pergunta 1/5'),
+                      const _SectionLabel(text: 'Trilha Estresse'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você tem se sentido sobrecarregado(a) com as demandas do seu dia a dia?',

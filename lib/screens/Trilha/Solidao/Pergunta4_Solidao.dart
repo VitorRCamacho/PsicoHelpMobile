@@ -40,7 +40,7 @@ class Pergunta4SolidaoScreen extends StatelessWidget {
                     children: [
                       _ProgressIndicator(current: 4, total: 5),
                       const SizedBox(height: _gapMd),
-                      const _SectionLabel(text: 'Trilha Solidão - Pergunta 4/5'),
+                      const _SectionLabel(text: 'Trilha Solidão'),
                       const SizedBox(height: _gapMd),
                       Text(
                         'Você sente que ninguém realmente te entende ou se importa com você?',
