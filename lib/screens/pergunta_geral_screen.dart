@@ -39,13 +39,27 @@ class PerguntaGeralScreen extends StatelessWidget {
                   child: ListView(
                     padding: const EdgeInsets.only(top: _gapLg, bottom: _gapLg),
                     children: [
-                      const _SectionLabel(text: 'Pergunta geral'),
-                      const SizedBox(height: _gapMd),
+                      const SizedBox(height: 8),
+
+                      // Título mais amigável para jovens
+                      Text(
+                        'E aí, como você\nestá se sentindo\nhoje? 💭',
+                        textAlign: TextAlign.center,
+                        style: titleStyle.copyWith(fontSize: 40, height: 1.15),
+                      ),
+
+                      const SizedBox(height: 12),
 
                       Text(
-                        'Você se consideraria agora próximo de qual emoção? 🤔',
+                        'Escolha a emoção que mais combina com você agora',
                         textAlign: TextAlign.center,
-                        style: titleStyle,
+                        style: GoogleFonts.baloo2(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white.withOpacity(0.95),
+                          height: 1.3,
+                          shadows: [Shadow(color: Colors.black.withOpacity(.15), blurRadius: 6)],
+                        ),
                       ),
 
                       const SizedBox(height: _gapXl),
@@ -183,11 +197,11 @@ class _EmotionGrid extends StatelessWidget {
   }
 }
 
-class _EmotionButton extends StatelessWidget {
+class _EmotionButton extends StatefulWidget {
   final String label;
   final List<Color> colors;
   final VoidCallback onTap;
-  
+
   const _EmotionButton({
     required this.label,
     required this.colors,
@@ -195,41 +209,85 @@ class _EmotionButton extends StatelessWidget {
   });
 
   @override
+  State<_EmotionButton> createState() => _EmotionButtonState();
+}
+
+class _EmotionButtonState extends State<_EmotionButton> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+  bool _isPressed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 150),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.95).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final style = GoogleFonts.baloo2(
       color: Colors.white,
-      fontSize: 20,
+      fontSize: 19,
       fontWeight: FontWeight.w900,
-      height: 1.05,
+      height: 1.1,
       letterSpacing: .3,
       shadows: [Shadow(color: Colors.black.withOpacity(.25), blurRadius: 8)],
     );
 
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: colors,
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(22),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(.18),
-            blurRadius: 14,
-            offset: const Offset(0, 8),
+    return ScaleTransition(
+      scale: _scaleAnimation,
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: widget.colors,
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-        ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
           borderRadius: BorderRadius.circular(22),
-          onTap: onTap,
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              child: Text(label, textAlign: TextAlign.center, style: style),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(_isPressed ? .12 : .18),
+              blurRadius: _isPressed ? 10 : 14,
+              offset: Offset(0, _isPressed ? 4 : 8),
+            ),
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(22),
+            onTap: widget.onTap,
+            onTapDown: (_) {
+              setState(() => _isPressed = true);
+              _controller.forward();
+            },
+            onTapUp: (_) {
+              setState(() => _isPressed = false);
+              _controller.reverse();
+            },
+            onTapCancel: () {
+              setState(() => _isPressed = false);
+              _controller.reverse();
+            },
+            splashColor: Colors.white.withOpacity(0.2),
+            highlightColor: Colors.white.withOpacity(0.1),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                child: Text(widget.label, textAlign: TextAlign.center, style: style),
+              ),
             ),
           ),
         ),

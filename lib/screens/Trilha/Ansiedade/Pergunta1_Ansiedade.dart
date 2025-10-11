@@ -44,7 +44,7 @@ class Pergunta1AnsiedadeScreen extends StatelessWidget {
                       const _SectionLabel(text: 'Trilha Ansiedade - Pergunta 1/5'),
                       const SizedBox(height: _gapMd),
                       Text(
-                        'Nos últimos dias, você se sentiu muito ansioso ou nervoso sem um motivo claro?',
+                        'Nos últimos dias, você se sentiu muito ansioso ou nervoso sem um motivo?',
                         textAlign: TextAlign.center,
                         style: titleStyle,
                       ),
