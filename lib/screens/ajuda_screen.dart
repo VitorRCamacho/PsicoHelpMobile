@@ -106,8 +106,8 @@ class AjudaScreen extends StatelessWidget {
               contacts: [
                 'Endereço: R. Cruz e Souza, 100 - CENTRO, Fraiburgo - SC, 89580-000',
                 'Telefone: (49) 3202-8800',
-                'site: https://www.fraiburgo.ifc.edu.br/'
-                'E-mail: XXX@ifc.edu.br',
+                'site: https://www.fraiburgo.ifc.edu.br/',
+                'E-mail: sisae.fraiburgo@ifc.edu.br',
               ],
               color: const Color(0xFF00B3C8),
             ),
@@ -121,7 +121,7 @@ class AjudaScreen extends StatelessWidget {
               title: 'Psicólogo(a) do IFC',
               subtitle: 'Atendimento especializado para estudantes',
               contacts: [
-                'Nome: XXX',
+                'Nome: Davi Penno',
                 'Horário: XXX',
                 'Telefone/Ramal: XXX',
                 'E-mail: davi.penno@ifc.edu.br',

@@ -56,7 +56,7 @@ class SobreCriadoresScreen extends StatelessWidget {
                 children: [
                   _InfoRow(label: 'Nome', value: 'Rafael Leonardo Vivian'),
                   _InfoRow(label: 'Titulação', value: 'Doutor'),
-                  _InfoRow(label: 'Email', value: 'Vitor.rodcam@gmail.com'),
+                  _InfoRow(label: 'Email', value: 'rafael.vivian@ifc.edu.br'),
                 ],
               ),
 
