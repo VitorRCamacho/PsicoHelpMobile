@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Ansiedade/Pergunta1_Ansiedade.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -50,14 +51,18 @@ class Pergunta1AnsiedadeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: const [
-                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP2),
-                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP2),
-                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP2),
-                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP2),
-                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP2),
-                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP2),
-                        ],
+                        items: () {
+                          final items = [
+                            const _EmotionItem('Ando tenso sem motivo aparente 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP2),
+                            const _EmotionItem('Ando mais desanimado do que nervoso 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP2),
+                            const _EmotionItem('Não nervoso, mas ando sem paciência 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP2),
+                            const _EmotionItem('Só fico nervoso diante de perigo 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP2),
+                            const _EmotionItem('Não ando nervoso, só sobrecarregado 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP2),
+                            const _EmotionItem('Não nervoso, só me sinto sozinho 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP2),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                       const SizedBox(height: _gapXl),
                       const Divider(color: Colors.black, thickness: 1.2), // <-- MUDOU A COR DA LINHA

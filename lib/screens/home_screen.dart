@@ -162,6 +162,31 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 8),
+                  // Botão Sobre os Criadores
+                  TextButton.icon(
+                    onPressed: () => Navigator.pushNamed(context, Routes.sobreCriadores),
+                    icon: const Icon(Icons.info_outline, size: 14, color: Colors.white70),
+                    label: Text(
+                      'Sobre os Criadores',
+                      style: GoogleFonts.baloo2(
+                        color: Colors.white70,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black54,
+                            blurRadius: 6,
+                          ),
+                        ],
+                      ),
+                    ),
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      minimumSize: Size.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                  ),
                 ],
               ),
             ),

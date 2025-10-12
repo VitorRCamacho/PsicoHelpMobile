@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Solidao/Pergunta1_Solidao.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -48,33 +49,19 @@ class Pergunta1SolidaoScreen extends StatelessWidget {
                         style: titleStyle,
                       ),
                       const SizedBox(height: _gapXl),
-                      _EmotionGrid(
-                        items: const [
-                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP2),
-                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP2),
-                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP2),
-                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP2),
-                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP2),
-                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP2),
-                        ],
-                      ),
-                      const SizedBox(height: _gapXl),
-                      const Divider(color: Colors.black, thickness: 1.2),
-                      const SizedBox(height: _gapMd),
-                      const _HelpBlock(),
-                      const SizedBox(height: _gapSm),
-                      Opacity(
-                        opacity: .9,
-                        child: Text(
-                          'O APP não substitui atendimento psicológico.',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.baloo2(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 13,
-                            height: 1.1,
-                          ),
-                        ),
+                                            _EmotionGrid(
+                        items: () {
+                          final items = [
+                            const _EmotionItem('Com gente por perto, ainda me sinto só 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP2),
+                            const _EmotionItem('Não, ter gente por perto até me acalma 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP2),
+                            const _EmotionItem('Não, com os outros não me sinto sozinho 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP2),
+                            const _EmotionItem('Não, só fico irritado mesmo com as pessoas 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP2),
+                            const _EmotionItem('Não, é mais nervosismo quando estou com muita gente 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP2),
+                            const _EmotionItem('Não, tendo companhia já me sinto bem 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP2),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                     ],
                   ),

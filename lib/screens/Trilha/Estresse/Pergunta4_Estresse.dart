@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Estresse/Pergunta4_Estresse.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -48,33 +49,19 @@ class Pergunta4EstresseScreen extends StatelessWidget {
                         style: titleStyle,
                       ),
                       const SizedBox(height: _gapXl),
-                      _EmotionGrid(
-                        items: const [
-                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP5),
-                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP5),
-                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP5),
-                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP5),
-                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP5),
-                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP5),
-                        ],
-                      ),
-                      const SizedBox(height: _gapXl),
-                      const Divider(color: Colors.black, thickness: 1.2),
-                      const SizedBox(height: _gapMd),
-                      const _HelpBlock(),
-                      const SizedBox(height: _gapSm),
-                      Opacity(
-                        opacity: .9,
-                        child: Text(
-                          'O APP não substitui atendimento psicológico.',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.baloo2(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 13,
-                            height: 1.1,
-                          ),
-                        ),
+                                            _EmotionGrid(
+                        items: () {
+                          final items = [
+                            const _EmotionItem('O estresse tá prejudicando meu rendimento 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP5),
+                            const _EmotionItem('Às vezes perco o foco por ansiedade 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP5),
+                            const _EmotionItem('Meu desempenho caiu, mas é pela tristeza 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP5),
+                            const _EmotionItem('Não, minha raiva não atrapalha meu desempenho 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP5),
+                            const _EmotionItem('Só travo em apresentações, de resto tudo ok 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP5),
+                            const _EmotionItem('Ando desmotivado demais pra ir bem 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP5),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                     ],
                   ),

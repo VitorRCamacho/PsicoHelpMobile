@@ -5,6 +5,7 @@ class Routes {
   static const String guia = '/guia'; // Vai para pergunta_geral_screen
   static const String ajuda = '/ajuda';
   static const String respiracao = '/respiracao';
+  static const String sobreCriadores = '/sobre-criadores';
   
   // TRILHA DE ANSIEDADE
   static const String ansiedadeP1 = '/ansiedade/pergunta1';

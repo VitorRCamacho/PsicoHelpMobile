@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Estresse/Pergunta5_Estresse.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -49,54 +50,26 @@ class Pergunta5EstresseScreen extends StatelessWidget {
                         style: titleStyle,
                       ),
                       const SizedBox(height: _gapXl),
-                      _EmotionGrid(
-                        items: [
-                          _EmotionItem('Ansioso(a) 😔', [const Color(0xFF31D0C6), const Color(0xFF1FBBC1)], () {
-                            Navigator.pushNamed(context, Routes.ansiedadeP5);
-                          }),
-                          _EmotionItem('Triste 🥺', [const Color(0xFF6EA8FF), const Color(0xFF4F83FF)], () {
-                            Navigator.pushNamed(context, Routes.tristezaP5);
-                          }),
-                          _EmotionItem('Com raiva 😤', [const Color(0xFFFF8CA1), const Color(0xFFFF6D8A)], () {
-                            Navigator.pushNamed(context, Routes.raivaP5);
-                          }),
-                          _EmotionItem('Com medo 😟', [const Color(0xFFA78BFA), const Color(0xFF8B6CFF)], () {
-                            Navigator.pushNamed(context, Routes.medoP5);
-                          }),
-                          _EmotionItem('Estressado(a) 😵‍💫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () async {
-                            // Obtém qual final deve ser mostrado (alterna entre 1 e 2)
-                            final nextFinal = await FinalManager.getNextFinal('estresse');
-                            final route = nextFinal == 1 ? Routes.estresseFinal1 : Routes.estresseFinal2;
-
-                            // Marca que esse final foi mostrado
-                            await FinalManager.markFinalShown('estresse', nextFinal);
-
-                            if (context.mounted) {
-                              Navigator.pushNamed(context, route);
-                            }
-                          }),
-                          _EmotionItem('Sozinho(a) 💛', [const Color(0xFFFF8FB3), const Color(0xFFFF79A8)], () {
-                            Navigator.pushNamed(context, Routes.solidaoP5);
-                          }),
-                        ],
-                      ),
-                      const SizedBox(height: _gapXl),
-                      const Divider(color: Colors.black, thickness: 1.2),
-                      const SizedBox(height: _gapMd),
-                      const _HelpBlock(),
-                      const SizedBox(height: _gapSm),
-                      Opacity(
-                        opacity: .9,
-                        child: Text(
-                          'O APP não substitui atendimento psicológico.',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.baloo2(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 13,
-                            height: 1.1,
-                          ),
-                        ),
+                                            _EmotionGrid(
+                        items: () {
+                          final items = [
+                            _EmotionItem('Não consigo nem tirar um tempo pra mim 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], () async {
+                              final nextFinal = await FinalManager.getNextFinal('estresse');
+                              final route = nextFinal == 1 ? Routes.estresseFinal1 : Routes.estresseFinal2;
+                              await FinalManager.markFinalShown('estresse', nextFinal);
+                              if (context.mounted) {
+                                Navigator.pushNamed(context, route);
+                              }
+                            }),
+                            _EmotionItem('Até tenho tempo, mas não relaxo a mente 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], () => Navigator.pushNamed(context, Routes.ansiedadeP5)),
+                            _EmotionItem('Não tenho energia pra nada que gostava 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], () => Navigator.pushNamed(context, Routes.tristezaP5)),
+                            _EmotionItem('Não, consigo me cuidar de boa 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], () => Navigator.pushNamed(context, Routes.raivaP5)),
+                            _EmotionItem('Tempo tenho; cabeça não desliga nunca 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], () => Navigator.pushNamed(context, Routes.medoP5)),
+                            _EmotionItem('Tenho tempo, mas me falta ânimo 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], () => Navigator.pushNamed(context, Routes.solidaoP5)),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                     ],
                   ),
@@ -164,7 +137,7 @@ class _EmotionItem {
   final String label;
   final List<Color> colors;
   final VoidCallback onTap;
-  const _EmotionItem(this.label, this.colors, this.onTap);
+  _EmotionItem(this.label, this.colors, this.onTap);
 }
 
 class _EmotionGrid extends StatelessWidget {

@@ -8,7 +8,14 @@
       "Bash(flutter clean:*)",
       "Bash(gradlew:*)",
       "Bash(gradlew.bat:*)",
-      "Bash(flutter build:*)"
+      "Bash(flutter build:*)",
+      "Bash(del update_script.py)",
+      "Bash(for file in lib/screens/Trilha/Estresse/Pergunta{2,3,4}_Estresse.dart lib/screens/Trilha/Solidao/Pergunta{1,2,3,4}_Solidao.dart)",
+      "Bash(do echo \"Processing $file\")",
+      "Bash(done)",
+      "Bash(for file in \"E:\\Projetos\\TCC\\PsicoHelpMobile\\lib\\screens\\Trilha\\Tristeza\\Pergunta\"{2,3,4,5}\"_Tristeza.dart\")",
+      "Bash(do echo \"Fixing: $file\")",
+      "Bash(del fix_syntax.py)"
     ],
     "deny": [],
     "ask": []

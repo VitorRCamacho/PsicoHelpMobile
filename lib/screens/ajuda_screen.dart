@@ -104,8 +104,9 @@ class AjudaScreen extends StatelessWidget {
               title: 'IFC - Campus Fraiburgo',
               subtitle: 'Atendimento presencial e suporte',
               contacts: [
-                'Endereço: XXX',
-                'Telefone: (XX) XXXX-XXXX',
+                'Endereço: R. Cruz e Souza, 100 - CENTRO, Fraiburgo - SC, 89580-000',
+                'Telefone: (49) 3202-8800',
+                'site: https://www.fraiburgo.ifc.edu.br/'
                 'E-mail: XXX@ifc.edu.br',
               ],
               color: const Color(0xFF00B3C8),
@@ -123,7 +124,7 @@ class AjudaScreen extends StatelessWidget {
                 'Nome: XXX',
                 'Horário: XXX',
                 'Telefone/Ramal: XXX',
-                'E-mail: XXX@ifc.edu.br',
+                'E-mail: davi.penno@ifc.edu.br',
               ],
               color: const Color(0xFF7B61FF),
             ),

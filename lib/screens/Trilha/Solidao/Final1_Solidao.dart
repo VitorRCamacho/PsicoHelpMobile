@@ -37,7 +37,7 @@ class Final1SolidaoScreen extends StatelessWidget {
           elevation: 0,
           automaticallyImplyLeading: false,
         title: Text(
-          'Rito da Autocompaix�o',
+          'Rito da Autocompaixão',
           style: GoogleFonts.baloo2(
             fontSize: 22,
             fontWeight: FontWeight.w700,
@@ -71,7 +71,7 @@ class Final1SolidaoScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Autocompaix�o',
+                          'Autocompaixão',
                           style: GoogleFonts.baloo2(
                             fontSize: 24,
                             fontWeight: FontWeight.w900,
@@ -94,16 +94,16 @@ class Final1SolidaoScreen extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
-            // Introdu��o
-            Text('O que �?', style: titleStyle),
+            // Introdução
+            Text('O que é?', style: titleStyle),
             const SizedBox(height: 12),
             Text(
-              'Reduz a autocr�tica e ativa o sistema de cuidado (ligado � oxitocina) no c�rebro, aumentando a resili�ncia.',
+              'Reduz a autocrítica e ativa o sistema de cuidado (ligado à oxitocina) no cérebro, aumentando a resiliência.',
               style: bodyStyle,
             ),
             const SizedBox(height: 28),
 
-            // Met�fora dos Pit Stops
+            // Metáfora dos Pit Stops
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -125,7 +125,7 @@ class Final1SolidaoScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Em corridas de F�rmula 1, os pit stops n�o s�o falhas - s�o paradas estrat�gicas necess�rias para ajustes, reabastecimento e continuidade. Seus erros funcionam da mesma forma: s�o oportunidades de ajuste, aprendizado e recalibra��o para seguir em frente mais forte.',
+                    'Em corridas de Fórmula 1, os pit stops não são falhas - são paradas estratégicas necessárias para ajustes, reabastecimento e continuidade. Seus erros funcionam da mesma forma: são oportunidades de ajuste, aprendizado e recalibração para seguir em frente mais forte.',
                     style: bodyStyle,
                   ),
                 ],
@@ -134,20 +134,20 @@ class Final1SolidaoScreen extends StatelessWidget {
             const SizedBox(height: 28),
 
             // Como praticar
-            Text('Como praticar autocompaix�o', style: titleStyle),
+            Text('Como praticar autocompaixão', style: titleStyle),
             const SizedBox(height: 16),
             _StepCard(
               number: '1',
-              title: 'Reconhe�a o momento dif�cil',
-              description: 'Quando errar ou se sentir mal, pare e reconhe�a: "Este � um momento de sofrimento" ou "Estou passando por algo dif�cil".',
+              title: 'Reconheça o momento difícil',
+              description: 'Quando errar ou se sentir mal, pare e reconheça: "Este é um momento de sofrimento" ou "Estou passando por algo difícil".',
               icon: Icons.pause_circle,
               color: const Color(0xFF8E3A6E),
             ),
             const SizedBox(height: 12),
             _StepCard(
               number: '2',
-              title: 'Lembre-se: voc� n�o est� sozinho',
-              description: 'Todos erram. Todos sofrem. Isso faz parte da experi�ncia humana compartilhada. N�o se isole na culpa.',
+              title: 'Lembre-se: você não está sozinho',
+              description: 'Todos erram. Todos sofrem. Isso faz parte da experiência humana compartilhada. Não se isole na culpa.',
               icon: Icons.groups,
               color: const Color(0xFFA04880),
             ),
@@ -155,7 +155,7 @@ class Final1SolidaoScreen extends StatelessWidget {
             _StepCard(
               number: '3',
               title: 'Seja gentil consigo mesmo',
-              description: 'Fale com voc� como falaria com um amigo querido. "Est� tudo bem, voc� est� fazendo o melhor que pode. Erros s�o parte do crescimento."',
+              description: 'Fale com você como falaria com um amigo querido. "Está tudo bem, você está fazendo o melhor que pode. Erros são parte do crescimento."',
               icon: Icons.self_improvement,
               color: const Color(0xFFB85A8E),
             ),
@@ -163,21 +163,21 @@ class Final1SolidaoScreen extends StatelessWidget {
             _StepCard(
               number: '4',
               title: 'Toque de conforto',
-              description: 'Coloque a m�o no cora��o ou d� um abra�o em si mesmo. O toque f�sico ativa o sistema calmante do corpo.',
+              description: 'Coloque a mão no coração ou dê um abraço em si mesmo. O toque físico ativa o sistema calmante do corpo.',
               icon: Icons.volunteer_activism,
               color: const Color(0xFFC97BA3),
             ),
             const SizedBox(height: 28),
 
-            // Frases de autocompaix�o
+            // Frases de autocompaixão
             Text('Frases para praticar', style: titleStyle),
             const SizedBox(height: 16),
             _PhraseCard(
-              phrase: '"Eu mere�o bondade, mesmo quando erro."',
+              phrase: '"Eu mereço bondade, mesmo quando erro."',
             ),
             const SizedBox(height: 12),
             _PhraseCard(
-              phrase: '"Este pit stop � necess�rio para eu seguir mais forte."',
+              phrase: '"Este pit stop é necessário para eu seguir mais forte."',
             ),
             const SizedBox(height: 12),
             _PhraseCard(
@@ -189,7 +189,7 @@ class Final1SolidaoScreen extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
-            // Benef�cios
+            // Benefícios
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -209,7 +209,7 @@ class Final1SolidaoScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'A autocompaix�o ativa o sistema parassimp�tico, reduz cortisol e libera oxitocina. Isso diminui a rumina��o mental, aumenta a motiva��o para mudan�as positivas e fortalece a resili�ncia emocional.',
+                    'A autocompaixão ativa o sistema parassimpático, reduz cortisol e libera oxitocina. Isso diminui a ruminação mental, aumenta a motivação para mudanças positivas e fortalece a resiliência emocional.',
                     style: bodyStyle,
                   ),
                 ],
@@ -222,29 +222,29 @@ class Final1SolidaoScreen extends StatelessWidget {
             const SizedBox(height: 16),
             _TipCard(
               icon: Icons.psychology,
-              tip: 'Autocompaix�o n�o � autoindulg�ncia. � reconhecer a dor sem se afundar nela.',
+              tip: 'Autocompaixão não é autoindulgência. É reconhecer a dor sem se afundar nela.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.repeat,
-              tip: 'Pratique diariamente, mesmo em pequenos momentos. A repeti��o treina o c�rebro.',
+              tip: 'Pratique diariamente, mesmo em pequenos momentos. A repetição treina o cérebro.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.edit_note,
-              tip: 'Escreva uma carta de compaix�o para si mesmo quando passar por dificuldades.',
+              tip: 'Escreva uma carta de compaixão para si mesmo quando passar por dificuldades.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.timer,
-              tip: 'Reserve 5 minutos por dia para meditar sobre autocompaix�o.',
+              tip: 'Reserve 5 minutos por dia para meditar sobre autocompaixão.',
             ),
             const SizedBox(height: 28),
 
             // Aviso final
             Center(
               child: Text(
-                'Voc� merece a mesma gentileza que oferece aos outros.\nPratique o amor-pr�prio.',
+                'Você merece a mesma gentileza que oferece aos outros.\nPratique o amor-próprio.',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 15,
@@ -256,7 +256,7 @@ class Final1SolidaoScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Center(
               child: Text(
-                'O APP n�o substitui atendimento psicol�gico profissional.',
+                'O APP não substitui atendimento psicológico profissional.',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 13,

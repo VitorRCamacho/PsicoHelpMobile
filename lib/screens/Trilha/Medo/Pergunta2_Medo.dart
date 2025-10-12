@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Medo/Pergunta2_Medo.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -49,14 +50,18 @@ class Pergunta2MedoScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: const [
-                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP3),
-                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP3),
-                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP3),
-                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP3),
-                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP3),
-                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP3),
-                        ],
+                        items: () {
+                          final items = [
+                            const _EmotionItem('Por medo, evito várias situações 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP3),
+                            const _EmotionItem('Não evito lugares, só vou apreensivo 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP3),
+                            const _EmotionItem('Não evito por medo, só quando desanimado 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP3),
+                            const _EmotionItem('Não evito nada, mas perco a paciência 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP3),
+                            const _EmotionItem('Não, não evito nada por medo 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP3),
+                            const _EmotionItem('Não evito lugares, só me sinto deslocado 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP3),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                       const SizedBox(height: _gapXl),
                       const Divider(color: Colors.black, thickness: 1.2),
@@ -68,12 +73,7 @@ class Pergunta2MedoScreen extends StatelessWidget {
                         child: Text(
                           'O APP não substitui atendimento psicológico.',
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.baloo2(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 13,
-                            height: 1.1,
-                          ),
+                          style: GoogleFonts.baloo2(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13, height: 1.1),
                         ),
                       ),
                     ],

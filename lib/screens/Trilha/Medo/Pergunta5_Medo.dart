@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Medo/Pergunta5_Medo.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -50,35 +51,25 @@ class Pergunta5MedoScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: [
-                          _EmotionItem('Ansioso(a) 😔', [const Color(0xFF31D0C6), const Color(0xFF1FBBC1)], () {
-                            Navigator.pushNamed(context, Routes.ansiedadeP5);
-                          }),
-                          _EmotionItem('Triste 🥺', [const Color(0xFF6EA8FF), const Color(0xFF4F83FF)], () {
-                            Navigator.pushNamed(context, Routes.tristezaP5);
-                          }),
-                          _EmotionItem('Com raiva 😤', [const Color(0xFFFF8CA1), const Color(0xFFFF6D8A)], () {
-                            Navigator.pushNamed(context, Routes.raivaP5);
-                          }),
-                          _EmotionItem('Com medo 😟', [const Color(0xFFA78BFA), const Color(0xFF8B6CFF)], () async {
-                            // Obtém qual final deve ser mostrado (alterna entre 1 e 2)
-                            final nextFinal = await FinalManager.getNextFinal('medo');
-                            final route = nextFinal == 1 ? Routes.medoFinal1 : Routes.medoFinal2;
-
-                            // Marca que esse final foi mostrado
-                            await FinalManager.markFinalShown('medo', nextFinal);
-
-                            if (context.mounted) {
-                              Navigator.pushNamed(context, route);
-                            }
-                          }),
-                          _EmotionItem('Estressado(a) 😵‍💫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () {
-                            Navigator.pushNamed(context, Routes.estresseP5);
-                          }),
-                          _EmotionItem('Sozinho(a) 💛', [const Color(0xFFFF8FB3), const Color(0xFFFF79A8)], () {
-                            Navigator.pushNamed(context, Routes.solidaoP5);
-                          }),
-                        ],
+                        items: () {
+                          final items = [
+                            _EmotionItem('Morro de medo de falar em público 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], () async {
+                              final nextFinal = await FinalManager.getNextFinal('medo');
+                              final route = nextFinal == 1 ? Routes.medoFinal1 : Routes.medoFinal2;
+                              await FinalManager.markFinalShown('medo', nextFinal);
+                              if (context.mounted) {
+                                Navigator.pushNamed(context, route);
+                              }
+                            }),
+                            _EmotionItem('Fico ansioso em público, ainda encaro 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], () => Navigator.pushNamed(context, Routes.ansiedadeP5)),
+                            _EmotionItem('Não é medo, só falta ânimo pra socializar 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], () => Navigator.pushNamed(context, Routes.tristezaP5)),
+                            _EmotionItem('Não tenho medo não, falo até demais 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], () => Navigator.pushNamed(context, Routes.raivaP5)),
+                            _EmotionItem('Não, até gosto de conhecer gente nova 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], () => Navigator.pushNamed(context, Routes.estresseP5)),
+                            _EmotionItem('Não fujo de gente, só me sinto invisível 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], () => Navigator.pushNamed(context, Routes.solidaoP5)),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                       const SizedBox(height: _gapXl),
                       const Divider(color: Colors.black, thickness: 1.2),
@@ -90,12 +81,7 @@ class Pergunta5MedoScreen extends StatelessWidget {
                         child: Text(
                           'O APP não substitui atendimento psicológico.',
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.baloo2(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 13,
-                            height: 1.1,
-                          ),
+                          style: GoogleFonts.baloo2(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13, height: 1.1),
                         ),
                       ),
                     ],
@@ -164,7 +150,7 @@ class _EmotionItem {
   final String label;
   final List<Color> colors;
   final VoidCallback onTap;
-  const _EmotionItem(this.label, this.colors, this.onTap);
+  _EmotionItem(this.label, this.colors, this.onTap);
 }
 
 class _EmotionGrid extends StatelessWidget {

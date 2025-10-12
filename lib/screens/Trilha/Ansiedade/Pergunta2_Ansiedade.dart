@@ -1,4 +1,5 @@
-// lib/screens/Trilha/Ansiedade/Pergunta1_Ansiedade.dart
+// lib/screens/Trilha/Ansiedade/Pergunta2_Ansiedade.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -50,14 +51,18 @@ class Pergunta2AnsiedadeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: const [
-                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP3),
-                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP3),
-                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP3),
-                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP3),
-                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP3),
-                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP3),
-                        ],
+                        items: () {
+                          final items = [
+                            const _EmotionItem('Não consigo desligar das preocupações diárias 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP3),
+                            const _EmotionItem('Preocupações me desanimam 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP3),
+                            const _EmotionItem('Preocupações me extressão 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP3),
+                            const _EmotionItem('Preocupações me preocupam 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP3),
+                            const _EmotionItem('Minha cabeça só pensa nas cobranças 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP3),
+                            const _EmotionItem('Não consigo superar sozinho minhas preocupações 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP3),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                       const SizedBox(height: _gapXl),
                       const Divider(color: Colors.black, thickness: 1.2), // <-- MUDOU A COR DA LINHA

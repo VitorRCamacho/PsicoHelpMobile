@@ -71,7 +71,7 @@ class Final2SolidaoScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Desafio da N�o Reclama��o',
+                          'Desafio da Não Reclamação',
                           style: GoogleFonts.baloo2(
                             fontSize: 24,
                             fontWeight: FontWeight.w900,
@@ -94,11 +94,11 @@ class Final2SolidaoScreen extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
-            // Introdu��o
-            Text('O que �?', style: titleStyle),
+            // Introdução
+            Text('O que é?', style: titleStyle),
             const SizedBox(height: 12),
             Text(
-              'A reclama��o cr�nica e o di�logo interno negativo podem "viciar" a mente. O desafio for�a o c�rebro a buscar ativamente o positivo.',
+              'A reclamação crônica e o diálogo interno negativo podem "viciar" a mente. O desafio força o cérebro a buscar ativamente o positivo.',
               style: bodyStyle,
             ),
             const SizedBox(height: 28),
@@ -133,51 +133,51 @@ class Final2SolidaoScreen extends StatelessWidget {
                   const SizedBox(height: 12),
                   _RuleItem(
                     number: '2',
-                    text: 'Se reclamar, recomece do dia 1. N�o h� puni��o, apenas recome�o.',
+                    text: 'Se reclamar, recomece do dia 1. Não há punição, apenas recomeço.',
                   ),
                   const SizedBox(height: 12),
                   _RuleItem(
                     number: '3',
-                    text: 'Identifique situa��es que normalmente te fazem reclamar.',
+                    text: 'Identifique situações que normalmente te fazem reclamar.',
                   ),
                   const SizedBox(height: 12),
                   _RuleItem(
                     number: '4',
-                    text: 'Substitua reclama��es por gratid�o ou a��es construtivas.',
+                    text: 'Substitua reclamações por gratidão ou ações construtivas.',
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 28),
 
-            // Estrat�gias pr�ticas
-            Text('Estrat�gias para ter sucesso', style: titleStyle),
+            // Estratégias práticas
+            Text('Estratégias para ter sucesso', style: titleStyle),
             const SizedBox(height: 16),
             _StrategyCard(
               icon: Icons.swap_horiz,
-              title: 'Substitua reclama��es',
-              description: 'Em vez de "Est� muito quente", diga "Vou tomar �gua gelada". Transforme queixas em a��es.',
+              title: 'Substitua reclamações',
+              description: 'Em vez de "Está muito quente", diga "Vou tomar água gelada". Transforme queixas em ações.',
               color: const Color(0xFF8E3A6E),
             ),
             const SizedBox(height: 12),
             _StrategyCard(
               icon: Icons.lightbulb,
-              title: 'Busque solu��es',
-              description: 'Se algo te incomoda, pergunte: "O que posso fazer a respeito?" Foque no que est� sob seu controle.',
+              title: 'Busque soluções',
+              description: 'Se algo te incomoda, pergunte: "O que posso fazer a respeito?" Foque no que está sob seu controle.',
               color: const Color(0xFFA04880),
             ),
             const SizedBox(height: 12),
             _StrategyCard(
               icon: Icons.favorite_border,
-              title: 'Pratique gratid�o ativa',
+              title: 'Pratique gratidão ativa',
               description: 'Ao sentir vontade de reclamar, encontre 3 coisas boas no momento presente.',
               color: const Color(0xFFB85A8E),
             ),
             const SizedBox(height: 12),
             _StrategyCard(
               icon: Icons.pause,
-              title: 'Fa�a uma pausa consciente',
-              description: 'Antes de falar, respire e pergunte: "Isso � reclama��o ou solu��o?"',
+              title: 'Faça uma pausa consciente',
+              description: 'Antes de falar, respire e pergunte: "Isso é reclamação ou solução?"',
               color: const Color(0xFFC97BA3),
             ),
             const SizedBox(height: 28),
@@ -205,13 +205,13 @@ class Final2SolidaoScreen extends StatelessWidget {
                       const Icon(Icons.auto_awesome, color: Color(0xFF8E3A6E), size: 28),
                       const SizedBox(width: 12),
                       Expanded(
-                        child: Text('Quando voc� escorregar', style: subtitleStyle),
+                        child: Text('Quando você escorregar', style: subtitleStyle),
                       ),
                     ],
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'N�o se culpe! Recome�ar faz parte do processo. Cada tentativa fortalece sua consci�ncia. Anote o que te fez reclamar e prepare-se melhor para a pr�xima vez.',
+                    'Não se culpe! Recomeçar faz parte do processo. Cada tentativa fortalece sua consciência. Anote o que te fez reclamar e prepare-se melhor para a próxima vez.',
                     style: bodyStyle,
                   ),
                 ],
@@ -219,7 +219,7 @@ class Final2SolidaoScreen extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
-            // Benef�cios
+            // Benefícios
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -239,7 +239,7 @@ class Final2SolidaoScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'A neuroplasticidade permite que o c�rebro forme novos padr�es. Quando voc� para de alimentar circuitos de negatividade, enfraquece-os. Simultaneamente, fortalece redes neurais de gratid�o e solu��o de problemas.',
+                    'A neuroplasticidade permite que o cérebro forme novos padrões. Quando você para de alimentar circuitos de negatividade, enfraquece-os. Simultaneamente, fortalece redes neurais de gratidão e solução de problemas.',
                     style: bodyStyle,
                   ),
                 ],
@@ -252,22 +252,22 @@ class Final2SolidaoScreen extends StatelessWidget {
             const SizedBox(height: 16),
             _TipCard(
               icon: Icons.groups,
-              tip: 'Convide amigos ou fam�lia. O apoio m�tuo aumenta as chances de sucesso.',
+              tip: 'Convide amigos ou família. O apoio mútuo aumenta as chances de sucesso.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.event_note,
-              tip: 'Mantenha um di�rio do desafio. Anote insights e progressos di�rios.',
+              tip: 'Mantenha um diário do desafio. Anote insights e progressos diários.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.sentiment_satisfied_alt,
-              tip: 'Celebre pequenas vit�rias. Cada hora sem reclamar � uma conquista.',
+              tip: 'Celebre pequenas vitórias. Cada hora sem reclamar é uma conquista.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.accessibility_new,
-              tip: 'Seja gentil consigo mesmo. O objetivo � progresso, n�o perfei��o.',
+              tip: 'Seja gentil consigo mesmo. O objetivo é progresso, não perfeição.',
             ),
             const SizedBox(height: 28),
 
@@ -280,7 +280,7 @@ class Final2SolidaoScreen extends StatelessWidget {
             // Aviso final
             Center(
               child: Text(
-                'Voc� tem o poder de reprogramar sua mente.\nAceite o desafio!',
+                'Você tem o poder de reprogramar sua mente.\nAceite o desafio!',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 15,
@@ -292,7 +292,7 @@ class Final2SolidaoScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Center(
               child: Text(
-                'O APP n�o substitui atendimento psicol�gico profissional.',
+                'O APP não substitui atendimento psicológico profissional.',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 13,

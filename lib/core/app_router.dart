@@ -7,6 +7,7 @@ import 'package:mente_ifc/screens/home_screen.dart';
 import 'package:mente_ifc/screens/pergunta_geral_screen.dart';
 import 'package:mente_ifc/screens/ajuda_screen.dart';
 import 'package:mente_ifc/screens/respiracao_screen.dart';
+import 'package:mente_ifc/screens/sobre_criadores_screen.dart';
 
 // Trilha de Ansiedade
 import 'package:mente_ifc/screens/Trilha/Ansiedade/Pergunta1_Ansiedade.dart';
@@ -89,7 +90,10 @@ class AppRouter {
 
       case Routes.respiracao:
         return MaterialPageRoute(builder: (_) => const RespiracaoScreen());
-      
+
+      case Routes.sobreCriadores:
+        return MaterialPageRoute(builder: (_) => const SobreCriadoresScreen());
+
       // TRILHA DE ANSIEDADE
       case Routes.ansiedadeP1:
         return MaterialPageRoute(builder: (_) => const Pergunta1AnsiedadeScreen());

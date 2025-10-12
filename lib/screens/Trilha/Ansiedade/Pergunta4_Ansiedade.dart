@@ -1,4 +1,5 @@
-// lib/screens/Trilha/Ansiedade/Pergunta1_Ansiedade.dart
+// lib/screens/Trilha/Ansiedade/Pergunta4_Ansiedade.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -50,14 +51,18 @@ class Pergunta4AnsiedadeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: const [
-                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP5),
-                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP5),
-                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP5),
-                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP5),
-                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP5),
-                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP5),
-                        ],
+                        items: () {
+                          final items = [
+                            const _EmotionItem('SIm, é difícil ficar tranquilo 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP5),
+                            const _EmotionItem('Fico mais parado do que inquieto 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP5),
+                            const _EmotionItem('Raiva intensa; não consigo ficar tranquilo 😡', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP5),
+                            const _EmotionItem('Só fico inquieto quando com medo 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP5),
+                            const _EmotionItem('Difícil ficar tranquilo com tantas tarefas 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP5),
+                            const _EmotionItem('Fico até parado demais, meio isolado 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP5),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                       const SizedBox(height: _gapXl),
                       const Divider(color: Colors.black, thickness: 1.2), // <-- MUDOU A COR DA LINHA

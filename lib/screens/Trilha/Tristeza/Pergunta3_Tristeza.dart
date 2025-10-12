@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Tristeza/Pergunta1_Tristeza.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -13,15 +14,15 @@ class Pergunta3TristezaScreen extends StatelessWidget {
   static const double _gapLg = 20;
   static const double _gapXl = 28;
 
-@override
-Widget build(BuildContext context) {
-  final titleStyle = GoogleFonts.baloo2(
-    fontSize: 36,
-    fontWeight: FontWeight.w900,
-    height: 1.05,
-    color: Colors.black, // <-- Altere para Colors.black
-    shadows: [Shadow(color: Colors.black.withOpacity(.1), blurRadius: 6)],
-  );
+  @override
+  Widget build(BuildContext context) {
+    final titleStyle = GoogleFonts.baloo2(
+      fontSize: 36,
+      fontWeight: FontWeight.w900,
+      height: 1.05,
+      color: Colors.black,
+      shadows: [Shadow(color: Colors.black.withOpacity(.1), blurRadius: 6)],
+    );
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -49,24 +50,20 @@ Widget build(BuildContext context) {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: const [
-                          _EmotionItem('Triste 🥺', [], Routes.tristezaP4),
-                          _EmotionItem('Ansioso(a) 😔', [], Routes.ansiedadeP4),
-                          _EmotionItem('Com raiva 😤', [], Routes.raivaP4),
-                          _EmotionItem('Com medo 😟', [], Routes.medoP4),
-                          _EmotionItem('Estressado(a) 😵‍💫', [], Routes.estresseP4),
-                          _EmotionItem('Sozinho(a) 💛', [], Routes.solidaoP4),
-                        ],
+                        items: () {
+                          final items = [
+                            const _EmotionItem('Nada mais me anima como antes 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP4),
+                            const _EmotionItem('Interesse não perdi, mas vivo preocupado 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP4),
+                            const _EmotionItem('Ainda gosto, só ando irritado mesmo 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP4),
+                            const _EmotionItem('Interesse tenho, só evito algumas coisas 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP4),
+                            const _EmotionItem('Ainda gosto, só estou sem tempo 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP4),
+                            const _EmotionItem('Não perdi interesse, só falta companhia 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP4),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                       const SizedBox(height: _gapXl),
-                      Center(
-                        child: TextButton.icon(
-                          onPressed: () => Navigator.pop(context),
-                          icon: const Icon(Icons.arrow_back, color: Colors.black),
-                          label: Text('Voltar', style: GoogleFonts.baloo2(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w700)),
-                        ),
-                      ),
-                      const SizedBox(height: _gapMd),
                       const Divider(color: Colors.black, thickness: 1.2),
                       const SizedBox(height: _gapMd),
                       const _HelpBlock(),

@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Tristeza/Pergunta5_Tristeza.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -14,15 +15,15 @@ class Pergunta5TristezaScreen extends StatelessWidget {
   static const double _gapLg = 20;
   static const double _gapXl = 28;
 
-@override
-Widget build(BuildContext context) {
-  final titleStyle = GoogleFonts.baloo2(
-    fontSize: 36,
-    fontWeight: FontWeight.w900,
-    height: 1.05,
-    color: Colors.black, // <-- Altere para Colors.black
-    shadows: [Shadow(color: Colors.black.withOpacity(.1), blurRadius: 6)],
-  );
+  @override
+  Widget build(BuildContext context) {
+    final titleStyle = GoogleFonts.baloo2(
+      fontSize: 36,
+      fontWeight: FontWeight.w900,
+      height: 1.05,
+      color: Colors.black,
+      shadows: [Shadow(color: Colors.black.withOpacity(.1), blurRadius: 6)],
+    );
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -50,45 +51,27 @@ Widget build(BuildContext context) {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: [
-                          _EmotionItem('Triste 🥺', [const Color(0xFF6EA8FF), const Color(0xFF4F83FF)], () async {
-                            // Obtém qual final deve ser mostrado (alterna entre 1 e 2)
-                            final nextFinal = await FinalManager.getNextFinal('tristeza');
-                            final route = nextFinal == 1 ? Routes.tristezaFinal1 : Routes.tristezaFinal2;
-
-                            // Marca que esse final foi mostrado
-                            await FinalManager.markFinalShown('tristeza', nextFinal);
-
-                            if (context.mounted) {
-                              Navigator.pushNamed(context, route);
-                            }
-                          }),
-                          _EmotionItem('Ansioso(a) 😔', [const Color(0xFF31D0C6), const Color(0xFF1FBBC1)], () {
-                            Navigator.pushNamed(context, Routes.ansiedadeP5);
-                          }),
-                          _EmotionItem('Com raiva 😤', [const Color(0xFFFF8CA1), const Color(0xFFFF6D8A)], () {
-                            Navigator.pushNamed(context, Routes.raivaP5);
-                          }),
-                          _EmotionItem('Com medo 😟', [const Color(0xFFA78BFA), const Color(0xFF8B6CFF)], () {
-                            Navigator.pushNamed(context, Routes.medoP5);
-                          }),
-                          _EmotionItem('Estressado(a) 😵‍💫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () {
-                            Navigator.pushNamed(context, Routes.estresseP5);
-                          }),
-                          _EmotionItem('Sozinho(a) 💛', [const Color(0xFFFF8FB3), const Color(0xFFFF79A8)], () {
-                            Navigator.pushNamed(context, Routes.solidaoP5);
-                          }),
-                        ],
+                        items: () {
+                          final items = [
+                            _EmotionItem('Ando chorando por nada às vezes 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], () async {
+                              final nextFinal = await FinalManager.getNextFinal('tristeza');
+                              final route = nextFinal == 1 ? Routes.tristezaFinal1 : Routes.tristezaFinal2;
+                              await FinalManager.markFinalShown('tristeza', nextFinal);
+                              if (context.mounted) {
+                                Navigator.pushNamed(context, route);
+                              }
+                            }),
+                            _EmotionItem('Não choro, mas coração acelera sem motivo 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], () => Navigator.pushNamed(context, Routes.ansiedadeP5)),
+                            _EmotionItem('Chorar não, eu acabo é explodindo 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], () => Navigator.pushNamed(context, Routes.raivaP5)),
+                            _EmotionItem('Chorar não, só tremo de medo 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], () => Navigator.pushNamed(context, Routes.medoP5)),
+                            _EmotionItem('Chorar não, só me sinto sobrecarregado 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], () => Navigator.pushNamed(context, Routes.estresseP5)),
+                            _EmotionItem('Não choro, só me sinto sozinho 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], () => Navigator.pushNamed(context, Routes.solidaoP5)),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                       const SizedBox(height: _gapXl),
-                      Center(
-                        child: TextButton.icon(
-                          onPressed: () => Navigator.pop(context),
-                          icon: const Icon(Icons.arrow_back, color: Colors.black),
-                          label: Text('Voltar', style: GoogleFonts.baloo2(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w700)),
-                        ),
-                      ),
-                      const SizedBox(height: _gapMd),
                       const Divider(color: Colors.black, thickness: 1.2),
                       const SizedBox(height: _gapMd),
                       const _HelpBlock(),
@@ -206,7 +189,7 @@ class _EmotionItem {
   final String label;
   final List<Color> colors;
   final VoidCallback onTap;
-  const _EmotionItem(this.label, this.colors, this.onTap);
+  _EmotionItem(this.label, this.colors, this.onTap);
 }
 
 class _EmotionGrid extends StatelessWidget {

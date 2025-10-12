@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Ansiedade/Pergunta5_Ansiedade.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -51,35 +52,39 @@ class Pergunta5AnsiedadeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: [
-                          _EmotionItem('Ansioso(a) 😔', [const Color(0xFF31D0C6), const Color(0xFF1FBBC1)], () async {
-                            // Obtém qual final deve ser mostrado (alterna entre 1 e 2)
-                            final nextFinal = await FinalManager.getNextFinal('ansiedade');
-                            final route = nextFinal == 1 ? Routes.ansiedadeFinal1 : Routes.ansiedadeFinal2;
+                        items: () {
+                          final items = [
+                            _EmotionItem('Mil preocupações passam pela minha cabeça 😟', [const Color(0xFF31D0C6), const Color(0xFF1FBBC1)], () async {
+                              // Obtém qual final deve ser mostrado (alterna entre 1 e 2)
+                              final nextFinal = await FinalManager.getNextFinal('ansiedade');
+                              final route = nextFinal == 1 ? Routes.ansiedadeFinal1 : Routes.ansiedadeFinal2;
 
-                            // Marca que esse final foi mostrado
-                            await FinalManager.markFinalShown('ansiedade', nextFinal);
+                              // Marca que esse final foi mostrado
+                              await FinalManager.markFinalShown('ansiedade', nextFinal);
 
-                            if (context.mounted) {
-                              Navigator.pushNamed(context, route);
-                            }
-                          }),
-                          _EmotionItem('Triste 🥺', [const Color(0xFF6EA8FF), const Color(0xFF4F83FF)], () {
-                            Navigator.pushNamed(context, Routes.tristezaP5);
-                          }),
-                          _EmotionItem('Com raiva 😤', [const Color(0xFFFF8CA1), const Color(0xFFFF6D8A)], () {
-                            Navigator.pushNamed(context, Routes.raivaP5);
-                          }),
-                          _EmotionItem('Com medo 😟', [const Color(0xFFA78BFA), const Color(0xFF8B6CFF)], () {
-                            Navigator.pushNamed(context, Routes.medoP5);
-                          }),
-                          _EmotionItem('Estressado(a) 😵‍💫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () {
-                            Navigator.pushNamed(context, Routes.estresseP5);
-                          }),
-                          _EmotionItem('Sozinho(a) 💛', [const Color(0xFFFF8FB3), const Color(0xFFFF79A8)], () {
-                            Navigator.pushNamed(context, Routes.solidaoP5);
-                          }),
-                        ],
+                              if (context.mounted) {
+                                Navigator.pushNamed(context, route);
+                              }
+                            }),
+                            _EmotionItem('Quase não me preocupo com nada 😞', [const Color(0xFF6EA8FF), const Color(0xFF4F83FF)], () {
+                              Navigator.pushNamed(context, Routes.tristezaP5);
+                            }),
+                            _EmotionItem('Preocupação não, me estresso e irrito 😠', [const Color(0xFFFF8CA1), const Color(0xFFFF6D8A)], () {
+                              Navigator.pushNamed(context, Routes.raivaP5);
+                            }),
+                            _EmotionItem('Só tenho medo de coisas específicas 😨', [const Color(0xFFA78BFA), const Color(0xFF8B6CFF)], () {
+                              Navigator.pushNamed(context, Routes.medoP5);
+                            }),
+                            _EmotionItem('Sinto minha cabeça lotada de tarefas 😫', [const Color(0xFFFFB74D), const Color(0xFFFFA726)], () {
+                              Navigator.pushNamed(context, Routes.estresseP5);
+                            }),
+                            _EmotionItem('Preocupações não, me sinto insignificante 😔', [const Color(0xFFFF8FB3), const Color(0xFFFF79A8)], () {
+                              Navigator.pushNamed(context, Routes.solidaoP5);
+                            }),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                       const SizedBox(height: _gapXl),
                       const Divider(color: Colors.black, thickness: 1.2), // <-- MUDOU A COR DA LINHA

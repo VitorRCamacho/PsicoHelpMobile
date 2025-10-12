@@ -1,4 +1,5 @@
 // lib/screens/Trilha/Medo/Pergunta3_Medo.dart
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
@@ -49,14 +50,18 @@ class Pergunta3MedoScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: _gapXl),
                       _EmotionGrid(
-                        items: const [
-                          _EmotionItem('Ansioso(a) 😔', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP4),
-                          _EmotionItem('Triste 🥺', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP4),
-                          _EmotionItem('Com raiva 😤', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP4),
-                          _EmotionItem('Com medo 😟', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP4),
-                          _EmotionItem('Estressado(a) 😵‍💫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP4),
-                          _EmotionItem('Sozinho(a) 💛', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP4),
-                        ],
+                        items: () {
+                          final items = [
+                            const _EmotionItem('Tenho pavor de falhar e decepcionar 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP4),
+                            const _EmotionItem('Não é medo; me cobro demais 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP4),
+                            const _EmotionItem('Nem penso nisso, já estou desanimado 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP4),
+                            const _EmotionItem('Não tenho medo; se falho, fico irritado 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP4),
+                            const _EmotionItem('Não é medo, é pressão por resultados 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP4),
+                            const _EmotionItem('Não é medo; me sinto insuficiente 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP4),
+                          ];
+                          items.shuffle(Random());
+                          return items;
+                        }(),
                       ),
                       const SizedBox(height: _gapXl),
                       const Divider(color: Colors.black, thickness: 1.2),
@@ -68,12 +73,7 @@ class Pergunta3MedoScreen extends StatelessWidget {
                         child: Text(
                           'O APP não substitui atendimento psicológico.',
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.baloo2(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 13,
-                            height: 1.1,
-                          ),
+                          style: GoogleFonts.baloo2(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13, height: 1.1),
                         ),
                       ),
                     ],

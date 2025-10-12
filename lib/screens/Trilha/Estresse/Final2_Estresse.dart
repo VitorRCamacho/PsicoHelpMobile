@@ -31,7 +31,7 @@ class Final2EstresseScreen extends StatelessWidget {
           elevation: 0,
           automaticallyImplyLeading: false,
         title: Text(
-          'Ritual de Desconex�o',
+          'Ritual de Desconexão',
           style: GoogleFonts.baloo2(
             fontSize: 22,
             fontWeight: FontWeight.w700,
@@ -72,7 +72,7 @@ class Final2EstresseScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Desconex�o para um sono reparador',
+                          'Desconexão para um sono reparador',
                           style: GoogleFonts.baloo2(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -87,10 +87,10 @@ class Final2EstresseScreen extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
-            Text('O que �?', style: titleStyle),
+            Text('O que é?', style: titleStyle),
             const SizedBox(height: 12),
             Text(
-              'A priva��o de sono agrava a irritabilidade e a vulnerabilidade ao estresse. O ritual regula o ritmo circadiano e prepara corpo e mente para o descanso.',
+              'A privação de sono agrava a irritabilidade e a vulnerabilidade ao estresse. O ritual regula o ritmo circadiano e prepara corpo e mente para o descanso.',
               style: bodyStyle,
             ),
             const SizedBox(height: 28),
@@ -101,7 +101,7 @@ class Final2EstresseScreen extends StatelessWidget {
             _RitualCard(
               time: '21h - 21h15',
               title: 'Desligue as telas',
-              description: 'Celular, TV, computador. A luz azul inibe a melatonina (horm�nio do sono).',
+              description: 'Celular, TV, computador. A luz azul inibe a melatonina (hormônio do sono).',
               icon: Icons.phone_android,
               color: const Color(0xFF8A6D1F),
             ),
@@ -109,7 +109,7 @@ class Final2EstresseScreen extends StatelessWidget {
             _RitualCard(
               time: '21h15 - 21h30',
               title: 'Prepare o ambiente',
-              description: 'Diminua as luzes, ajuste a temperatura, deixe o quarto confort�vel.',
+              description: 'Diminua as luzes, ajuste a temperatura, deixe o quarto confortável.',
               icon: Icons.wb_twilight,
               color: const Color(0xFF9D7E2D),
             ),
@@ -117,15 +117,15 @@ class Final2EstresseScreen extends StatelessWidget {
             _RitualCard(
               time: '21h30 - 21h45',
               title: 'Atividade calma',
-              description: 'Leitura leve, m�sica suave, alongamento, medita��o ou di�rio.',
+              description: 'Leitura leve, música suave, alongamento, meditação ou diário.',
               icon: Icons.menu_book,
               color: const Color(0xFFB8953D),
             ),
             const SizedBox(height: 12),
             _RitualCard(
               time: '21h45 - 22h',
-              title: 'Gratid�o e planejamento',
-              description: 'Anote 3 coisas boas do dia. Escreva 3 prioridades para amanh�.',
+              title: 'Gratidão e planejamento',
+              description: 'Anote 3 coisas boas do dia. Escreva 3 prioridades para amanhã.',
               icon: Icons.check_circle_outline,
               color: const Color(0xFFCDAA4B),
             ),
@@ -159,7 +159,7 @@ class Final2EstresseScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'O ritual consistente sinaliza ao c�rebro que � hora de desacelerar. Isso fortalece o ritmo circadiano, melhora a qualidade do sono e reduz o cortisol (horm�nio do estresse).',
+                    'O ritual consistente sinaliza ao cérebro que é hora de desacelerar. Isso fortalece o ritmo circadiano, melhora a qualidade do sono e reduz o cortisol (hormônio do estresse).',
                     style: bodyStyle,
                   ),
                 ],
@@ -171,28 +171,28 @@ class Final2EstresseScreen extends StatelessWidget {
             const SizedBox(height: 16),
             _TipCard(
               icon: Icons.schedule,
-              tip: 'Mantenha o mesmo hor�rio todos os dias, inclusive nos fins de semana.',
+              tip: 'Mantenha o mesmo horário todos os dias, inclusive nos fins de semana.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.coffee,
-              tip: 'Evite cafe�na ap�s as 16h e refei��es pesadas 3h antes de dormir.',
+              tip: 'Evite cafeína após as 16h e refeições pesadas 3h antes de dormir.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.ac_unit,
-              tip: 'Quarto fresco (18-21�C), escuro e silencioso favorece o sono profundo.',
+              tip: 'Quarto fresco (18-21°C), escuro e silencioso favorece o sono profundo.',
             ),
             const SizedBox(height: 12),
             _TipCard(
               icon: Icons.emoji_objects,
-              tip: 'Se n�o dormir em 20 min, levante e fa�a algo relaxante. Volte quando sentir sono.',
+              tip: 'Se não dormir em 20 min, levante e faça algo relaxante. Volte quando sentir sono.',
             ),
             const SizedBox(height: 28),
 
             Center(
               child: Text(
-                'O sono � a base da sa�de mental.\nInvista no seu descanso.',
+                'O sono é a base da saúde mental.\nInvista no seu descanso.',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 15,
@@ -204,7 +204,7 @@ class Final2EstresseScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Center(
               child: Text(
-                'O APP n�o substitui atendimento psicol�gico profissional.',
+                'O APP não substitui atendimento psicológico profissional.',
                 textAlign: TextAlign.center,
                 style: bodyStyle.copyWith(
                   fontSize: 13,
