@@ -89,7 +89,7 @@ class AjudaScreen extends StatelessWidget {
               subtitle: 'Apoio emocional e prevenção do suicídio',
               contacts: [
                 'Ligue: 188 (24 horas, todos os dias)',
-                'Chat: www.cvv.org.br',
+                'Chat: cvv.org.br',
                 'E-mail: atendimento@cvv.org.br',
               ],
               color: const Color(0xFFFF3D81),
@@ -106,7 +106,7 @@ class AjudaScreen extends StatelessWidget {
               contacts: [
                 'Endereço: R. Cruz e Souza, 100 - CENTRO, Fraiburgo - SC, 89580-000',
                 'Telefone: (49) 3202-8800',
-                'site: https://www.fraiburgo.ifc.edu.br/',
+                'site: fraiburgo.ifc.edu.br',
                 'E-mail: sisae.fraiburgo@ifc.edu.br',
               ],
               color: const Color(0xFF00B3C8),
@@ -116,18 +116,7 @@ class AjudaScreen extends StatelessWidget {
             // Psicólogo do IFC
             Text('👨‍⚕️ Atendimento Psicológico', style: titleStyle),
             const SizedBox(height: 16),
-            _ContactCard(
-              icon: Icons.psychology,
-              title: 'Psicólogo(a) do IFC',
-              subtitle: 'Atendimento especializado para estudantes',
-              contacts: [
-                'Nome: Davi Penno',
-                'Horário: XXX',
-                'Telefone/Ramal: XXX',
-                'E-mail: davi.penno@ifc.edu.br',
-              ],
-              color: const Color(0xFF7B61FF),
-            ),
+            _PsicologoCard(),
             const SizedBox(height: 28),
 
             // Aviso importante
@@ -268,6 +257,205 @@ class _ContactCard extends StatelessWidget {
                   ],
                 ),
               )),
+        ],
+      ),
+    );
+  }
+}
+
+class _PsicologoCard extends StatelessWidget {
+  const _PsicologoCard();
+
+  @override
+  Widget build(BuildContext context) {
+    const color = Color(0xFF7B61FF);
+
+    final titleStyle = GoogleFonts.baloo2(
+      fontSize: 18,
+      fontWeight: FontWeight.w900,
+      color: color,
+    );
+
+    final subtitleStyle = GoogleFonts.baloo2(
+      fontSize: 14,
+      fontWeight: FontWeight.w600,
+      color: Colors.black54,
+    );
+
+    final nameStyle = GoogleFonts.baloo2(
+      fontSize: 15,
+      fontWeight: FontWeight.w700,
+      color: Colors.black87,
+    );
+
+    final dayStyle = GoogleFonts.baloo2(
+      fontSize: 14,
+      fontWeight: FontWeight.w800,
+      color: color,
+    );
+
+    final scheduleStyle = GoogleFonts.baloo2(
+      fontSize: 13,
+      fontWeight: FontWeight.w600,
+      color: Colors.black87,
+      height: 1.4,
+    );
+
+    final infoStyle = GoogleFonts.baloo2(
+      fontSize: 13,
+      fontWeight: FontWeight.w600,
+      color: Colors.black54,
+      fontStyle: FontStyle.italic,
+    );
+
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: color.withOpacity(0.3), width: 2),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Header
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: color.withOpacity(0.15),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.psychology, color: color, size: 24),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Psicólogo do Campus', style: titleStyle),
+                    Text('IFC Fraiburgo - NAPNE', style: subtitleStyle),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          const Divider(),
+          const SizedBox(height: 12),
+
+          // Nome
+          Row(
+            children: [
+              const Icon(Icons.person, color: color, size: 18),
+              const SizedBox(width: 8),
+              Text('Davi Penno', style: nameStyle),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Padding(
+            padding: const EdgeInsets.only(left: 26),
+            child: Text(
+              'Servidor em Teletrabalho Parcial',
+              style: infoStyle,
+            ),
+          ),
+          const SizedBox(height: 12),
+
+          // E-mail
+          Row(
+            children: [
+              const Icon(Icons.email, color: color, size: 18),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text('davi.penno@ifc.edu.br', style: nameStyle),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+
+          // Horários
+          Row(
+            children: [
+              const Icon(Icons.schedule, color: color, size: 18),
+              const SizedBox(width: 8),
+              Text('Horários de Atendimento', style: dayStyle),
+            ],
+          ),
+          const SizedBox(height: 10),
+
+          // Segunda
+          _HorarioRow(
+            day: 'Segunda',
+            schedule: '12h55–14h55 (teletrabalho) e 15h–21h',
+            dayStyle: dayStyle,
+            scheduleStyle: scheduleStyle,
+          ),
+
+          // Terça
+          _HorarioRow(
+            day: 'Terça',
+            schedule: '07h30–13h30 e 13h35–15h35 (teletrabalho)',
+            dayStyle: dayStyle,
+            scheduleStyle: scheduleStyle,
+          ),
+
+          // Quarta
+          _HorarioRow(
+            day: 'Quarta',
+            schedule: '07h30–13h30 e 13h35–15h35 (teletrabalho)',
+            dayStyle: dayStyle,
+            scheduleStyle: scheduleStyle,
+          ),
+
+          // Quinta
+          _HorarioRow(
+            day: 'Quinta',
+            schedule: '10h–12h (teletrabalho) e 12h45–18h45',
+            dayStyle: dayStyle,
+            scheduleStyle: scheduleStyle,
+          ),
+
+          // Sexta
+          _HorarioRow(
+            day: 'Sexta',
+            schedule: '07h30–13h30 e 13h35–15h35',
+            dayStyle: dayStyle,
+            scheduleStyle: scheduleStyle,
+            isLast: true,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HorarioRow extends StatelessWidget {
+  final String day;
+  final String schedule;
+  final TextStyle dayStyle;
+  final TextStyle scheduleStyle;
+  final bool isLast;
+
+  const _HorarioRow({
+    required this.day,
+    required this.schedule,
+    required this.dayStyle,
+    required this.scheduleStyle,
+    this.isLast = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 26, bottom: isLast ? 0 : 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(day, style: dayStyle),
+          const SizedBox(height: 2),
+          Text(schedule, style: scheduleStyle),
         ],
       ),
     );
