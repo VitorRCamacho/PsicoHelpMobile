@@ -54,10 +54,10 @@ class Pergunta3SolidaoScreen extends StatelessWidget {
                           final items = [
                             const _EmotionItem('Me esforço, mas ainda me sinto insuficiente 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP4),
                             const _EmotionItem('Me cobro, mas sei meu valor 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP4),
-                            const _EmotionItem('Me sinto inútil mesmo tentando muito 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP4),
+                            const _EmotionItem('Sinto-me inútil ou sem esperança, mesmo tentando muito 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP4),
                             const _EmotionItem('Não, me garanto; se falho fico irritado 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP4),
                             const _EmotionItem('Tenho medo de não ser suficiente 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP4),
-                            const _EmotionItem('Acho que nunca faço o suficiente 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP4),
+                            const _EmotionItem('Acho que nunca faço o suficiente, mas é porque a cobrança é alta 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP4),
                           ];
                           items.shuffle(Random());
                           return items;

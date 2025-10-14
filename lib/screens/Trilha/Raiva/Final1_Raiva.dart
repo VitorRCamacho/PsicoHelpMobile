@@ -253,7 +253,12 @@ class Final1RaivaScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 28),
+
+            // Help banner
+            const _HelpBlock(),
             const SizedBox(height: 16),
+
             Center(
               child: Text(
                 'O APP não substitui atendimento psicológico profissional.',
@@ -443,6 +448,50 @@ class _TipCard extends StatelessWidget {
                 height: 1.4,
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HelpBlock extends StatelessWidget {
+  const _HelpBlock({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final base = GoogleFonts.baloo2(
+      color: Colors.black87,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+      height: 1.1,
+    );
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      decoration: BoxDecoration(
+        color: const Color(0xFF006D77).withOpacity(0.1),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0xFF006D77).withOpacity(0.3), width: 2),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: const Color(0xFF006D77).withOpacity(0.2),
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(Icons.support_agent, color: Color(0xFF006D77), size: 22),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text('Precisa de ajuda?', style: base.copyWith(fontSize: 18, color: const Color(0xFF006D77))),
+              const SizedBox(height: 6),
+              Text('📞 CVV: 188 (24h, todos os dias)', style: base),
+              Text('💬 Chat: www.cvv.org.br', style: base),
+              Text('✉️ E-mail: atendimento@cvv.org.br', style: base),
+            ]),
           ),
         ],
       ),

@@ -53,7 +53,7 @@ class Pergunta5EstresseScreen extends StatelessWidget {
                                             _EmotionGrid(
                         items: () {
                           final items = [
-                            _EmotionItem('Não consigo nem tirar um tempo pra mim 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], () async {
+                            _EmotionItem('Minha energia é gasta nas tarefas, não sobra tempo para mim 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], () async {
                               final nextFinal = await FinalManager.getNextFinal('estresse');
                               final route = nextFinal == 1 ? Routes.estresseFinal1 : Routes.estresseFinal2;
                               await FinalManager.markFinalShown('estresse', nextFinal);

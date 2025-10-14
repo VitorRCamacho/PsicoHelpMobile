@@ -57,7 +57,7 @@ class Pergunta2RaivaScreen extends StatelessWidget {
                             const _EmotionItem('Não, só fico chateado e desanimado 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP3),
                             const _EmotionItem('Não, fico mais é com medo 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP3),
                             const _EmotionItem('Ficar bravo não, fico mais estressado 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP3),
-                            const _EmotionItem('Não, só acabo me sentindo mal 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP3),
+                            const _EmotionItem('Não, me culpo pela falha e me sinto mal 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP3),
                           ];
                           items.shuffle(Random());
                           return items;

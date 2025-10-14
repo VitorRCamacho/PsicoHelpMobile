@@ -53,7 +53,7 @@ class Pergunta5SolidaoScreen extends StatelessWidget {
                                             _EmotionGrid(
                         items: () {
                           final items = [
-                            _EmotionItem('Sinto que ninguém entenderia ou ligaria 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], () async {
+                            _EmotionItem('Sinto que ninguém entenderia, ou que eu não valho o esforço de ligar 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], () async {
                               final nextFinal = await FinalManager.getNextFinal('solidao');
                               final route = nextFinal == 1 ? Routes.solidaoFinal1 : Routes.solidaoFinal2;
                               await FinalManager.markFinalShown('solidao', nextFinal);
@@ -62,7 +62,7 @@ class Pergunta5SolidaoScreen extends StatelessWidget {
                               }
                             }),
                             _EmotionItem('Não, sei que tem quem se importe 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], () => Navigator.pushNamed(context, Routes.ansiedadeP5)),
-                            _EmotionItem('Sim, acho que ninguém se importa 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], () => Navigator.pushNamed(context, Routes.tristezaP5)),
+                            _EmotionItem('Sim, acho que ninguém se importa, e por isso me desanimo 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], () => Navigator.pushNamed(context, Routes.tristezaP5)),
                             _EmotionItem('Não, falo mesmo; se não entenderem, paciência 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], () => Navigator.pushNamed(context, Routes.raivaP5)),
                             _EmotionItem('Tive receio; sei que alguém se importa 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], () => Navigator.pushNamed(context, Routes.medoP5)),
                             _EmotionItem('Entendem, só não sabem como ajudar 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], () => Navigator.pushNamed(context, Routes.estresseP5)),

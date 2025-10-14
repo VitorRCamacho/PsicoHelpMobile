@@ -52,11 +52,11 @@ class Pergunta4TristezaScreen extends StatelessWidget {
                       _EmotionGrid(
                         items: () {
                           final items = [
-                            const _EmotionItem('Vivo cansado, sem energia pra nada 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP5),
+                            const _EmotionItem('Vivo cansado e desanimado, sem motivação pra nada 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP5),
                             const _EmotionItem('Energia eu tenho, só fico inquieto 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP5),
                             const _EmotionItem('Não, energia tenho; problema é irritação 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP5),
                             const _EmotionItem('Exausto não; só às vezes assustado 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP5),
-                            const _EmotionItem('Estou sempre cansado e sem foco 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP5),
+                            const _EmotionItem('Sim, sinto cansaço e sem foco devido à sobrecarga 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP5),
                             const _EmotionItem('Falta energia e ânimo pra tudo 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP5),
                           ];
                           items.shuffle(Random());

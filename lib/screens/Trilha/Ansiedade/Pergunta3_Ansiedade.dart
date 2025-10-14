@@ -58,7 +58,7 @@ class Pergunta3AnsiedadeScreen extends StatelessWidget {
                             const _EmotionItem('Me irrito fácil, não consigo relaxar 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP4),
                             const _EmotionItem('Preocupo-me com possíveis problemas; não relaxo 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP4),
                             const _EmotionItem('Difícil relaxar com tanta pressão 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP4),
-                            const _EmotionItem('me sinto incapaz, por isso não relaxo 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP4),
+                            const _EmotionItem('Me sinto incapaz ou insuficiente, por isso não relaxo 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP4),
                           ];
                           items.shuffle(Random());
                           return items;

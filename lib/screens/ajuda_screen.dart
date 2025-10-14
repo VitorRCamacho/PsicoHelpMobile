@@ -335,7 +335,7 @@ class _PsicologoCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Psicólogo do Campus', style: titleStyle),
-                    Text('IFC Fraiburgo - NAPNE', style: subtitleStyle),
+                    Text('IFC Fraiburgo', style: subtitleStyle),
                   ],
                 ),
               ),
@@ -353,11 +353,21 @@ class _PsicologoCard extends StatelessWidget {
               Text('Davi Penno', style: nameStyle),
             ],
           ),
+          const SizedBox(height: 16),
+
+          // Telefone/WhatsApp
+          Row(
+            children: [
+              const Icon(Icons.phone, color: color, size: 18),
+              const SizedBox(width: 8),
+              Text('3202-8812', style: nameStyle),
+            ],
+          ),
           const SizedBox(height: 4),
           Padding(
             padding: const EdgeInsets.only(left: 26),
             child: Text(
-              'Servidor em Teletrabalho Parcial',
+              'Ramal e WhatsApp',
               style: infoStyle,
             ),
           ),
@@ -383,44 +393,70 @@ class _PsicologoCard extends StatelessWidget {
               Text('Horários de Atendimento', style: dayStyle),
             ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 6),
+
+          // Aviso sobre alteração de horários
+          Padding(
+            padding: const EdgeInsets.only(left: 26, bottom: 10),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              decoration: BoxDecoration(
+                color: Colors.orange.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: Colors.orange.withOpacity(0.3)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.info_outline, color: Colors.orange, size: 14),
+                  const SizedBox(width: 6),
+                  Expanded(
+                    child: Text(
+                      'Os horários podem alterar conforme necessidade da escola ou demanda pessoal',
+                      style: infoStyle.copyWith(fontSize: 11, color: Colors.orange.shade800),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
 
           // Segunda
           _HorarioRow(
-            day: 'Segunda',
-            schedule: '12h55–14h55 (teletrabalho) e 15h–21h',
+            day: 'Segunda-feira',
+            schedule: 'Presencial: 12:30–17:30 e 18:00–21:00',
             dayStyle: dayStyle,
             scheduleStyle: scheduleStyle,
           ),
 
           // Terça
           _HorarioRow(
-            day: 'Terça',
-            schedule: '07h30–13h30 e 13h35–15h35 (teletrabalho)',
+            day: 'Terça-feira',
+            schedule: 'Presencial: 07:45–11:45 • Teletrabalho: 12:15–16:15',
             dayStyle: dayStyle,
             scheduleStyle: scheduleStyle,
           ),
 
           // Quarta
           _HorarioRow(
-            day: 'Quarta',
-            schedule: '07h30–13h30 e 13h35–15h35 (teletrabalho)',
+            day: 'Quarta-feira',
+            schedule: 'Presencial: 07:45–11:45 • Teletrabalho: 12:15–16:15',
             dayStyle: dayStyle,
             scheduleStyle: scheduleStyle,
           ),
 
           // Quinta
           _HorarioRow(
-            day: 'Quinta',
-            schedule: '10h–12h (teletrabalho) e 12h45–18h45',
+            day: 'Quinta-feira',
+            schedule: 'Presencial: 07:45–11:45 • Teletrabalho: 12:15–16:15',
             dayStyle: dayStyle,
             scheduleStyle: scheduleStyle,
           ),
 
           // Sexta
           _HorarioRow(
-            day: 'Sexta',
-            schedule: '07h30–13h30 e 13h35–15h35',
+            day: 'Sexta-feira',
+            schedule: 'Presencial: 07:45–11:45 • Teletrabalho: 14:30–18:30',
             dayStyle: dayStyle,
             scheduleStyle: scheduleStyle,
             isLast: true,

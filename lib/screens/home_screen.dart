@@ -314,7 +314,7 @@ class _HelpBlock extends StatelessWidget {
                 Text('Precisa de ajuda?', style: base.copyWith(fontSize: 18)),
                 const SizedBox(height: 6),
                 Text('📞 CVV: $cvv', style: base),
-                Text('💬 Chat: www.cvv.org.br', style: base),
+                Text('💬 Chat: cvv.org.br', style: base),
                 Text('✉️ E-mail: atendimento@cvv.org.br', style: base),
               ],
             ),

@@ -53,7 +53,7 @@ class Pergunta1EstresseScreen extends StatelessWidget {
                         items: () {
                           final items = [
                             const _EmotionItem('Sim, é muita pressão e responsabilidades 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP2),
-                            const _EmotionItem('Não sobrecarregado, mas ando constantemente nervoso 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP2),
+                            const _EmotionItem('Não sobrecarregado, mas nervoso sem motivo aparente 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP2),
                             const _EmotionItem('Não, só me sinto desanimado e sem energia 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP2),
                             const _EmotionItem('Não, só irritado com algumas coisas 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP2),
                             const _EmotionItem('Não, só preocupado com certos medos 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP2),

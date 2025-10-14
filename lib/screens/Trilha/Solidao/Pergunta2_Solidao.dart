@@ -54,7 +54,7 @@ class Pergunta2SolidaoScreen extends StatelessWidget {
                           final items = [
                             const _EmotionItem('Não tenho ninguém pra desabafar 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP3),
                             const _EmotionItem('Não, tenho apoio; fico meio inseguro 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP3),
-                            const _EmotionItem('Não, tenho; não quero preocupar ninguém 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP3),
+                            const _EmotionItem('Tenho, mas sinto que não vale a pena ou não quero preocupar ninguém 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP3),
                             const _EmotionItem('Não, tenho apoio; me isolo irritado 😠', [Color(0xFFFF8CA1), Color(0xFFFF6D8A)], Routes.raivaP3),
                             const _EmotionItem('Não, tenho alguém; receio incomodar 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP3),
                             const _EmotionItem('Não, tenho alguém; evito incomodar os outros 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP3),

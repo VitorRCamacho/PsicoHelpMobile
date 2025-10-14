@@ -56,7 +56,7 @@ class Pergunta4RaivaScreen extends StatelessWidget {
                             const _EmotionItem('Quase nunca fico com tanta raiva 😟', [Color(0xFF31D0C6), Color(0xFF1FBBC1)], Routes.ansiedadeP5),
                             const _EmotionItem('Nunca tive vontade de quebrar nada 😞', [Color(0xFF6EA8FF), Color(0xFF4F83FF)], Routes.tristezaP5),
                             const _EmotionItem('Raiva não, só medo às vezes 😨', [Color(0xFFA78BFA), Color(0xFF8B6CFF)], Routes.medoP5),
-                            const _EmotionItem('Às vezes dá vontade de gritar 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP5),
+                            const _EmotionItem('Às vezes dá vontade de gritar para liberar a pressão 😫', [Color(0xFFFFB74D), Color(0xFFFFA726)], Routes.estresseP5),
                             const _EmotionItem('Nunca fico com raiva nesse nível 😔', [Color(0xFFFF8FB3), Color(0xFFFF79A8)], Routes.solidaoP5),
                           ];
                           items.shuffle(Random());
