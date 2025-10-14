@@ -19,7 +19,7 @@ class Pergunta4EstresseScreen extends StatelessWidget {
     final titleStyle = GoogleFonts.baloo2(
       fontSize: 36,
       fontWeight: FontWeight.w900,
-      height: 1.05,
+      height: 1.2,
       color: Colors.black,
       shadows: [Shadow(color: Colors.black.withOpacity(.1), blurRadius: 6)],
     );
@@ -62,6 +62,19 @@ class Pergunta4EstresseScreen extends StatelessWidget {
                           items.shuffle(Random());
                           return items;
                         }(),
+                      ),
+                      const SizedBox(height: _gapXl),
+                      const Divider(color: Colors.black, thickness: 1.2),
+                      const SizedBox(height: _gapMd),
+                      const _HelpBlock(),
+                      const SizedBox(height: _gapSm),
+                      Opacity(
+                        opacity: .9,
+                        child: Text(
+                          'O APP não substitui atendimento psicológico.',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.baloo2(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13, height: 1.1),
+                        ),
                       ),
                     ],
                   ),
@@ -144,7 +157,7 @@ class _EmotionGrid extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 12,
       crossAxisSpacing: 12,
-      childAspectRatio: 1.9,
+      childAspectRatio: 1.5,
       children: items.map((e) {
         return _EmotionButton(
           label: e.label,
@@ -168,9 +181,9 @@ class _EmotionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = GoogleFonts.baloo2(
       color: Colors.white,
-      fontSize: 20,
+      fontSize: 15,
       fontWeight: FontWeight.w900,
-      height: 1.05,
+      height: 1.2,
       letterSpacing: .3,
       shadows: [Shadow(color: Colors.black.withOpacity(.25), blurRadius: 8)],
     );

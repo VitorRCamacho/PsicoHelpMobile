@@ -16,7 +16,8 @@
       "Bash(for file in \"E:\\Projetos\\TCC\\PsicoHelpMobile\\lib\\screens\\Trilha\\Tristeza\\Pergunta\"{2,3,4,5}\"_Tristeza.dart\")",
       "Bash(do echo \"Fixing: $file\")",
       "Bash(del fix_syntax.py)",
-      "Bash(for:*)"
+      "Bash(for:*)",
+      "Bash(del:*)"
     ],
     "deny": [],
     "ask": []

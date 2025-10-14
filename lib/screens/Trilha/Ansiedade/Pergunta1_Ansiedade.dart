@@ -20,7 +20,7 @@ class Pergunta1AnsiedadeScreen extends StatelessWidget {
     final titleStyle = GoogleFonts.baloo2(
       fontSize: 36,
       fontWeight: FontWeight.w900,
-      height: 1.05,
+      height: 1.2,
       color: Colors.black, // <-- MUDOU DE 0xFF0E7C86 PARA PRETO
       shadows: [Shadow(color: Colors.black.withOpacity(.1), blurRadius: 6)],
     );
@@ -167,7 +167,7 @@ class _EmotionGrid extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 12,
       crossAxisSpacing: 12,
-      childAspectRatio: 1.9,
+      childAspectRatio: 1.5,
       children: items.map((e) {
         return _EmotionButton(
           label: e.label,
@@ -191,9 +191,9 @@ class _EmotionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = GoogleFonts.baloo2(
       color: Colors.white,
-      fontSize: 20,
+      fontSize: 15,
       fontWeight: FontWeight.w900,
-      height: 1.05,
+      height: 1.2,
       letterSpacing: .3,
       shadows: [Shadow(color: Colors.black.withOpacity(.25), blurRadius: 8)],
     );

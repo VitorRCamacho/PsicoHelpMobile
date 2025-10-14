@@ -19,7 +19,7 @@ class Pergunta2TristezaScreen extends StatelessWidget {
     final titleStyle = GoogleFonts.baloo2(
       fontSize: 36,
       fontWeight: FontWeight.w900,
-      height: 1.05,
+      height: 1.2,
       color: Colors.black,
       shadows: [Shadow(color: Colors.black.withOpacity(.1), blurRadius: 6)],
     );
@@ -106,7 +106,7 @@ class _EmotionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = GoogleFonts.baloo2(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w900, height: 1.05, letterSpacing: .3);
+    final style = GoogleFonts.baloo2(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900, height: 1.2, letterSpacing: .3);
     return Container(
       decoration: BoxDecoration(
         color: const Color(0xFF2F3A8F), // Nova Cor do Botão
@@ -195,7 +195,7 @@ class _EmotionGrid extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 12,
       crossAxisSpacing: 12,
-      childAspectRatio: 1.9,
+      childAspectRatio: 1.5,
       children: items.map((e) {
         return _EmotionButton(
           label: e.label,
