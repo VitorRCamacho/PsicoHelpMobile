@@ -56,7 +56,25 @@ class SobreCriadoresScreen extends StatelessWidget {
                 children: [
                   _InfoRow(label: 'Nome', value: 'Rafael Leonardo Vivian'),
                   _InfoRow(label: 'Titulação', value: 'Doutor'),
+                  _InfoRow(label: 'Área', value: 'Informática na Educação'),
+                  _InfoRow(label: 'Função', value: 'Professor EBTT'),
                   _InfoRow(label: 'Email', value: 'rafael.vivian@ifc.edu.br'),
+                ],
+              ),
+
+              const SizedBox(height: 24),
+
+              // Card do Coorientador
+              _InfoCard(
+                title: 'Coorientador',
+                icon: Icons.psychology,
+                iconColor: const Color(0xFF7B61FF),
+                children: [
+                  _InfoRow(label: 'Nome', value: 'Davi Penno'),
+                  _InfoRow(label: 'Área', value: 'Psicologia'),
+                  _InfoRow(label: 'Função', value: 'Psicólogo do IFC - Campus Fraiburgo'),
+                  _InfoRow(label: 'Email', value: 'davi.penno@ifc.edu.br'),
+                  _InfoRow(label: 'Contato', value: '3202-8812 (Ramal e WhatsApp)'),
                 ],
               ),
 

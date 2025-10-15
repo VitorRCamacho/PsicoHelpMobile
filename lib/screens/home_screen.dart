@@ -146,7 +146,7 @@ class HomeScreen extends StatelessWidget {
                   Opacity(
                     opacity: .9,
                     child: Text(
-                      'Seus dados não saem deste dispositivo.',
+                      'Todos os dados são processados e mantidos localmente neste dispositivo.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.baloo2(
                         color: Colors.white70,
@@ -168,7 +168,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () => Navigator.pushNamed(context, Routes.sobreCriadores),
                     icon: const Icon(Icons.info_outline, size: 14, color: Colors.white70),
                     label: Text(
-                      'Sobre os Criadores',
+                      'Sobre o projeto',
                       style: GoogleFonts.baloo2(
                         color: Colors.white70,
                         fontWeight: FontWeight.w700,
