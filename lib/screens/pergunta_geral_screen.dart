@@ -19,8 +19,8 @@ class PerguntaGeralScreen extends StatelessWidget {
       fontSize: 36,
       fontWeight: FontWeight.w900,
       height: 1.05,
-      color: Colors.white,
-      shadows: [Shadow(color: Colors.black.withOpacity(.2), blurRadius: 8)],
+      color: const Color(0xFF2C3E50),
+      shadows: [Shadow(color: Colors.white.withOpacity(.4), blurRadius: 8)],
     );
 
     return Scaffold(
@@ -28,7 +28,7 @@ class PerguntaGeralScreen extends StatelessWidget {
       body: Stack(
         children: [
           const _BackgroundGradient(),
-          Container(color: Colors.white.withOpacity(0.04)),
+          Container(color: Colors.transparent),
 
           SafeArea(
             child: Center(
@@ -56,9 +56,9 @@ class PerguntaGeralScreen extends StatelessWidget {
                         style: GoogleFonts.baloo2(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
-                          color: Colors.white.withOpacity(0.95),
+                          color: const Color(0xFF34495E),
                           height: 1.3,
-                          shadows: [Shadow(color: Colors.black.withOpacity(.15), blurRadius: 6)],
+                          shadows: [Shadow(color: Colors.white.withOpacity(.3), blurRadius: 6)],
                         ),
                       ),
 
@@ -69,39 +69,45 @@ class PerguntaGeralScreen extends StatelessWidget {
                         items: const [
                           _EmotionItem(
                             'Ansioso(a) 😔',
-                            [Color(0xFF31D0C6), Color(0xFF1FBBC1)],
+                            [Color(0xFF7AB8C5), Color(0xFF6AA8B8)],
                             Routes.ansiedadeP1,   // Vai para primeira pergunta de ansiedade
                           ),
                           _EmotionItem(
                             'Triste 🥺',
-                            [Color(0xFF6EA8FF), Color(0xFF4F83FF)],
+                            [Color(0xFF88B3D9), Color(0xFF769FC8)],
                             Routes.tristezaP1,    // Vai para primeira pergunta de tristeza
                           ),
                           _EmotionItem(
                             'Com raiva 😤',
-                            [Color(0xFFFF8CA1), Color(0xFFFF6D8A)],
+                            [Color(0xFFD8A8B8), Color(0xFFC598A8)],
                             Routes.raivaP1,       // Vai para primeira pergunta de raiva
                           ),
                           _EmotionItem(
                             'Com medo 😟',
-                            [Color(0xFFA78BFA), Color(0xFF8B6CFF)],
+                            [Color(0xFFB8A8D8), Color(0xFFA898C8)],
                             Routes.medoP1,        // Vai para primeira pergunta de medo
                           ),
                           _EmotionItem(
                             'Estressado(a) 😵‍💫',
-                            [Color(0xFFFFB74D), Color(0xFFFFA726)],
+                            [Color(0xFFD8C8A8), Color(0xFFC8B898)],
                             Routes.estresseP1,    // Vai para primeira pergunta de estresse
                           ),
                           _EmotionItem(
                             'Sozinho(a) 💛',
-                            [Color(0xFFFF8FB3), Color(0xFFFF79A8)],
+                            [Color(0xFFD8B8C8), Color(0xFFC8A8B8)],
                             Routes.solidaoP1,     // Vai para primeira pergunta de solidão
                           ),
                         ],
                       ),
 
                       const SizedBox(height: _gapXl),
-                      const Divider(color: Colors.white, thickness: 1.2),
+                      Opacity(
+                        opacity: .4,
+                        child: Container(
+                          height: 1.2,
+                          color: const Color(0xFF2C3E50),
+                        ),
+                      ),
                       const SizedBox(height: _gapMd),
 
                       const _HelpBlock(
@@ -116,11 +122,11 @@ class PerguntaGeralScreen extends StatelessWidget {
                           'O APP não substitui atendimento psicológico.',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.baloo2(
-                            color: Colors.white,
+                            color: const Color(0xFF2C3E50),
                             fontWeight: FontWeight.w700,
                             fontSize: 13,
                             height: 1.1,
-                            shadows: [Shadow(color: Colors.black.withOpacity(.2), blurRadius: 6)],
+                            shadows: [Shadow(color: Colors.white.withOpacity(.5), blurRadius: 6)],
                           ),
                         ),
                       ),
@@ -145,19 +151,19 @@ class _SectionLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = GoogleFonts.baloo2(
-      color: Colors.white,
+      color: const Color(0xFF2C3E50),
       fontWeight: FontWeight.w700,
       fontSize: 16,
       letterSpacing: .3,
-      shadows: [Shadow(color: Colors.black.withOpacity(.2), blurRadius: 6)],
+      shadows: [Shadow(color: Colors.white.withOpacity(.3), blurRadius: 6)],
     );
     return Row(
       children: [
-        const Expanded(child: Divider(color: Colors.white, thickness: 1.2)),
+        Expanded(child: Container(height: 1.2, color: const Color(0xFF2C3E50).withOpacity(.4))),
         const SizedBox(width: 10),
         Text(text, style: style),
         const SizedBox(width: 10),
-        const Expanded(child: Divider(color: Colors.white, thickness: 1.2)),
+        Expanded(child: Container(height: 1.2, color: const Color(0xFF2C3E50).withOpacity(.4))),
       ],
     );
   }
@@ -243,7 +249,7 @@ class _EmotionButtonState extends State<_EmotionButton> with SingleTickerProvide
       fontWeight: FontWeight.w900,
       height: 1.1,
       letterSpacing: .3,
-      shadows: [Shadow(color: Colors.black.withOpacity(.25), blurRadius: 8)],
+      shadows: [Shadow(color: Colors.black.withOpacity(.3), blurRadius: 10)],
     );
 
     return ScaleTransition(
@@ -304,16 +310,16 @@ class _HelpBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final base = GoogleFonts.baloo2(
-      color: Colors.white,
+      color: const Color(0xFF2C3E50),
       fontSize: 16,
       fontWeight: FontWeight.w700,
       height: 1.1,
-      shadows: [Shadow(color: Colors.black.withOpacity(.2), blurRadius: 6)],
+      shadows: [Shadow(color: Colors.white.withOpacity(.3), blurRadius: 6)],
     );
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(.12),
+        color: Colors.white.withOpacity(.25),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
@@ -321,10 +327,10 @@ class _HelpBlock extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(.18),
+              color: const Color(0xFF7AB8C5).withOpacity(.3),
               shape: BoxShape.circle,
             ),
-            child: const Icon(Icons.support_agent, color: Colors.white, size: 22),
+            child: const Icon(Icons.support_agent, color: Color(0xFF2C3E50), size: 22),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -357,13 +363,11 @@ class _BackgroundGradient extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFFFF7A00),
-              Color(0xFFFFC300),
-              Color(0xFF00D2FF),
-              Color(0xFF7B61FF),
-              Color(0xFFFF3D81),
+              Color(0xFF8EC5FC), // azul claro suave
+              Color(0xFFB8D9F5), // azul pastel
+              Color(0xFFD4E8F0), // azul muito claro
             ],
-            stops: [0.0, 0.28, 0.55, 0.77, 1.0],
+            stops: [0.0, 0.5, 1.0],
           ),
         ),
       ),

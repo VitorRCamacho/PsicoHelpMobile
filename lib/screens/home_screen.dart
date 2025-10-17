@@ -13,10 +13,10 @@ class HomeScreen extends StatelessWidget {
       fontWeight: FontWeight.w900,
       height: 1.0,
       letterSpacing: 0.5,
-      color: Colors.white,
+      color: const Color(0xFF2C3E50),
       shadows: [
         Shadow(
-          color: Colors.black.withOpacity(.2),
+          color: Colors.white.withOpacity(.4),
           blurRadius: 8,
           offset: const Offset(0, 2),
         ),
@@ -26,10 +26,10 @@ class HomeScreen extends StatelessWidget {
     final subtitleStyle = GoogleFonts.baloo2(
       fontSize: 20,
       fontWeight: FontWeight.w700,
-      color: Colors.white.withOpacity(.95),
+      color: const Color(0xFF34495E),
       shadows: [
         Shadow(
-          color: Colors.black.withOpacity(.15),
+          color: Colors.white.withOpacity(.3),
           blurRadius: 6,
           offset: const Offset(0, 2),
         ),
@@ -39,26 +39,24 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Fundo em degradê
+          // Fundo em degradê suave - tons terapêuticos
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color(0xFFFF7A00), // laranja
-                  Color(0xFFFFC300), // amarelo
-                  Color(0xFF00D2FF), // ciano
-                  Color(0xFF7B61FF), // roxo-azulado
-                  Color(0xFFFF3D81), // magenta
+                  Color(0xFF8EC5FC), // azul claro suave
+                  Color(0xFFB8D9F5), // azul pastel
+                  Color(0xFFD4E8F0), // azul muito claro
                 ],
-                stops: [0.0, 0.28, 0.55, 0.77, 1.0],
+                stops: [0.0, 0.5, 1.0],
               ),
             ),
           ),
 
-          // Véu pra legibilidade
-          Container(color: Colors.white12),
+          // Véu pra legibilidade (removido para maior claridade)
+          Container(color: Colors.transparent),
 
           SafeArea(
             child: Padding(
@@ -80,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                     label: 'Começar Guia\nEmocional',
                     icon: Icons.play_arrow_rounded,
                     background: const LinearGradient(
-                      colors: [Color(0xFF29D3E8), Color(0xFF00B3C8)],
+                      colors: [Color(0xFF6BA8D8), Color(0xFF5A95C8)],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
@@ -93,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                     label: 'respiração 2 min',
                     compact: true,
                     background: const LinearGradient(
-                      colors: [Color(0xFF7C4DFF), Color(0xFF9B5BFF)],
+                      colors: [Color(0xFF9BAFD9), Color(0xFF8A9FCB)],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
@@ -104,11 +102,11 @@ class HomeScreen extends StatelessWidget {
 
                   // Linha divisória
                   Opacity(
-                    opacity: .6,
+                    opacity: .4,
                     child: Container(
                       height: 1.2,
                       width: double.infinity,
-                      color: Colors.white,
+                      color: const Color(0xFF2C3E50),
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -129,13 +127,13 @@ class HomeScreen extends StatelessWidget {
                       'O APP não substitui atendimento psicológico.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.baloo2(
-                        color: Colors.white,
+                        color: const Color(0xFF2C3E50),
                         fontWeight: FontWeight.w700,
                         fontSize: 13,
                         height: 1.1,
                         shadows: [
                           Shadow(
-                            color: Colors.black54,
+                            color: Colors.white.withOpacity(.5),
                             blurRadius: 6,
                           ),
                         ],
@@ -149,13 +147,13 @@ class HomeScreen extends StatelessWidget {
                       'Todos os dados são processados e mantidos localmente neste dispositivo.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.baloo2(
-                        color: Colors.white70,
+                        color: const Color(0xFF34495E),
                         fontWeight: FontWeight.w700,
                         fontSize: 12,
                         height: 1.1,
                         shadows: [
                           Shadow(
-                            color: Colors.black54,
+                            color: Colors.white.withOpacity(.4),
                             blurRadius: 6,
                           ),
                         ],
@@ -166,16 +164,16 @@ class HomeScreen extends StatelessWidget {
                   // Botão Sobre os Criadores
                   TextButton.icon(
                     onPressed: () => Navigator.pushNamed(context, Routes.sobreCriadores),
-                    icon: const Icon(Icons.info_outline, size: 14, color: Colors.white70),
+                    icon: const Icon(Icons.info_outline, size: 14, color: Color(0xFF5A6C7D)),
                     label: Text(
                       'Sobre o projeto',
                       style: GoogleFonts.baloo2(
-                        color: Colors.white70,
+                        color: const Color(0xFF5A6C7D),
                         fontWeight: FontWeight.w700,
                         fontSize: 12,
                         shadows: [
                           Shadow(
-                            color: Colors.black54,
+                            color: Colors.white.withOpacity(.3),
                             blurRadius: 6,
                           ),
                         ],
@@ -284,16 +282,16 @@ class _HelpBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final base = GoogleFonts.baloo2(
-      color: Colors.white,
+      color: const Color(0xFF2C3E50),
       fontSize: 16,
       fontWeight: FontWeight.w700,
       height: 1.1,
-      shadows: [Shadow(color: Colors.black26, blurRadius: 6)],
+      shadows: [Shadow(color: Colors.white.withOpacity(.3), blurRadius: 6)],
     );
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(.12),
+        color: Colors.white.withOpacity(.25),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
@@ -301,10 +299,10 @@ class _HelpBlock extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(.18),
+              color: const Color(0xFF6BA8D8).withOpacity(.3),
               shape: BoxShape.circle,
             ),
-            child: const Icon(Icons.support_agent, color: Colors.white, size: 22),
+            child: const Icon(Icons.support_agent, color: Color(0xFF2C3E50), size: 22),
           ),
           const SizedBox(width: 12),
           Expanded(
