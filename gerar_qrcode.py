@@ -2,7 +2,8 @@ import qrcode
 from PIL import Image, ImageDraw, ImageFont
 
 # Link do Google Drive - Download direto
-link = "https://drive.google.com/file/d/1Tvtv8PsZ6ukX6Xy397yb7_xkamwKig7n/view?usp=sharing"
+# Formato: https://drive.google.com/uc?export=download&id=FILE_ID
+link = "https://drive.google.com/uc?export=download&id=1Tvtv8PsZ6ukX6Xy397yb7_xkamwKig7n"
 
 # Criar QR Code
 qr = qrcode.QRCode(
