@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
+import 'package:mente_ifc/services/trail_loop_detector.dart';
 
 class Final2RaivaScreen extends StatelessWidget {
   const Final2RaivaScreen({super.key});
@@ -235,6 +236,7 @@ class Final2RaivaScreen extends StatelessWidget {
               child: ElevatedButton.icon(
                 onPressed: () {
                   // Volta para a tela principal, removendo todas as rotas anteriores
+                  TrailLoopDetector().clearHistory();
                   Navigator.pushNamedAndRemoveUntil(context, Routes.home, (route) => false);
                 },
                 icon: const Icon(Icons.home, color: Colors.white),

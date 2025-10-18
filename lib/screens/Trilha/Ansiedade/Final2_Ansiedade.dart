@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
+import 'package:mente_ifc/services/trail_loop_detector.dart';
 
 class Final2AnsiedadeScreen extends StatelessWidget {
   const Final2AnsiedadeScreen({super.key});
@@ -214,6 +215,8 @@ class Final2AnsiedadeScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton.icon(
                 onPressed: () {
+                  // Limpa o histórico de loops antes de voltar
+                  TrailLoopDetector().clearHistory();
                   // Volta para a tela principal, removendo todas as rotas anteriores
                   Navigator.pushNamedAndRemoveUntil(context, Routes.home, (route) => false);
                 },

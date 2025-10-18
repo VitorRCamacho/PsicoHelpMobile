@@ -4,9 +4,36 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
 import 'package:mente_ifc/services/final_manager.dart';
+import 'package:mente_ifc/services/trail_loop_detector.dart';
 
-class Pergunta5MedoScreen extends StatelessWidget {
+class Pergunta5MedoScreen extends StatefulWidget {
   const Pergunta5MedoScreen({super.key});
+
+  @override
+  State<Pergunta5MedoScreen> createState() => _Pergunta5MedoScreenState();
+}
+
+class _Pergunta5MedoScreenState extends State<Pergunta5MedoScreen> {
+  final _loopDetector = TrailLoopDetector();
+  bool _isChecking = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkForLoop();
+  }
+
+  Future<void> _checkForLoop() async {
+    final redirectRoute = await _loopDetector.checkForLoop('MedoP5', context);
+    if (redirectRoute != null && mounted) {
+      Navigator.pushReplacementNamed(context, redirectRoute);
+    } else {
+      _loopDetector.registerVisit('MedoP5');
+      if (mounted) {
+        setState(() => _isChecking = false);
+      }
+    }
+  }
 
   static const double _maxWidth = 520;
   static const double _hPad = 20;
@@ -17,6 +44,15 @@ class Pergunta5MedoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (_isChecking) {
+      return const Scaffold(
+        backgroundColor: Color(0xFFF3EEFF),
+        body: Center(
+          child: CircularProgressIndicator(color: Colors.black),
+        ),
+      );
+    }
+
     final titleStyle = GoogleFonts.baloo2(
       fontSize: 36,
       fontWeight: FontWeight.w900,

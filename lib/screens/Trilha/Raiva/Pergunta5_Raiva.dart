@@ -4,9 +4,40 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mente_ifc/core/routes.dart';
 import 'package:mente_ifc/services/final_manager.dart';
+import 'package:mente_ifc/services/trail_loop_detector.dart';
 
-class Pergunta5RaivaScreen extends StatelessWidget {
+class Pergunta5RaivaScreen extends StatefulWidget {
   const Pergunta5RaivaScreen({super.key});
+
+  @override
+  State<Pergunta5RaivaScreen> createState() => _Pergunta5RaivaScreenState();
+}
+
+class _Pergunta5RaivaScreenState extends State<Pergunta5RaivaScreen> {
+  final _loopDetector = TrailLoopDetector();
+  bool _isChecking = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkForLoop();
+  }
+
+  Future<void> _checkForLoop() async {
+    // Verifica se há loop antes de exibir a tela
+    final redirectRoute = await _loopDetector.checkForLoop('RaivaP5', context);
+
+    if (redirectRoute != null && mounted) {
+      // Se detectou loop, redireciona para o final
+      Navigator.pushReplacementNamed(context, redirectRoute);
+    } else {
+      // Registra a visita e exibe a tela normalmente
+      _loopDetector.registerVisit('RaivaP5');
+      if (mounted) {
+        setState(() => _isChecking = false);
+      }
+    }
+  }
 
   static const double _maxWidth = 520;
   static const double _hPad = 20;
@@ -17,6 +48,16 @@ class Pergunta5RaivaScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Exibe um loading enquanto verifica loops
+    if (_isChecking) {
+      return const Scaffold(
+        backgroundColor: Color(0xFFFFE7DD),
+        body: Center(
+          child: CircularProgressIndicator(color: Colors.black),
+        ),
+      );
+    }
+
     final titleStyle = GoogleFonts.baloo2(
       fontSize: 36,
       fontWeight: FontWeight.w900,
